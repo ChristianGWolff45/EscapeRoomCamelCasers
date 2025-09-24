@@ -1,0 +1,7 @@
+{
+    "id": "puzzle1",
+    "clues": ["clue1"],
+    "hints": ["hint1"],
+    "answer": "answer1",
+    "completed": false
+}

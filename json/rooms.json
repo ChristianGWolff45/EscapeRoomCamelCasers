@@ -1,0 +1,7 @@
+{
+    "id": "startingRoom",
+    "roomName": "Lobby",
+    "puzzles": ["puzzle1"],
+    "nextRooms": ["room2"],
+    "unlocked": true
+}
