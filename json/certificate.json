@@ -1,6 +1,14 @@
-{
-    "id": "certificate1",
-    "timeTaken": 0,
-    "hintsUsed": 0,
-    "skipsUsed": 0
-}
+[
+    {
+        "id": "certificate1",
+        "timeTaken": 0,
+        "hintsUsed": 0,
+        "skipsUsed": 0
+    },
+    {
+        "id": "certificate2",
+        "timeTaken": 0,
+        "hintsUsed": 0,
+        "skipsUsed": 0
+    }
+]
