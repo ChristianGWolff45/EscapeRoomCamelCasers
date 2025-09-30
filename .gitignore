@@ -1,0 +1,56 @@
+# Compiled class files
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Log Files
+*.log
+log/
+
+# IDE-specific files and directories
+# Eclipse
+.classpath
+.project
+.settings/
+*.launch
+.metadata/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# NetBeans
+nbproject/private/
+build/
+dist/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+out/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# JavaFX Scene Builder generated files
+*.fxml.bak
