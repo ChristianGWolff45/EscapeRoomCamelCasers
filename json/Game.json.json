@@ -1,4 +1,5 @@
 {
+    "User": "user",
     "startingRoom": "room1",
     "mainMenu": "defaultMenu",
     "timeLeft": "00:30:00",
