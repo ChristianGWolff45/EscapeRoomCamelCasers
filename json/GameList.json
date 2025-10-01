@@ -1,0 +1,41 @@
+{
+    "GameList": "gameList",
+    "games": [
+        {
+            "rooms" : [
+                {
+                    "id": "room1",
+                    "roomName": "Room 1",
+                    "puzzles": {
+                        "id": "puzzle1",
+                        "clues": [
+                            {
+                                "id": "clue1", "description": "clueDescription1"
+                            }
+                        ],
+                        "hints": [
+                            {
+                                "id": "hint1", "tip": "tip1"
+                            }
+                        ],
+                        "answer": "answer1",
+                        "completed": false
+                    },
+                    "nextRooms": ["room2", "room3"],
+                    "unlocked": false,
+                    "orientation": "orientation"
+                }
+            ],
+
+            "user": "user",
+            "startingRoom": "room1",
+            "mainMenu": "defaultMenu",
+            "timeLeft": "00:30:00",
+            "certificate": {
+                "timeTaken": 0,
+                "hintsUsed": 0,
+                "skipsUsed": 0
+            }
+        }
+    ]
+}
