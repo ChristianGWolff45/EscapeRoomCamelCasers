@@ -1,10 +1,15 @@
 {
-    "inventory": {
-        "clues": [],
-        "hints": []
-    },
-    "username": "username",
-    "firstName": "firstName",
-    "lastName": "lastName",
-    "password": "password"
+  "UserList": "userList",
+  "Users": [
+    {
+      "username": "username",
+      "firstName": "firstName",
+      "lastName": "lastName",
+      "password": "password"
+    }
+  ],
+  "Inventory": {
+    "clues": [],
+    "hints": []
+  }
 }

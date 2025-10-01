@@ -1,11 +1,59 @@
 {
+  "Game": {
     "User": "user",
     "startingRoom": "room1",
     "mainMenu": "defaultMenu",
     "timeLeft": "00:30:00",
     "certificate": {
-        "timeTaken": 0,
-        "hintsUsed": 0,
-        "skipsUsed": 0
-    }
+      "timeTaken": 0,
+      "hintsUsed": 0,
+      "skipsUsed": 0
+    },
+    "EscapeRoom": {
+      "User": "user"
+    },
+    "Rooms": {
+      "room1": {
+        "id": "room1",
+        "roomName": "Room 1",
+        "puzzles": {
+          "id": "puzzle1",
+          "clues": {
+            "id": "clue1",
+            "description": "clueDescription1"
+          },
+          "hints": {
+            "id": "hint1",
+            "tip": "hintTip1"
+          },
+          "answer": "answer1",
+          "completed": false
+        },
+        "nextRooms": ["room2", "room3"],
+        "unlocked": false,
+        "Orientation": "orientation"
+      }
+    },
+    "Puzzles": [
+      {
+        "id": "puzzle1",
+        "Clues": ["clue1"],
+        "Hints": ["hint1"],
+        "answer": "answer1",
+        "completed": false
+      }
+    ],
+    "Clues": [
+      {
+        "id": "clue1",
+        "description": "clueDescription1"
+      }
+    ],
+    "Hints": [
+      {
+        "id": "hint1",
+        "tip": "hintTip1"
+      }
+    ]
+  }
 }
