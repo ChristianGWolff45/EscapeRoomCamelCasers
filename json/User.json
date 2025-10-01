@@ -1,5 +1,8 @@
 {
-    "inventory": "inventoryId",
+    "inventory": {
+        "clues": [],
+        "hints": []
+    },
     "username": "username",
     "firstName": "firstName",
     "lastName": "lastName",
