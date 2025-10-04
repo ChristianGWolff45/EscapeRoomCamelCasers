@@ -1,7 +1,5 @@
 package com.model;
-/**
- * @author Christian Wolff
- */
+
 import java.time.Duration;
 
 
@@ -36,5 +34,14 @@ public class Certificate {
      */
     public void useSkip(){
         skipsUsed++;
+    }
+    public String timeTakenMMSS(){
+        long totalSeconds = timeTaken.getSeconds();
+        long minutes = totalSeconds / 60;
+        long seconds = totalSeconds % 60;
+        return String.format("%02d:%02d", minutes, seconds);
+    }
+    public String toString(){
+        return "Skips Used: " + skipsUsed + "\nHints Used: " + hintsUsed + "\nTime Taken: " + timeTakenMMSS();
     }
 }

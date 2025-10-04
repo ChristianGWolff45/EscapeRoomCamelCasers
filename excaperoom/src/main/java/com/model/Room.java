@@ -1,5 +1,5 @@
 package com.model;
 
-public class Rooom {
+public class Room {
     
 }
