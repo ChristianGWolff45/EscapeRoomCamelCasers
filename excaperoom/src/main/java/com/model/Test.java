@@ -7,7 +7,7 @@ public class Test {
     }
     public static void testGame(){
         try {
-            User Christian = new User();
+            User Christian = new User("christian4", "Christian", "Wolff", "abc123");
             Room swearingen  = new Room();
             Game escapeRoom = new Game(Christian, swearingen);
             escapeRoom.Run();
