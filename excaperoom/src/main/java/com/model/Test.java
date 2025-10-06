@@ -5,6 +5,7 @@ public class Test {
         System.out.println("hi");
         testGame();
     }
+    
     public static void testGame(){
         try {
             User Christian = new User("christian4", "Christian", "Wolff", "abc123");
