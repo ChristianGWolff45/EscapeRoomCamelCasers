@@ -4,31 +4,53 @@
         {
             "rooms" : [
                 {
-                    "id": "room1",
-                    "roomName": "Room 1",
+                    "id": "startRoom",
+                    "roomName": "Lobby",
                     "puzzles": {
-                        "id": "puzzle1",
+                        "id": "lobbyCombinationLock1",
                         "clues": [
                             {
-                                "id": "clue1", "description": "clueDescription1"
+                                "id": "lobbyCombinationLock1_Clue", "description": "The code must have been written down somwhere..."
                             }
                         ],
                         "hints": [
                             {
-                                "id": "hint1", "tip": "tip1"
+                                "id": "lobbyCombinationLock1_Hint", "tip": "It could be on a piece of paper, maybe they left it near the printer..."
                             }
                         ],
-                        "answer": "answer1",
+                        "answer": "1475",
                         "completed": false
                     },
-                    "nextRooms": ["room2", "room3"],
+                    "nextRooms": ["hallwayEast", "hallwayWest"],
                     "unlocked": false,
-                    "orientation": "orientation"
+                    "orientation": "BACK"
+                },
+                {
+                    "id": "hallwayEast",
+                    "roomName": "East Hallway",
+                    "puzzles": {
+                        "id": "cipher1",
+                        "clues": [
+                            {
+                                "id": "cipher1_Clue", "description": "there must be a key hidden somewhere to solve this..."
+                            }
+                        ],
+                        "hints": [
+                            {
+                                "id": "cipher1_Hint", "description": "The sticky note near that computer looks like it could be helpful..."
+                            }
+                        ],
+                        "answer": "7A2P9NC",
+                        "completed": "false"
+                    },
+                    "nextRooms": ["startRoom", "OfficeRoom1", "BackWing"],
+                    "unlocked": false,
+                    "orientation": "LEFT"
                 }
             ],
 
-            "user": "user",
-            "startingRoom": "room1",
+            "user": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
+            "startingRoom": "startRoom",
             "mainMenu": "defaultMenu",
             "timeLeft": "00:30:00",
             "certificate": {
