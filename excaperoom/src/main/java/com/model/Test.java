@@ -3,9 +3,9 @@ package com.model;
 public class Test {
     public static void main(String[] args) {
         System.out.println("hi");
-        testGame();
+        testGame1();
     }
-    public static void testGame(){
+    public static void testGame1(){
         try {
             User Christian = new User();
             Room swearingen  = new Room();
