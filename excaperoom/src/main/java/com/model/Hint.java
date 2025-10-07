@@ -14,7 +14,7 @@ public class Hint {
     }
 
     public void displayHint() {
-        
+        System.out.println(id + ": " + tip);
     }
     
 }
