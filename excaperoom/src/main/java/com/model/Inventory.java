@@ -10,7 +10,7 @@ public class Inventory {
         this.clues = clues;
         this.hints = hints;
     }
-    
+
     public ArrayList<Clue> getClues(){
         return clues;
     }
