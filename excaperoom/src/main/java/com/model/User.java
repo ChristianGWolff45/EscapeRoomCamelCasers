@@ -9,6 +9,7 @@ public class User {
     private String password;
     private UUID id;
 
+    //for creating a user
     public User(String username, String firstName, String lastName, String password) {
         this.id = UUID.randomUUID();
         this.username = username;
@@ -17,6 +18,7 @@ public class User {
         this.password = password;
     }
 
+    //for loading pre-existing user
     public User(UUID id, String username, String firstName, String lastName, String password) {
         this.id = id;
         this.username = username;
@@ -26,6 +28,26 @@ public class User {
     }
 
     public boolean isMatch(String userName, String password) {
-        return true;
+        return this.username.equals(userName) && this.password.equals(password);
+    }
+
+    public String getUsername(){
+        return username;
+    }
+
+     public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public UUID getId(){
+        return id;
     }
 }

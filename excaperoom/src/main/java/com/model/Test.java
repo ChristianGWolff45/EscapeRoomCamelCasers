@@ -1,11 +1,7 @@
 package com.model;
 
 public class Test {
-    public static void main(String[] args) {
-        System.out.println("hi");
-        testGame1();
-    }
-    public static void testGame1(){
+    public static void testGame(){
         try {
             User Christian = new User("christian4", "Christian", "Wolff", "abc123");
             Room swearingen  = new Room();
