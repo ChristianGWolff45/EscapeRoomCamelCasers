@@ -6,8 +6,12 @@ public class UserList {
     private ArrayList<User> users;
     private UserList userList;
 
-    public UserList() {
+    private UserList() {
+        users = DataLoader.getUsers();
+    }
 
+    public ArrayList<User> getUsers() {
+        return users;
     }
 
     public void AddUser() {
