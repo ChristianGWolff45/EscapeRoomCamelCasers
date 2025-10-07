@@ -50,6 +50,6 @@ public class Room {
     }
 
     public boolean isExit() {
-        return isExit();
+        return isExit;
     }
 }
