@@ -8,14 +8,16 @@ public class User {
     private String lastName;
     private String password;
     private UUID id;
+    private Orientation orientation;
 
     //for creating a user
-    public User(String username, String firstName, String lastName, String password) {
+    public User(String username, String firstName, String lastName, String password, Orientation orientation) {
         this.id = UUID.randomUUID();
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.orientation = orientation;
     }
 
     //for loading pre-existing user
@@ -49,5 +51,9 @@ public class User {
 
     public UUID getId(){
         return id;
+    }
+
+    public Orientation getOrientation(){
+        return orientation;
     }
 }
