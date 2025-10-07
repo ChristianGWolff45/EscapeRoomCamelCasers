@@ -1,5 +1,8 @@
 package com.model;
 
-public class Orientation {
-    
+public enum Orientation {
+    LEFT,
+    RIGHT,
+    FORWARD,
+    BACKWARD
 }
