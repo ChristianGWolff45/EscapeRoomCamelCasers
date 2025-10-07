@@ -1,8 +1,41 @@
 package com.model;
 
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.UUID;
 
-public class DataLoader {
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+public class DataLoader extends DataConstants {
+
+    public static ArrayList<User> getUserList(){
+        ArrayList<User> userList = new ArrayList<>();
+
+        try {
+            FileReader reader = new FileReader(USER_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(reader);
+            JSONArray peopleJSON = (JSONArray) jsonObject.get("users");
+
+            for (int i=0; i < peopleJSON.size(); i++){
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
+                UUID id = UUID.fromString((String)personJSON.get(USER_ID));
+                String username = (String)personJSON.get(USER_USER_NAME);
+                String firstName = (String)personJSON.get(USER_FIRST_NAME);
+                String lastName = (String)personJSON.get(USER_LAST_NAME);
+                String password = (String)personJSON.get(USER_PASSWORD);
+
+                userList.add(new User(id, username, firstName, lastName, password));
+            }
+            return userList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+    
     public boolean getPuzzleState() {
         return true;
     }
@@ -21,22 +54,6 @@ public class DataLoader {
 
     public boolean getState() {
         return true;
-    }
-
-    public String getUsername() {
-        return null;
-    }
-
-    public String getFirstName() {
-        return null;
-    }
-
-    public String getLastName() {
-        return null;
-    }
-
-    public String getPassword() {
-        return null;
     }
 
     public Inventory getUserInventory() {

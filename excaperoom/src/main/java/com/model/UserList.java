@@ -2,31 +2,58 @@ package com.model;
 
 import java.util.ArrayList;
 
+/**
+ * Users = UserList
+ * users = userList
+ * <User> = <User>
+ * userList = users
+ */
 public class UserList {
     private ArrayList<User> users;
-    private UserList userList;
+    private static UserList userList;
 
-    public UserList() {
-
+    private UserList() {
+        users = DataLoader.getUserList();
     }
 
-    public void AddUser() {
+    public boolean addUser(String username, String firstName, String lastName, String password) {
+        if (haveUser(username))
+            return false;
 
+        users.add(new User(username, firstName, lastName, password));
+        return true;
     }
 
-    private void userList() {
-
+    public static UserList getInstance() {
+        if (userList == null) {
+            userList = new UserList();
+        }
+        return userList;
     }
 
-    public UserList getInstance() {
-        return this;
+    public boolean haveUser(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public User getUser(String username, String password) {
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public ArrayList<User> getAllUsers() {
         return users;
     }
 
-    public void getUser(String username, String password) {
-        
+    public void saveUsers() {
+        DataWriter.saveUser();
     }
 }
