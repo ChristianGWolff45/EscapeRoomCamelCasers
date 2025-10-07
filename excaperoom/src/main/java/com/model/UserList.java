@@ -13,7 +13,7 @@ public class UserList {
     private static UserList userList;
 
     private UserList() {
-        users = DataLoader.getUsers();
+        users = DataLoader.getUserList();
     }
 
     public ArrayList<User> getUsers() {
