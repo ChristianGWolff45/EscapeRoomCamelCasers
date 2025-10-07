@@ -35,36 +35,4 @@ public class DataLoader extends DataConstants {
         }
         return userList;
     }
-    
-    public boolean getPuzzleState() {
-        return true;
-    }
-
-    public ArrayList<String> getPuzzleHints() {
-        return null;
-    }
-
-    public String getPuzzleAnswer() {
-        return null;
-    }
-
-    public ArrayList<Clue> getPuzzleClues() {
-        return null;
-    }
-
-    public boolean getState() {
-        return true;
-    }
-
-    public Inventory getUserInventory() {
-        return null;
-    }
-
-    public boolean getRoomState() {
-        return true;
-    }
-
-    public boolean getIsExit() {
-        return true;
-    }
 }
