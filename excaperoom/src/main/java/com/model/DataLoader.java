@@ -1,16 +1,12 @@
 package com.model;
 
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 
 public class DataLoader extends DataConstants {
 
@@ -40,33 +36,4 @@ public class DataLoader extends DataConstants {
         return userList;
     }
     
-    public boolean getPuzzleState(String puzzleId) { //is puzzle already solved
-        try {
-            FileReader
-        }
-    }
-
-    public ArrayList<String> getPuzzleHints() { 
-        return null;
-    }
-
-    public String getPuzzleAnswer() {
-        return null;
-    }
-
-    public ArrayList<Clue> getPuzzleClues() {
-        return null;
-    }
-
-    public Inventory getUserInventory() {
-        return null;
-    }
-
-    public boolean getRoomState() { //is room unlocked
-        return true;
-    }
-
-    public boolean getIsExit() { //is the final exit, game ends when reaching this point
-        return true;
-    }
 }
