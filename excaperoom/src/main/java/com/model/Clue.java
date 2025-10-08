@@ -10,7 +10,7 @@ public class Clue {
     }
 
     public void displayClue() {
-
+        System.out.println(id + ": " + description);
     }
     
 }
