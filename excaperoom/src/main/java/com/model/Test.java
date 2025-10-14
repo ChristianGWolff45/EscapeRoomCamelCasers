@@ -3,8 +3,8 @@ package com.model;
 public class Test {
     public static void testGame(){
         try {
-            User Christian = new User("christian4", "Christian", "Wolff", "abc123");
-            Room swearingen  = new Room();
+            User Christian = new User("christian4", "Christian", "Wolff", "abc123", Orientation.LEFT);
+            Game = new
             Game escapeRoom = new Game(Christian, swearingen);
             escapeRoom.Run();
             Thread.sleep(2000);
