@@ -56,4 +56,9 @@ public class User {
     public Orientation getOrientation(){
         return orientation;
     }
+    
+    @Override
+    public String toString() {
+        return String.format("%s (%s %s)", username, firstName, lastName);
+    }
 }
