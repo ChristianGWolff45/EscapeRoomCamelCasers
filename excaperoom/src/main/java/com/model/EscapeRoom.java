@@ -9,7 +9,11 @@ public class EscapeRoom {
     }
 
     public boolean signUp(String username, String firstName, String lastName, String password) {
-        return userList.addUser(username, firstName, lastName, password);
+        boolean added = userList.addUser(username, firstName, lastName, password);
+        if (added) {
+            userList.saveUsers();
+        }
+        return added;
     }
 
     public boolean login(String username, String password) {
