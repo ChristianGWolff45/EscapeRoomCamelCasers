@@ -11,13 +11,12 @@ public class User {
     private Orientation orientation;
 
     //for creating a user
-    public User(String username, String firstName, String lastName, String password, Orientation orientation) {
+    public User(String username, String firstName, String lastName, String password) {
         this.id = UUID.randomUUID();
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.orientation = orientation;
     }
 
     //for loading pre-existing user
