@@ -2,27 +2,29 @@
     "GameList": "gameList",
     "games": [
         {
-            "rooms": [
+            "rooms": [ 
                 {
                     "id": "startRoom",
                     "roomName": "Lobby",
-                    "puzzles": {
-                        "id": "lobbyCombinationLock1",
-                        "clues": [
-                            {
-                                "id": "lobbyCombinationLock1_Clue",
-                                "description": "The code must have been written down somwhere..."
-                            }
-                        ],
-                        "hints": [
-                            {
-                                "id": "lobbyCombinationLock1_Hint",
-                                "tip": "It could be on a piece of paper, maybe they left it near the printer..."
-                            }
-                        ],
-                        "answer": "1475",
-                        "completed": false
-                    },
+                    "puzzles": [
+                        {
+                            "id": "lobbyCombinationLock1",
+                            "clues": [
+                                {
+                                    "id": "lobbyCombinationLock1_Clue",
+                                    "description": "The code must have been written down somwhere..."
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "lobbyCombinationLock1_Hint",
+                                    "tip": "It could be on a piece of paper, maybe they left it near the printer..."
+                                }
+                            ],
+                            "answer": "1475",
+                            "completed": false
+                        }
+                    ],
                     "nextRooms": [
                         "hallwayEast",
                         "hallwayWest"
@@ -33,23 +35,25 @@
                 {
                     "id": "hallwayEast",
                     "roomName": "East Hallway",
-                    "puzzles": {
-                        "id": "cipher1",
-                        "clues": [
-                            {
-                                "id": "cipher1_Clue",
-                                "description": "there must be a key hidden somewhere to solve this..."
-                            }
-                        ],
-                        "hints": [
-                            {
-                                "id": "cipher1_Hint",
-                                "description": "The sticky note near that computer looks like it could be helpful..."
-                            }
-                        ],
-                        "answer": "7A2P9NC",
-                        "completed": "false"
-                    },
+                    "puzzles": [
+                        {
+                            "id": "cipher1",
+                            "clues": [
+                                {
+                                    "id": "cipher1_Clue",
+                                    "description": "there must be a key hidden somewhere to solve this..."
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "cipher1_Hint",
+                                    "description": "The sticky note near that computer looks like it could be helpful..."
+                                }
+                            ],
+                            "answer": "7A2P9NC",
+                            "completed": "false"
+                        }
+                    ],
                     "nextRooms": [
                         "startRoom",
                         "OfficeRoom1",

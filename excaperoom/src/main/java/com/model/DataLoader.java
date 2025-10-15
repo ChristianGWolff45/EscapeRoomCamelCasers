@@ -35,5 +35,25 @@ public class DataLoader extends DataConstants {
         }
         return userList;
     }
+
+    public static ArrayList<Room> getRoomList() {
+        ArrayList<Room> roomList = new ArrayList<>();
+
+            try {
+                FileReader reader = new FileReader(GAME_FILE_NAME);
+                JSONParser parser = new JSONParser();
+                JSONObject jsonObject = (JSONObject) parser.parse(reader);
+                JSONArray roomsJSON = (JSONArray) jsonObject.get("rooms");
+
+                for (int i = 0; i < roomsJSON.size(); i++) {
+                    JSONObject roomJSON = (JSONObject)roomsJSON.get(i);
+                    String id  = (String)roomJSON.get(ROOM_ID);
+                    
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        return roomList;
+    }
     
 }
