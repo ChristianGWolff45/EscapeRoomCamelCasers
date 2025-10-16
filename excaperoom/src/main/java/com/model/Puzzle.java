@@ -8,10 +8,16 @@ public class Puzzle {
     private String answer;
     private boolean completed;
 
+    /**
+     * 
+     * @param clues list of type clue associated with puzzle
+     * @param hints list of type hints associated with puzzle
+     * @param answer string answer stored as upercase
+     */
     public Puzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer) {
         this.clues = clues;
         this.hints = hints;
-        this.answer = answer;
+        this.answer = answer.toUpperCase();
         this.completed = false;
     }
 
@@ -20,6 +26,7 @@ public class Puzzle {
      * @param answer
      */
     public void enterAnswer(String answer) {
+        answer = answer.toUpperCase();
         if (this.answer.equals(answer)) {
             this.completed = true;
         }

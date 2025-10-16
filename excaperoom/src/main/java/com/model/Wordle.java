@@ -12,6 +12,7 @@ public class Wordle extends Puzzle{
 
     public Wordle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer) {
         super(clues, hints, answer);
+        answer = answer.toUpperCase();
         for(int i = 0; i < answer.length(); i++){
             char letter = answer.charAt(i);
             letterIndex.putIfAbsent(letter, new HashSet<>());
@@ -28,6 +29,7 @@ public class Wordle extends Puzzle{
      * green = right letter right place
      */
     public String[][] guessAnswer(String guess){
+        guess = guess.toUpperCase();
         String[][] output = new String[guess.length()][2];
         HashMap<Character, Set<Integer>> copyLetterIndex = deepCopyMap(letterIndex);
         for(int i = 0; i < guess.length(); i++){
@@ -49,9 +51,11 @@ public class Wordle extends Puzzle{
                     output[i][1] ="red";
                 }else{
                     Iterator<Integer> it = copyLetterIndex.get(letter).iterator();
+                    it.next();
                     output[i][0] = String.valueOf(letter);
                     output[i][1] = "yellow";
                     it.remove();
+                    if(copyLetterIndex.get(letter).isEmpty()) copyLetterIndex.remove(letter);
                 }
             }
         }

@@ -20,11 +20,11 @@ public class UserList {
         return users;
     }
 
-    public boolean addUser(String username, String firstName, String lastName, String password, Orientation orientation) {
+    public boolean addUser(String username, String firstName, String lastName, String password) {
         if (haveUser(username))
             return false;
 
-        users.add(new User(username, firstName, lastName, password, orientation));
+        users.add(new User(username, firstName, lastName, password));
         return true;
     }
 
