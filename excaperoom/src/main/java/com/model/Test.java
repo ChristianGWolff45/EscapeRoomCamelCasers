@@ -3,7 +3,7 @@ package com.model;
 public class Test {
     public static void testGame(){
         try {
-            User Christian = new User("christian4", "Christian", "Wolff", "abc123", Orientation.LEFT);
+            User Christian = new User("christian4", "Christian", "Wolff", "abc123");
             Game = new
             Game escapeRoom = new Game(Christian, swearingen);
             escapeRoom.Run();
