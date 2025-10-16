@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class Puzzle {
+public abstract class Puzzle {
     private ArrayList<Clue> clues;
     private ArrayList<Hint> hints;
     private String answer;
