@@ -36,6 +36,7 @@ public abstract class DataConstants {
 
     //Puzzle Data
     protected static final String PUZZLE_ID = "id";
+    protected static final String PUZZLE_TYPE = "type";
     protected static final String PUZZLE_CLUES = "clues";
     protected static final String PUZZLE_HINTS = "hints";
     protected static final String PUZZLE_ANSWER = "answer";
@@ -48,5 +49,4 @@ public abstract class DataConstants {
     //Hint Data
     protected static final String HINT_ID = "id";
     protected static final String HINT_TIP = "tip";
-    protected static final String HINT_DESCRIPTION = "description";
 }

@@ -8,20 +8,21 @@
                     "roomName": "Lobby",
                     "puzzles": [
                         {
-                            "id": "lobbyCombinationLock1",
+                            "id": "wordlePuzzle",
+                            "type": "wordle",
                             "clues": [
                                 {
-                                    "id": "lobbyCombinationLock1_Clue",
-                                    "description": "The code must have been written down somwhere..."
+                                    "id": "wordlePuzzle_Clue",
+                                    "description": "Try to guess the five letter word..."
                                 }
                             ],
                             "hints": [
                                 {
-                                    "id": "lobbyCombinationLock1_Hint",
-                                    "tip": "It could be on a piece of paper, maybe they left it near the printer..."
+                                    "id": "wordlePuzzle_Hint",
+                                    "tip": "The word starts with a C and ends with an E"
                                 }
                             ],
-                            "answer": "1475",
+                            "answer": "CRANE",
                             "completed": false
                         }
                     ],
@@ -38,6 +39,7 @@
                     "puzzles": [
                         {
                             "id": "cipher1",
+                            "type": "cipher",
                             "clues": [
                                 {
                                     "id": "cipher1_Clue",
@@ -47,11 +49,11 @@
                             "hints": [
                                 {
                                     "id": "cipher1_Hint",
-                                    "description": "The sticky note near that computer looks like it could be helpful..."
+                                    "tip": "The sticky note near that computer looks like it could be helpful..."
                                 }
                             ],
                             "answer": "7A2P9NC",
-                            "completed": "false"
+                            "completed": false
                         }
                     ],
                     "nextRooms": [

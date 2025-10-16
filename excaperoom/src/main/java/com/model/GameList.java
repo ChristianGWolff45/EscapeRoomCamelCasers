@@ -4,25 +4,34 @@ import java.util.ArrayList;
 
 public class GameList {
     private ArrayList<Game> games;
-    private GameList gameList;
+    private static GameList instance;
 
-    public GameList() {
-
+    private GameList() {
+        games = DataLoader.getGameList();
     }
 
-    private void games() {
-
-    }
-
-    public GameList getInstance() {
-        return this;
+    public static GameList getInstance() {
+        if (instance == null) {
+            instance = new GameList();
+        }
+        return instance;
     }
 
     public ArrayList<Game> getAllGames() {
         return games;
     }
 
-    public void newGame() {
-        
+    public Game newGame(User user, Room startingRoom) {
+        Game game = new Game(user, startingRoom);
+        games.add(game);
+        return game;
+    }
+
+    public void addGame(Game game) {
+        if (game != null) games.add(game);
+    }
+
+    public void removeGame(Game game) {
+        games.remove(game);
     }
 }
