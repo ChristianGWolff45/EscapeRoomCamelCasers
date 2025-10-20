@@ -59,10 +59,8 @@ public class Game {
         startTime = Instant.now();
     }
     public void loadGame(){
-
     }
     public void endGame(){
-
         certificate.setTimeTaken(getTimeElapsed());
     }
 
