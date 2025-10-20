@@ -6,23 +6,43 @@
                 {
                     "id": "startRoom",
                     "roomName": "Lobby",
-                    "puzzles": {
-                        "id": "lobbyCombinationLock1",
+                    "puzzles": [{
+                        "id": "wordle1",
                         "clues": [
                             {
-                                "id": "lobbyCombinationLock1_Clue",
-                                "description": "The code must have been written down somwhere..."
+                                "id": "wordle1_Clue",
+                                "description": "Chart outlining most commonly used letters..."
                             }
                         ],
                         "hints": [
                             {
-                                "id": "lobbyCombinationLock1_Hint",
-                                "tip": "It could be on a piece of paper, maybe they left it near the printer..."
+                                "id": "wordle1",
+                                "tip": "try guessing letters that are most commonly used."
                             }
                         ],
-                        "answer": "1475",
+                        "answer": "LIGHT",
                         "completed": false
                     },
+                    {
+                        "id": "directionalLock1",
+                        "clues":[{
+                            "id": "directionalLock1_wordSearch",
+                            "description": "wordSearch where the direction of the words reveals the key to the lock"
+                        }
+                        ],
+                        "hints": [
+                        {
+                            "id": "directionalLock1_hint1",
+                            "tip": "try solving the word search"
+                        },
+                        {
+                            "id": "directionalLock1_hint2",
+                            "tip": "input the direction of the words"
+                        }
+                        ],
+                        "answer": "UPUPDOWNRIGHT",
+                        "completed": false
+                    }],
                     "nextRooms": [
                         "hallwayEast",
                         "hallwayWest"
