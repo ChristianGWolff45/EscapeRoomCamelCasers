@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class UserList {
     private ArrayList<User> users;
     private static UserList userList;
+    private User currentUser;
 
     private UserList() {
         users = DataLoader.getUserList();
@@ -23,8 +24,10 @@ public class UserList {
     public boolean addUser(String username, String firstName, String lastName, String password) {
         if (haveUser(username))
             return false;
-
-        users.add(new User(username, firstName, lastName, password));
+        boolean added = users.add(new User(username, firstName, lastName, password));
+        if (!added)
+            return false;
+        saveUsers();
         return true;
     }
 
@@ -44,13 +47,22 @@ public class UserList {
         return false;
     }
 
-    public User getUser(String username, String password) {
+    public boolean logInUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return user;
+                this.currentUser = user;
+                return true;
             }
         }
-        return null;
+        return false;
+    }
+
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 
     public ArrayList<User> getAllUsers() {

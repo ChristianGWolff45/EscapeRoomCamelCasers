@@ -2,34 +2,41 @@ package com.model;
 
 public class EscapeRoom {
     private UserList userList;
-    private User currentUser;
+    private GameList gameList;
+    private Game currentGame;
 
     public EscapeRoom() {
         userList = UserList.getInstance();
+        gameList = GameList.getInstance();
+        userList.setCurrentUser(null);
     }
 
     public boolean signUp(String username, String firstName, String lastName, String password) {
         boolean added = userList.addUser(username, firstName, lastName, password);
-        if (added) {
-            userList.saveUsers();
-        }
         return added;
     }
 
     public boolean login(String username, String password) {
-       User user = userList.getUser(username,password);
-       if (user == null){
-        return false;
-       }
-       currentUser = user;
-       return true;
-    }
-
-    public User getCurrentUser(){
-        return currentUser;
+       boolean loggedIn = userList.logInUser(username, password);
+       return loggedIn;
     }
 
     public void logout() {
         userList.saveUsers();
+    }
+
+    public void startGame(Room room) {
+        currentGame = gameList.newGame(userList.getCurrentUser(), room);
+    }
+
+    public void endCurrentGame() {
+        if (currentGame != null) {
+            currentGame.endGame();
+            currentGame = null;
+        }
+    }
+
+    public void loadGame() {
+
     }
 }
