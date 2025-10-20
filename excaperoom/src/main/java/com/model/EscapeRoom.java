@@ -3,12 +3,12 @@ package com.model;
 public class EscapeRoom {
     private UserList userList;
     private GameList gameList;
-    private Game currentGame;
 
     public EscapeRoom() {
         userList = UserList.getInstance();
         gameList = GameList.getInstance();
         userList.setCurrentUser(null);
+        gameList.setCurrentGame(null);
     }
 
     public boolean signUp(String username, String firstName, String lastName, String password) {
@@ -26,14 +26,11 @@ public class EscapeRoom {
     }
 
     public void startGame(Room room) {
-        currentGame = gameList.newGame(userList.getCurrentUser(), room);
+        gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
     }
 
     public void endCurrentGame() {
-        if (currentGame != null) {
-            currentGame.endGame();
-            currentGame = null;
-        }
+        gameList.endCurrentGame();
     }
 
     public void loadGame() {

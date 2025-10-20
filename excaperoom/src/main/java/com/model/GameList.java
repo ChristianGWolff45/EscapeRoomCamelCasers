@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class GameList {
     private ArrayList<Game> games;
     private static GameList instance;
+    private Game currentGame;
 
     private GameList() {
         games = new ArrayList<>();
@@ -25,6 +26,21 @@ public class GameList {
         Game game = new Game(user, startingRoom);
         games.add(game);
         return game;
+    }
+
+    public void setCurrentGame(Game currentGame) {
+        this.currentGame = currentGame;
+    }
+
+    public Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public void endCurrentGame() {
+        if (currentGame != null ){
+            currentGame.endGame();
+            currentGame = null;
+        }
     }
 
     public void addGame(Game game) {
