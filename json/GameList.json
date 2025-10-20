@@ -30,7 +30,7 @@
                         "hallwayEast",
                         "hallwayWest"
                     ],
-                    "unlocked": false,
+                    "unlocked": true,
                     "orientation": "BACK"
                 },
                 {
