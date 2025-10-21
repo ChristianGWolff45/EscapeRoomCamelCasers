@@ -2,74 +2,60 @@
     "GameList": "gameList",
     "games": [
         {
-            "rooms": [
+            "rooms": [ 
                 {
                     "id": "startRoom",
                     "roomName": "Lobby",
-                    "puzzles": [{
-                        "id": "wordle1",
-                        "clues": [
-                            {
-                                "id": "wordle1_Clue",
-                                "description": "Chart outlining most commonly used letters..."
-                            }
-                        ],
-                        "hints": [
-                            {
-                                "id": "wordle1",
-                                "tip": "try guessing letters that are most commonly used."
-                            }
-                        ],
-                        "answer": "LIGHT",
-                        "completed": false
-                    },
-                    {
-                        "id": "directionalLock1",
-                        "clues":[{
-                            "id": "directionalLock1_wordSearch",
-                            "description": "wordSearch where the direction of the words reveals the key to the lock"
-                        }
-                        ],
-                        "hints": [
+                    "puzzles": [
                         {
-                            "id": "directionalLock1_hint1",
-                            "tip": "try solving the word search"
-                        },
-                        {
-                            "id": "directionalLock1_hint2",
-                            "tip": "input the direction of the words"
+                            "id": "wordlePuzzle",
+                            "type": "wordle",
+                            "clues": [
+                                {
+                                    "id": "wordlePuzzle_Clue",
+                                    "description": "Try to guess the five letter word..."
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "wordlePuzzle_Hint",
+                                    "tip": "The word starts with a C and ends with an E"
+                                }
+                            ],
+                            "answer": "CRANE",
+                            "completed": false
                         }
-                        ],
-                        "answer": "UPUPDOWNRIGHT",
-                        "completed": false
-                    }],
+                    ],
                     "nextRooms": [
                         "hallwayEast",
                         "hallwayWest"
                     ],
-                    "unlocked": false,
+                    "unlocked": true,
                     "orientation": "BACK"
                 },
                 {
                     "id": "hallwayEast",
                     "roomName": "East Hallway",
-                    "puzzles": {
-                        "id": "cipher1",
-                        "clues": [
-                            {
-                                "id": "cipher1_Clue",
-                                "description": "there must be a key hidden somewhere to solve this..."
-                            }
-                        ],
-                        "hints": [
-                            {
-                                "id": "cipher1_Hint",
-                                "description": "The sticky note near that computer looks like it could be helpful..."
-                            }
-                        ],
-                        "answer": "7A2P9NC",
-                        "completed": "false"
-                    },
+                    "puzzles": [
+                        {
+                            "id": "cipher1",
+                            "type": "cipher",
+                            "clues": [
+                                {
+                                    "id": "cipher1_Clue",
+                                    "description": "there must be a key hidden somewhere to solve this..."
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "cipher1_Hint",
+                                    "tip": "The sticky note near that computer looks like it could be helpful..."
+                                }
+                            ],
+                            "answer": "7A2P9NC",
+                            "completed": false
+                        }
+                    ],
                     "nextRooms": [
                         "startRoom",
                         "OfficeRoom1",

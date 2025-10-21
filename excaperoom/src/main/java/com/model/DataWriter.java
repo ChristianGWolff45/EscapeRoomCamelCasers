@@ -35,7 +35,6 @@ public class DataWriter extends DataConstants{
         userDetails.put(USER_FIRST_NAME, user.getFirstName());
         userDetails.put(USER_LAST_NAME, user.getLastName());
         userDetails.put(USER_PASSWORD, user.getPassword());
-        
         return userDetails;
     }
 
