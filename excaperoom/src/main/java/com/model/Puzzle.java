@@ -6,7 +6,7 @@ public abstract class Puzzle {
     private ArrayList<Clue> clues;
     private ArrayList<Hint> hints;
     private String answer;
-    private boolean completed;
+    protected boolean completed;
 
     /**
      * 
@@ -14,7 +14,7 @@ public abstract class Puzzle {
      * @param hints list of type hints associated with puzzle
      * @param answer string answer stored as upercase
      */
-    public Puzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer) {
+    public Puzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
         this.clues = clues;
         this.hints = hints;
         this.answer = answer.toUpperCase();
@@ -32,6 +32,12 @@ public abstract class Puzzle {
         }
     }
 
+    /**
+     * Determines if the user has solved the puzzle without using a skip, then marks it as completed
+     */
+    public void puzzleSolved(){
+        this.completed = true;
+    }
     /**
      * get state of puzzle
      * @return
