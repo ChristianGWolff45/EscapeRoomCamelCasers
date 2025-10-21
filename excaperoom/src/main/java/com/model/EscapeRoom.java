@@ -11,6 +11,7 @@ public class EscapeRoom {
         gameList.setCurrentGame(null);
     }
 
+    // User Methods
     public boolean signUp(String username, String firstName, String lastName, String password) {
         boolean added = userList.addUser(username, firstName, lastName, password);
         return added;
@@ -29,6 +30,7 @@ public class EscapeRoom {
         userList.saveUsers();
     }
 
+    // Game Methods
     public void startGame(Room room) {
         gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
     }
@@ -38,7 +40,7 @@ public class EscapeRoom {
     }
 
     public void loadGame() {
-
+        
     }
 
 }
