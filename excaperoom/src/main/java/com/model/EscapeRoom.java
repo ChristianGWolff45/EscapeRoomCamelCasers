@@ -21,6 +21,10 @@ public class EscapeRoom {
        return loggedIn;
     }
 
+    public User getCurrentUser() {
+        return userList.getCurrentUser();
+    }
+
     public void logout() {
         userList.saveUsers();
     }
@@ -36,4 +40,5 @@ public class EscapeRoom {
     public void loadGame() {
 
     }
+
 }

@@ -72,7 +72,7 @@ public class Wordle extends Puzzle{
         }
         return copy;
     }
-
+    
     /**
      * Used for returning the PuzzleId for access
      * @return

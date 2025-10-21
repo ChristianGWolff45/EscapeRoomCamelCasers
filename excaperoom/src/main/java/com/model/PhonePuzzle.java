@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class PhonePuzzle extends Puzzle {
 
-    public PhonePuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer) {
-        super(clues, hints, answer);
+    public PhonePuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
+        super(clues, hints, answer, completed);
     }
 
     public String enterGuess(String guess) {
