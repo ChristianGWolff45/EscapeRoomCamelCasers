@@ -3,38 +3,38 @@ package com.model;
 import java.util.Scanner;
 
 public class EscapeRoomUI {
-    private static final String WELCOME_TEXT = "Welcome to our game";
-    private String[] mainMenuOptions = {"Test", "Create Account", "Login", "Logout"};
+    private String[] mainMenuOptions = { "Play", "Create Account", "Login", "Logout", "Quit" };
     private Scanner scanner;
-    private EscapeRoom escapeRoom;
-    private Test test;
+    private UserList userList;
 
-    EscapeRoomUI(){
+    EscapeRoomUI() {
         scanner = new Scanner(System.in);
-        escapeRoom = new EscapeRoom();
+        userList = UserList.getInstance();
     }
 
-    public void run(){
-        System.out.println(WELCOME_TEXT);
+    public void run() {
 
-        while(true){
+        while (true) {
             displayMainMenu();
 
             int userCommand = getUserCommand(mainMenuOptions.length);
-            
+
             if (userCommand == -1) {
                 System.out.println("Not a valid command");
                 continue;
             }
 
-            if(userCommand == mainMenuOptions.length -1){
-                escapeRoom.logout();
+            if (userCommand == mainMenuOptions.length - 1) {
+                if (userList.isLoggedIn()) {
+                    userList.logout();
+                    System.out.println("\nYou have been logged out\n \nExiting...");
+                }
                 break;
             }
 
-            switch(userCommand){
+            switch (userCommand) {
                 case (0):
-                    Test.testGame();
+                    playGame();
                     break;
                 case (1):
                     createAccount();
@@ -42,87 +42,71 @@ public class EscapeRoomUI {
                 case (2):
                     login();
                     break;
+                case (3):
+                    logout();
+                    break;
             }
         }
-        System.out.println("Good bye...");
+        System.out.println("Exiting...");
     }
 
-    private void displayMainMenu(){
+    private void displayMainMenu() {
         System.out.println("***************Escape from Swearingen**************");
-        for (int i=0; i < mainMenuOptions.length; i++){
-            System.out.println((i+1) + ". " + mainMenuOptions[i]);
+        for (int i = 0; i < mainMenuOptions.length; i++) {
+            System.out.println((i + 1) + ". " + mainMenuOptions[i]);
         }
         System.out.println("\n");
     }
 
-    private int getUserCommand(int numCommands){
+    private int getUserCommand(int numCommands) {
         System.out.println("What would you like to do?");
 
         String input = scanner.nextLine();
         int command = Integer.parseInt(input) - 1;
 
-        if (command >= 0 && command <= numCommands -1) return command;
+        if (command >= 0 && command <= numCommands - 1)
+            return command;
         return -1;
     }
 
-    private void testGame(){
-        System.out.println("Testing...\n");
-        Test.testGame();
+    private void playGame() {
+        // Call manu that leads to options to start a new game or load previous save
     }
-    
-    private void createAccount(){
+
+    private void createAccount() {
         String username = getField("Username");
         String firstName = getField("First Name");
         String lastName = getField("Last Name");
         String password = getField("Password");
-
-        if(escapeRoom.signUp(username, firstName, lastName, password)){
-            System.out.println("\nYou have successfully created an account\n");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("\nAn account with that username already exists\n");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        userList.addUser(username, firstName, lastName, password);
     }
 
-    private void login(){
+    private void login() {
+        if (userList.isLoggedIn()) {
+            System.out.println("\nYou are already logged in as " + userList.getCurrentUser().getUsername() + "\n");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
         String username = getField("Username");
         String password = getField("Password");
-
-        if (escapeRoom.login(username, password)) {
-            User currentUser = escapeRoom.getCurrentUser();
-            System.out.println("\nSuccesfuly logged in as " + currentUser.getUsername() + "\nWelcome " + currentUser.getFirstName() + " " + currentUser.getLastName() + "\n");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("\nInvalid Username or Password\n");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        userList.loginUser(username, password);
     }
 
-    private String getField(String prompt){
+    private void logout() {
+        userList.logout();
+    }
+
+    private String getField(String prompt) {
         System.out.println(prompt + ": ");
         return scanner.nextLine();
     }
-    
-    public static void main(String [] args) {
+
+    public static void main(String[] args) {
         EscapeRoomUI escapeRoomInterface = new EscapeRoomUI();
         escapeRoomInterface.run();
     }
 }
-
