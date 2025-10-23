@@ -17,8 +17,12 @@ public class EscapeRoom {
     }
 
     public boolean login(String username, String password) {
-       boolean loggedIn = userList.logInUser(username, password);
+       boolean loggedIn = userList.loginUser(username, password);
        return loggedIn;
+    }
+
+    public boolean isLoggedIn(){
+        return userList.getCurrentUser() != null;
     }
 
     public User getCurrentUser() {

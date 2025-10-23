@@ -11,7 +11,7 @@ public class Room {
     private boolean isExit;
 
     public Room(String roomId, String roomName, ArrayList<Puzzle> puzzles, ArrayList<Room> nextRooms, boolean unlocked,
-            boolean isExit) {
+        boolean isExit) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.puzzles = puzzles;
