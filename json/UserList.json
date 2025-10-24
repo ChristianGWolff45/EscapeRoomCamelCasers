@@ -10,6 +10,10 @@
             "inventory": {
                 "clues": [],
                 "hints": []
+            },
+            "progress": {
+                "clues": [],
+                "hints": []
             }
         },
         {
@@ -21,6 +25,10 @@
             "inventory": {
                 "clues": [],
                 "hints": []
+            },
+            "progress": {
+                "clues": [],
+                "hints": []
             }
         },
         {
@@ -30,6 +38,10 @@
             "lastName": "Nobel",
             "password": "13password22&",
             "inventory": {
+                "clues": [],
+                "hints": []
+            },
+            "progress": {
                 "clues": [],
                 "hints": []
             }

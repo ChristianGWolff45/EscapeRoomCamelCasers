@@ -36,7 +36,7 @@ public class EscapeRoom {
 
     // Game Methods
     public void startGame(Room room) {
-        gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
+   //     gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
     }
 
     public void endCurrentGame() {

@@ -12,6 +12,9 @@ public abstract class DataConstants {
     protected static final String USER_INVENTORY = "inventory";
     protected static final String USER_INVENTORY_CLUES = "clues";
     protected static final String USER_INVENTORY_HINTS = "hints";
+    protected static final String USER_PROGRESS = "progress";
+    protected static final String USER_PROGRESS_CLUES = "clues";
+    protected static final String USER_PROGRESS_HINTS = "hints";
 
     //Game Data
     protected static final String GAME_FILE_NAME = "json/GameList.json";
