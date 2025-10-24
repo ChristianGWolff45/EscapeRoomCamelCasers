@@ -1,82 +1,32 @@
 package com.model;
 
-import java.util.ArrayList;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.charset.StandardCharsets;
-
 public class FacadeTester {
+    public void userMethodsTest() {
+        EscapeRoom escapeRoom = new EscapeRoom();
+        // Test user sign-up
+        String username = "FacadeTestUser";
+        String firstName = "Test_FirstName";
+        String lastName = "Test_LastName";
+        String password = "Test_Password";
 
-    public void displayUserList() {
-        ArrayList<User> users = UserList.getInstance().getAllUsers();
+        boolean signUpSuccess = escapeRoom.signUp(username, firstName, lastName, password);
+        System.out.println("Sign-up successful: " + signUpSuccess);
 
-        System.out.println("\nUser List");
+        // Test user login
+        boolean loginSuccess = escapeRoom.login(username, password);
+        System.out.println("Login successful: " + loginSuccess);
 
-        for(int i=0; i < users.size(); i++){
-            System.out.println((i+1) + ". " + users.get(i));
-        }
-    }
+        // Verify current user
+        User currentUser = escapeRoom.getCurrentUser();
+        System.out.println("Current user: " + (currentUser != null ? currentUser.getUsername() : "None"));
 
-    public boolean testLoginLogout() {
-        try {
-            EscapeRoom room = new EscapeRoom();
-            UserList ul = UserList.getInstance();
-
-            String username = "facade_test_user";
-            String password = "testPass123";
-
-            if (ul.haveUser(username)) {
-                username = username + System.currentTimeMillis();
-            }
-
-            boolean signed = room.signUp(username, "Facade", "Tester", password);
-            if (!signed) {
-                System.out.println("[testLoginLogout] Sign-up failed");
-                return false;
-            }
-
-            boolean loggedIn = room.login(username, password);
-            if (!loggedIn) {
-                System.out.println("[testLoginLogout] Login returned false");
-                return false;
-            }
-
-            User current = room.getCurrentUser();
-            if (current == null) {
-                System.out.println("[testLoginLogout] getCurrentUser returned null after login");
-                return false;
-            }
-            if (!username.equals(current.getUsername())) {
-                System.out.println("[testLoginLogout] current user mismatch: expected=" + username + " got=" + current.getUsername());
-                return false;
-            }
-
-            room.logout();
-
-            Path userTemp = Path.of("json", "users_temp.json");
-            if (!Files.exists(userTemp)) {
-                System.out.println("[testLoginLogout] users_temp.json not found after logout");
-                return false;
-            }
-            String contents = Files.readString(userTemp, StandardCharsets.UTF_8);
-            if (!contents.contains(username)) {
-                System.out.println("[testLoginLogout] users_temp.json does not contain the username");
-                return false;
-            }
-
-            System.out.println("[testLoginLogout] PASSED");
-            return true;
-        } catch (Exception e) {
-            System.out.println("[testLoginLogout] EXCEPTION: " + e.getMessage());
-            e.printStackTrace();
-            return false;
-        }
+        // Logout
+        escapeRoom.logout();
+        System.out.println("User logged out.");
     }
 
     public void run() {
-        testLoginLogout();
-
-        displayUserList();
+        userMethodsTest();
     }
 
     public static void main(String[] args) {

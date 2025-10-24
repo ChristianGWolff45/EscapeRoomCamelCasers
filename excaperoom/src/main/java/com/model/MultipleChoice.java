@@ -2,16 +2,16 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class PhonePuzzle extends Puzzle {
+public class MultipleChoice extends Puzzle {
 
     /**
-     * Constructor for PhonePuzzle, utilizing superclass Puzzle
+     * Constructor for MultipleChoice, utilizing superclass Puzzle
      * @param clues
      * @param hints
      * @param answer
      * @param completed
      */
-    public PhonePuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
+    public MultipleChoice(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
         super(clues, hints, answer, completed);
     }
 
@@ -30,9 +30,9 @@ public class PhonePuzzle extends Puzzle {
     }
 
     /**
-     * Prompt question for PhonePuzzle
+     * Prompt question for MultipleChoice
      */
     public String toString() {
-        return "Phone Puzzle:\nEnter the correct phone number: ";
+        return "Multiple Choice:\nEnter the correct letter: ";
     }
 }
