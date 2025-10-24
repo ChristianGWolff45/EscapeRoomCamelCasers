@@ -16,9 +16,9 @@ public class Hint {
         this.id = id;
     }
 
-    /**
-     * Use TTS to speak hint tip
-     */
+    public String getHintID(){
+        return id;
+    }
     public void hearHint() {
         Speak.speak(tip);
     }

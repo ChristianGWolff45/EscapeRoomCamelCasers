@@ -10,8 +10,8 @@ public class DirectionalPuzzle extends Puzzle{
      * @param answer enter answer as a string up, left, right or down with no spaces
      * ex upupdowndown
      */
-    public DirectionalPuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
-        super(clues, hints, answer, completed);
+    public DirectionalPuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
+        super(clues, hints, answer, completed, puzzleID);
 
     }
 

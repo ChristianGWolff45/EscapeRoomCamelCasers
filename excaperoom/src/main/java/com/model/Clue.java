@@ -16,6 +16,10 @@ public class Clue {
         this.description = description;
     }
 
+    public String getClueID(){
+        return id;
+    }
+
     /**
      * Use TTS to speak clue description
      */

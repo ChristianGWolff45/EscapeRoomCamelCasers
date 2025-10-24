@@ -11,8 +11,8 @@ public class MultipleChoice extends Puzzle {
      * @param answer
      * @param completed
      */
-    public MultipleChoice(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
-        super(clues, hints, answer, completed);
+    public MultipleChoice(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
+        super(clues, hints, answer, completed, puzzleID);
     }
 
     /**

@@ -4,15 +4,8 @@ import java.util.ArrayList;
 
 public class PhonePuzzle extends Puzzle {
 
-    /**
-     * Constructor for PhonePuzzle, utilizing superclass Puzzle
-     * @param clues
-     * @param hints
-     * @param answer
-     * @param completed
-     */
-    public PhonePuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
-        super(clues, hints, answer, completed);
+    public PhonePuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
+        super(clues, hints, answer, completed, puzzleID);
     }
 
     /**
