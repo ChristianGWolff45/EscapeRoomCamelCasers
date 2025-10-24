@@ -29,8 +29,50 @@ public class DataLoader extends DataConstants {
                 String lastName = (String) personJSON.get(USER_LAST_NAME);
                 String password = (String) personJSON.get(USER_PASSWORD);
 
-                userList.add(new User(id, username, firstName, lastName, password));
+                JSONObject inventoryJSONObject = (JSONObject) personJSON.get(USER_INVENTORY);
+                Inventory inventory = new Inventory();
+                JSONArray cluesJSONArray = (JSONArray) inventoryJSONObject.get(USER_INVENTORY_CLUES);
+                for(Object clue :  cluesJSONArray){
+                    JSONObject clueJSONObject = (JSONObject) clue;
+                    String clueID = (String) clueJSONObject.get(CLUE_ID);
+                    inventory.addClue(clueID);
+                }
+
+                JSONArray hintsJSONArray = (JSONArray) inventoryJSONObject.get(USER_INVENTORY_HINTS);
+                for(Object hint :  hintsJSONArray){
+                    JSONObject hintJSONObject = (JSONObject) hint;
+                    String hintID = (String) hintJSONObject.get(HINT_ID);
+                    inventory.addHint(hintID);
+                }
+
+                JSONObject progressJSONObject = (JSONObject) personJSON.get(USER_PROGRESS);
+                ArrayList<String> hints = new ArrayList<>();
+                JSONArray hintsProgressJSONArray = (JSONArray) progressJSONObject.get(USER_PROGRESS_HINTS);
+                for(Object hint : hintsProgressJSONArray){
+                    JSONObject hintJSONObject = (JSONObject) hint;
+                    hints.add((String) hintJSONObject.get(HINT_ID));
+                }
+
+                ArrayList<String> skips = new ArrayList<>();
+                JSONArray skipJSONArray = (JSONArray) progressJSONObject.get(USER_PROGRESS_SKIPS);
+                for(Object skip : skipJSONArray){
+                    JSONObject skipJSONObject = (JSONObject) skip;
+                    skips.add((String) skipJSONObject.get(PUZZLE_ID));
+                }
+                
+                ArrayList<String> puzzles = new ArrayList<>();
+                JSONArray puzzlesProgressJSONArray = (JSONArray) progressJSONObject.get(USER_PROGRESS_PUZZLES);
+                for(Object puzzle : puzzlesProgressJSONArray){
+                    JSONObject puzzleJSONObject = (JSONObject) puzzle;
+                    hints.add((String) puzzleJSONObject.get(PUZZLE_ID));
+                } 
+
+                Progress progress = new Progress(skips, hints, puzzles);
+
+                userList.add(new User(id, username, firstName, lastName, password, inventory, progress));
             }
+
+
             return userList;
         } catch (Exception e) {
             e.printStackTrace();

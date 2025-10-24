@@ -85,4 +85,8 @@ public class Game {
         return clueMap.get(clueID);
     }
 
+    public int getPuzzleCount(){
+        return puzzleMap.size();
+    }
+
 }

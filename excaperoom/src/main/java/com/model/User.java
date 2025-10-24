@@ -8,6 +8,8 @@ public class User {
     private String lastName;
     private String password;
     private UUID id;
+    private Progress progress;
+    private Inventory inventory;
     private Orientation orientation;
 
     //for creating a user
@@ -17,15 +19,20 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.progress = null;
+        this.inventory = null;
     }
 
     //for loading pre-existing user
-    public User(UUID id, String username, String firstName, String lastName, String password) {
+    public User(UUID id, String username, String firstName, String lastName, String password, Inventory inventory, Progress progress) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.progress = progress;
+        this.inventory = inventory;
+        this.progress = progress;
     }
 
     public boolean isMatch(String userName, String password) {
@@ -54,6 +61,14 @@ public class User {
 
     public Orientation getOrientation(){
         return orientation;
+    }
+
+    public Progress getProgress(){
+        return progress;
+    }
+
+    public Inventory getInventory(){
+        return inventory;
     }
     
     @Override

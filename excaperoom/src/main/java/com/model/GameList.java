@@ -57,4 +57,7 @@ public class GameList {
         Game game = games.get(0);
         return game.getHint(hintID);
     }
+    public static int countPuzzles(){
+        return games.get(0).getPuzzleCount();
+    }
 }
