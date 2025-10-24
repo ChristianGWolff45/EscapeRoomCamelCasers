@@ -9,11 +9,10 @@ import java.util.Set;
 
 public class Wordle extends Puzzle{
     private HashMap<Character, Set<Integer>> letterIndex = new HashMap<>();
-    private String puzzleId;
 
-    public Wordle(String puzzleId, ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
-        super(clues, hints, answer, completed);
-        this.puzzleId = puzzleId;
+
+    public Wordle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
+        super(clues, hints, answer, completed, puzzleID);
         answer = answer.toUpperCase();
         for(int i = 0; i < answer.length(); i++){
             char letter = answer.charAt(i);
@@ -73,11 +72,5 @@ public class Wordle extends Puzzle{
         return copy;
     }
     
-    /**
-     * Used for returning the PuzzleId for access
-     * @return
-     */
-    public String getPuzzleId(){
-        return puzzleId;
-    }
+
 }

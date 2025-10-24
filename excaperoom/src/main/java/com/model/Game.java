@@ -2,6 +2,7 @@ package com.model;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.HashMap;
 
 
 public class Game {
@@ -11,11 +12,19 @@ public class Game {
     private final Duration timeAllowed = Duration.ofMinutes(30);
     private Instant startTime;
     private Certificate certificate;
+    private HashMap<String, Hint> hintMap = new HashMap<>();
+    private HashMap<String, Puzzle> puzzleMap = new HashMap<>();
+    private HashMap<String, Clue> clueMap = new HashMap<>();
+
+
     
-    public Game(User user, Room startingRoom){
+    public Game(User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap){
         this.user = user;
         this.startingRoom = startingRoom;
         this.certificate = new Certificate();
+        this.hintMap = hintMap;
+        this.puzzleMap = puzzleMap;
+        this.clueMap = clueMap;
     }
 
     public User getUser(){
@@ -62,6 +71,18 @@ public class Game {
     }
     public void endGame(){
         certificate.setTimeTaken(getTimeElapsed());
+    }
+    
+    public Puzzle getPuzzle(String puzzleID){
+        return puzzleMap.get(puzzleID);
+    }
+
+    public Hint getHint(String hintID){
+        return hintMap.get(hintID);
+    }
+
+    public Clue getClue(String clueID){
+        return clueMap.get(clueID);
     }
 
 }

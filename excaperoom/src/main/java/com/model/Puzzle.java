@@ -7,6 +7,7 @@ public abstract class Puzzle {
     private ArrayList<Hint> hints;
     private String answer;
     protected boolean completed;
+    private String puzzleID;
 
     /**
      * 
@@ -14,11 +15,12 @@ public abstract class Puzzle {
      * @param hints list of type hints associated with puzzle
      * @param answer string answer stored as upercase
      */
-    public Puzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed) {
+    public Puzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
         this.clues = clues;
         this.hints = hints;
         this.answer = answer.toUpperCase();
         this.completed = false;
+        this.puzzleID = puzzleID;
     }
 
     /**
@@ -62,6 +64,9 @@ public abstract class Puzzle {
         return clues;
     }
 
+    public String getPuzzleID(){
+        return puzzleID;
+    }
     /**
      * use a hint and display it (if available)
      */

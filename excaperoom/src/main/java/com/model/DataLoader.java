@@ -67,7 +67,11 @@ public class DataLoader extends DataConstants {
                     continue;
 
                 JSONArray roomsJSON = (JSONArray) gameJSON.get("rooms");
-                Map<String, Room> roomMap = new HashMap();
+                Map<String, Room> roomMap = new HashMap<>();
+                HashMap<String, Puzzle> puzzleMap = new HashMap<>();
+                HashMap<String, Hint> hintMap = new HashMap<>();
+                HashMap<String, Clue> clueMap = new HashMap<>();
+                ArrayList<Room> rooms = new ArrayList<>();
 
                 // Parse rooms and puzzles
                 for (Object roomObj : roomsJSON) {
@@ -95,7 +99,10 @@ public class DataLoader extends DataConstants {
                             JSONObject clueJSON = (JSONObject) clueObj;
                             String clueId = (String) clueJSON.get(CLUE_ID);
                             String clueDescription = (String) clueJSON.get(CLUE_DESCRIPTION);
-                            clues.add(new Clue(clueId, clueDescription));
+                            Clue clue = new Clue(clueId, clueDescription);
+                            clues.add(clue);
+                            clueMap.put(clue.getClueID(), clue);
+
                         }
 
                         JSONArray hintsJSON = (JSONArray) puzzleJSON.get(PUZZLE_HINTS);
@@ -104,21 +111,25 @@ public class DataLoader extends DataConstants {
                             JSONObject hintJSON = (JSONObject) hintObj;
                             String hintTip = (String) hintJSON.get(HINT_TIP);
                             String hintId = (String) hintJSON.get(HINT_ID);
-                            hints.add(new Hint(hintTip, hintId));
+                            Hint hint = new Hint(hintTip, hintId);
+                            hints.add(hint);
+                            hintMap.put(hint.getHintID(), hint);
                         }
 
                         Puzzle puzzle = null;
                         switch (puzzleType.toLowerCase()) {
                             case "wordle":
-                                puzzle = new Wordle(puzzleId, clues, hints, "CRANE", completed);
+                                puzzle = new Wordle(clues, hints, "CRANE", completed, puzzleId);
                                 break;
                             // add other puzzles here
                         }
+                        
 
                         if (completed) {
                             puzzle.puzzleSolved(); // mark solved as true
                         }
                         puzzles.add(puzzle);
+                        puzzleMap.put(puzzle.getPuzzleID(), puzzle);
                     }
 
                     Room room = new Room(roomId, roomName, puzzles, new ArrayList<>(), unlocked, isExit);
@@ -143,7 +154,7 @@ public class DataLoader extends DataConstants {
 
                 Room startingRoom = roomMap.get(startingRoomId);
                 if (startingRoom != null) {
-                    Game game = new Game(user, startingRoom);
+                    Game game = new Game(user, startingRoom, hintMap, puzzleMap, clueMap);
                     gameList.add(game);
                 }
 

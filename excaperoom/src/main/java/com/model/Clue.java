@@ -9,6 +9,10 @@ public class Clue {
         this.description = description;
     }
 
+    public String getClueID(){
+        return id;
+    }
+
     public void displayClue() {
         System.out.println(id + ": " + description);
     }

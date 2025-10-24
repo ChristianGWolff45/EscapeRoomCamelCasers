@@ -9,6 +9,9 @@ public class Hint {
         this.id = id;
     }
 
+    public String getHintID(){
+        return id;
+    }
     public void hearHint() {
 
     }

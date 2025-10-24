@@ -27,8 +27,7 @@
                         }
                     ],
                     "nextRooms": [
-                        "hallwayEast",
-                        "hallwayWest"
+                        "hallwayEast"
                     ],
                     "unlocked": true,
                     "orientation": "BACK"
@@ -57,9 +56,7 @@
                         }
                     ],
                     "nextRooms": [
-                        "startRoom",
-                        "OfficeRoom1",
-                        "BackWing"
+                        "startRoom"
                     ],
                     "unlocked": false,
                     "orientation": "LEFT"

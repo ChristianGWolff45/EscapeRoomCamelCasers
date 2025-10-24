@@ -3,12 +3,12 @@ package com.model;
 import java.util.ArrayList;
 
 public class GameList {
-    private ArrayList<Game> games;
+    private static ArrayList<Game> games;
     private static GameList instance;
     private Game currentGame;
 
     private GameList() {
-        games = new ArrayList<>();
+        games = DataLoader.getGameList();
     }
 
     public static GameList getInstance() {
@@ -20,12 +20,6 @@ public class GameList {
 
     public ArrayList<Game> getAllGames() {
         return games;
-    }
-
-    public Game newGame(User user, Room startingRoom) {
-        Game game = new Game(user, startingRoom);
-        games.add(game);
-        return game;
     }
 
     public void setCurrentGame(Game currentGame) {
@@ -49,5 +43,18 @@ public class GameList {
 
     public void removeGame(Game game) {
         games.remove(game);
+    }
+
+    public static Puzzle findPuzzle(String puzzleID){
+        Game game = games.get(0);
+        return game.getPuzzle(puzzleID);
+    }
+    public static Clue findClue(String clueID){
+        Game game = games.get(0);
+        return game.getClue(clueID);
+    }
+    public static Hint findHint(String hintID){
+        Game game = games.get(0);
+        return game.getHint(hintID);
     }
 }
