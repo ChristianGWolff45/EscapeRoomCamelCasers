@@ -66,4 +66,8 @@ public class EscapeRoom {
         gameList.getCurrentGame().playStory();
     }
 
+    public void enterGame(){
+        gameList.enterGame();
+    }
+
 }

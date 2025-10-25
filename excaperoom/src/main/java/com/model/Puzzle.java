@@ -34,6 +34,10 @@ public abstract class Puzzle {
         }
     }
 
+    public String getID(){
+        return puzzleID;
+    }
+
     /**
      * Determines if the user has solved the puzzle without using a skip, then marks it as completed
      */

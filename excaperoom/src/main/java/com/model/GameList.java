@@ -8,7 +8,7 @@ public class GameList {
     private Game currentGame;
 
     private GameList() {
-        System.out.println("Games " +games.get(0).getName());
+        games = DataLoader.getGameList();
     }
 
     public static GameList getInstance() {
@@ -34,6 +34,10 @@ public class GameList {
 
     public Game getCurrentGame() {
         return currentGame;
+    }
+
+    public void enterGame(){
+        currentGame.getCurrentRoom().printRoom();
     }
 
     public void endCurrentGame() {

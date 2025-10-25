@@ -58,4 +58,23 @@ public class Room {
     public boolean isExit() {
         return isExit;
     }
+
+    public void printRoom(){
+        System.out.println(roomName);
+        for(Puzzle puzzle : puzzles){
+            System.out.println(puzzle.getID());
+            for(Clue clue : puzzle.getClues()){
+                System.out.println(clue.getClueID());
+            }
+            for(Hint hint : puzzle.getHints()){
+                System.out.println(hint.getHintID());
+            }
+
+        }
+        for(Room room : nextRooms){
+            System.out.println(room.getName());
+            System.out.println(room.isUnlocked() ? "unlocked" : "locked");
+        }
+
+    }
 }

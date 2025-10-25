@@ -80,10 +80,10 @@ public class EscapeRoomUI {
         System.out.println("Pick a game to play");
         escapeRoom.printGames();
 
-        if(!escapeRoom.pickGame("Escape from Swearingen")){
-            System.out.println("error occured");
-        }
+        escapeRoom.pickGame("Escape from Swearingen");
         escapeRoom.playStory();
+
+        escapeRoom.enterGame();
 
 
     }

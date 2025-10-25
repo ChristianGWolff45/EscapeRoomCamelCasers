@@ -9,7 +9,7 @@ import com.speech.Speak;
 
 public class Game {
     private User user;
-    private Room startingRoom;
+    private Room currentRoom;
     //private Menu mainMenu;
     private final Duration timeAllowed = Duration.ofMinutes(30);
     private Instant startTime;
@@ -25,19 +25,20 @@ public class Game {
     public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story){
         this.name = name;
         this.user = user;
-        this.startingRoom = startingRoom;
+        this.currentRoom = startingRoom;
         this.certificate = new Certificate();
         this.hintMap = hintMap;
         this.puzzleMap = puzzleMap;
         this.clueMap = clueMap;
         this.story = story;
+        
     }
 
     public User getUser(){
         return user;
     }
-    public Room getStartingRoom(){
-        return startingRoom;
+    public Room getCurrentRoom(){
+        return currentRoom;
     }
 
     public Certificate getCertificate(){
@@ -102,5 +103,7 @@ public class Game {
         System.out.println(story);
         Speak.speak(story);
     }
+
+   
 
 }

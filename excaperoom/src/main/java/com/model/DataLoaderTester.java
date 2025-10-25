@@ -89,7 +89,7 @@ public class DataLoaderTester {
                 }
                 
                 // Starting room information
-                Room startingRoom = game.getStartingRoom();
+                Room startingRoom = game.getCurrentRoom();
                 if (startingRoom != null) {
                     System.out.println("  Starting Room: " + startingRoom.getName());
                     System.out.println("  Room Unlocked: " + startingRoom.isUnlocked());
