@@ -26,6 +26,46 @@
                             ],
                             "answer": "CRANE",
                             "completed": false
+                        },
+                        {
+                            "id": "directionalPuzzle",
+                            "type": "directionalpuzzle",
+                            "clues": [
+                                {
+                                    "id": "directionalPuzzle_Clue",
+                                    "description": "excaperoom/src/main/java/com/model/images/wordSearch.pdf"
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "wordlePuzzle_Hint1",
+                                    "tip": "Try using the direction of the words in the word search"
+                                },
+                                {
+                                    "id": "wordlePuzzle_Hint2",
+                                    "tip": "excaperoom/src/main/java/com/model/images/wordSearchKey.pdf"
+                                }
+                            ],
+                            "answer": "CRANE",
+                            "completed": false
+                        },
+                        {
+                            "id": "wordlePuzzle",
+                            "type": "wordle",
+                            "clues": [
+                                {
+                                    "id": "wordlePuzzle_Clue",
+                                    "description": "Try to guess the five letter word..."
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "wordlePuzzle_Hint",
+                                    "tip": "The word starts with a C and ends with an E"
+                                }
+                            ],
+                            "answer": "CRANE",
+                            "completed": false
                         }
                     ],
                     "nextRooms": [

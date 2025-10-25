@@ -84,6 +84,7 @@ public class EscapeRoomUI {
         escapeRoom.playStory();
 
         escapeRoom.enterGame();
+        
 
 
     }

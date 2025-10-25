@@ -164,10 +164,19 @@ public class DataLoader extends DataConstants {
                         Puzzle puzzle = null;
                         switch (puzzleType.toLowerCase()) {
                             case "wordle":
-                                puzzle = new Wordle(clues, hints, "CRANE", completed, puzzleId);
+                                puzzle = new Wordle(clues, hints, answer, completed, puzzleId);
+                                break;
+                            case "multiplechoice":
+                                puzzle = new MultipleChoice(clues, hints, answer, completed, puzzleId);
+                                break;
+                            case "directionalpuzzle":
+                                puzzle = new DirectionalPuzzle(clues, hints, answer, completed, puzzleId);
+                                break;
+                            case "phonepuzzle":
+                                puzzle = new PhonePuzzle(clues, hints, answer, completed, puzzleId);
                                 break;
                             default:
-                                puzzle = new Wordle(clues, hints, "answer", false, puzzleId);
+                                puzzle = new Wordle(clues, hints, answer, false, puzzleId);
                         }
                         
 
