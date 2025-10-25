@@ -22,8 +22,14 @@ public class GameList {
         return games;
     }
 
-    public void setCurrentGame(Game currentGame) {
-        this.currentGame = currentGame;
+    public boolean setCurrentGame(String gameString) {
+        for(Game game : games){
+            if(game.getName().equals(gameString)){
+                currentGame = game;
+                return true;
+            }
+        }
+        return false;
     }
 
     public Game getCurrentGame() {

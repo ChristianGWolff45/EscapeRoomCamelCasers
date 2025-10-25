@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
 
+import com.speech.Speak;
+
 
 public class Game {
     private User user;
@@ -15,16 +17,20 @@ public class Game {
     private HashMap<String, Hint> hintMap = new HashMap<>();
     private HashMap<String, Puzzle> puzzleMap = new HashMap<>();
     private HashMap<String, Clue> clueMap = new HashMap<>();
+    private String name;
+    private String story;
 
 
     
-    public Game(User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap){
+    public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story){
+        
         this.user = user;
         this.startingRoom = startingRoom;
         this.certificate = new Certificate();
         this.hintMap = hintMap;
         this.puzzleMap = puzzleMap;
         this.clueMap = clueMap;
+        this.story = story;
     }
 
     public User getUser(){
@@ -36,6 +42,9 @@ public class Game {
 
     public Certificate getCertificate(){
         return certificate;
+    }
+    public String getName(){
+        return this.name;
     }
     /**
      * 
@@ -87,6 +96,11 @@ public class Game {
 
     public int getPuzzleCount(){
         return puzzleMap.size();
+    }
+
+    public void playStory(){
+        System.out.println(story);
+        Speak.speak(story);
     }
 
 }

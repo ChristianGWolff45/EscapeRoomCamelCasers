@@ -2,6 +2,8 @@
     "GameList": "gameList",
     "games": [
         {
+            "name": "Escape from Swearingen",
+            "story": "Welcome to the engineering building at u of sc, many a souls have lost there way in the labrynth will you join them or will you Escape?",
             "rooms": [ 
                 {
                     "id": "startRoom",

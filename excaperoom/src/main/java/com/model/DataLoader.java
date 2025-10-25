@@ -96,6 +96,8 @@ public class DataLoader extends DataConstants {
 
                 UUID userId = UUID.fromString((String) gameJSON.get(GAME_USER));
                 String startingRoomId = (String) gameJSON.get(GAME_STARTING_ROOM);
+                String gameName = (String) gameJSON.get(GAME_NAME);
+                String gameStory = (String) gameJSON.get(GAME_STORY);
 
                 User user = null;
                 for (User u : users) {
@@ -196,7 +198,7 @@ public class DataLoader extends DataConstants {
 
                 Room startingRoom = roomMap.get(startingRoomId);
                 if (startingRoom != null) {
-                    Game game = new Game(user, startingRoom, hintMap, puzzleMap, clueMap);
+                    Game game = new Game(gameName, user, startingRoom, hintMap, puzzleMap, clueMap, gameStory);
                     gameList.add(game);
                 }
 

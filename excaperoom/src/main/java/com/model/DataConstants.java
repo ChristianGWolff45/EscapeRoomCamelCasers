@@ -31,6 +31,8 @@ public abstract class DataConstants {
 
 
     //Room Data
+    protected static final String GAME_NAME = "name";
+    protected static final String GAME_STORY = "story";
     protected static final String ROOM_ID = "id";
     protected static final String ROOM_NAME = "roomName";
     protected static final String ROOM_PUZZLES = "puzzles";

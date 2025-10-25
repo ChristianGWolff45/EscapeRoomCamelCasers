@@ -71,6 +71,19 @@ public class EscapeRoomUI {
 
     private void playGame() {
         // Call manu that leads to options to start a new game or load previous save
+        EscapeRoom escapeRoom = new EscapeRoom();
+        escapeRoom.signUp("LRIVERS", "Leni", "Rivers", "password");
+
+        escapeRoom.signUp("LRIVERS45", "Leni", "Rivers", "password");
+        escapeRoom.login("LRIVERS", "password");
+
+        System.out.println("Pick a game to play");
+        escapeRoom.printGames();
+
+        escapeRoom.pickGame("Escape from Swearingen");
+        
+
+
     }
 
     private void createAccount() {

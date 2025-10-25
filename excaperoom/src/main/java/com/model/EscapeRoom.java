@@ -1,14 +1,19 @@
 package com.model;
 
+import java.util.ArrayList;
+
 public class EscapeRoom {
     private UserList userList;
     private GameList gameList;
+    private ArrayList<Game> games;
 
     public EscapeRoom() {
         userList = UserList.getInstance();
         gameList = GameList.getInstance();
         userList.setCurrentUser(null);
         gameList.setCurrentGame(null);
+        games = gameList.getAllGames();
+
     }
 
     // User Methods
@@ -45,6 +50,20 @@ public class EscapeRoom {
 
     public void loadGame() {
         
+    }
+
+    public void printGames() {
+        for(Game game : games){
+            System.out.println(game.getName());
+        }
+    }
+
+    public boolean pickGame(String name){
+        return gameList.setCurrentGame(name);
+    }
+
+    public void playStory(){
+        gameList.getCurrentGame.playStory();
     }
 
 }
