@@ -3,29 +3,37 @@ package com.model;
 import java.util.ArrayList;
 
 public class Inventory {
-    private ArrayList<Clue> clues;
-    private ArrayList<Hint> hints;
+    private ArrayList<String> cluesID;
+    private ArrayList<String> hintsID;
 
     public Inventory(){}
 
-    public Inventory(ArrayList<Clue> clues, ArrayList<Hint> hints) {
-        this.clues = clues;
-        this.hints = hints;
+    public Inventory(ArrayList<String> clues, ArrayList<String> hints) {
+        cluesID = clues;
+        hintsID = hints;
     }
 
     public void addClue(String clueID){
-        clues.add(GameList.findClue(clueID));
+        cluesID.add(clueID);
     }
 
     public void addHint(String hintID){
-        hints.add(GameList.findHint(hintID));
+        hintsID.add(hintID);
     }
 
     public ArrayList<Clue> getClues(){
+        ArrayList<Clue> clues = new ArrayList<>();
+        for(String clueID : cluesID){
+            clues.add(GameList.findClue(clueID));
+        }
         return clues;
     }
 
     public ArrayList<Hint> getHints(){
+        ArrayList<Hint> hints = new ArrayList<>();
+        for(String hintID : hintsID){
+            hints.add(GameList.findHint(hintID));
+        }
         return hints;
     }
 }

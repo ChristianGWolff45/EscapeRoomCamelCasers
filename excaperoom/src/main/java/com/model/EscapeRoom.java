@@ -63,7 +63,7 @@ public class EscapeRoom {
     }
 
     public void playStory(){
-        gameList.getCurrentGame.playStory();
+        gameList.getCurrentGame().playStory();
     }
 
 }

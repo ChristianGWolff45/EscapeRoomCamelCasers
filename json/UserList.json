@@ -3,48 +3,18 @@
     "users": [
         {
             "id": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
-            "username": "jDoe194",
-            "firstName": "John",
-            "lastName": "Doe",
+            "username": "LRIVERS",
+            "firstName": "Larry",
+            "lastName": "Rivers",
             "password": "sAfEpAsSwOrD@!",
             "inventory": {
-                "clues": [],
-                "hints": []
-            },
-            "progress": {
-                "clues": [],
-                "hints": []
-            }
-        },
-        {
-            "id": "cbdc922b-d49b-44c4-b8e5-58caddae1257",
-            "username": "janeDoe1672",
-            "firstName": "Jane",
-            "lastName": "Doe",
-            "password": "anotherSafePass2!$",
-            "inventory": {
-                "clues": [],
-                "hints": []
+                "clues": ["wordlePuzzle_Clue"],
+                "hints": ["wordlePuzzle_Hint"]
             },
             "progress": {
                 "skips": [],
-                "hints": [],
+                "hints": ["wordlePuzzle_Hint"],
                 "puzzles": []
-            }
-        },
-        {
-            "id": "1de93535-d0c5-43dc-8bc4-96b59069dc9f",
-            "username": "lNobel222",
-            "firstName": "Linda",
-            "lastName": "Nobel",
-            "password": "13password22&",
-            "inventory": {
-                "clues": [],
-                "hints": []
-            },
-            "progress": {
-                "clues": [],
-                "hints": []
             }
         }
     ]

@@ -75,13 +75,15 @@ public class EscapeRoomUI {
         escapeRoom.signUp("LRIVERS", "Leni", "Rivers", "password");
 
         escapeRoom.signUp("LRIVERS45", "Leni", "Rivers", "password");
-        escapeRoom.login("LRIVERS", "password");
+        escapeRoom.login("LRIVERS45", "password");
 
         System.out.println("Pick a game to play");
         escapeRoom.printGames();
 
-        escapeRoom.pickGame("Escape from Swearingen");
-        
+        if(!escapeRoom.pickGame("Escape from Swearingen")){
+            System.out.println("error occured");
+        }
+        escapeRoom.playStory();
 
 
     }
