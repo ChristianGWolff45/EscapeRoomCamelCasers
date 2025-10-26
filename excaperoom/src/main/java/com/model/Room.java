@@ -47,12 +47,17 @@ public class Room {
         return unlocked;
     }
 
-    public void unlock(String s) {
-        for (Room neighbor : nextRooms) {
-            if (neighbor.getName().equals(s)) {
-                neighbor.unlocked = true;
+    public boolean unlockNeighbors() {
+        for(Puzzle puzzle : puzzles){
+            if(!puzzle.isCompleted()){
+                return false;
             }
         }
+        for (Room neighbor : nextRooms) {
+            neighbor.unlocked = true;
+            System.out.println(neighbor.getName() + " is unlocked");
+        }
+        return true;
     }
 
     public boolean isExit() {

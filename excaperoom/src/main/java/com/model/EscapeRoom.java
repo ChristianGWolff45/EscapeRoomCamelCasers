@@ -93,6 +93,10 @@ public class EscapeRoom {
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
         if(gameList.findPuzzle(puzzleID).isCompleted()){
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
+            if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
+                endGame();
+            }
+
         }
         System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
     }
@@ -101,6 +105,10 @@ public class EscapeRoom {
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
         if(gameList.findPuzzle(puzzleID).isCompleted()){
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
+            if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
+                endGame();
+            }
+
         }
         System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
     }
@@ -110,8 +118,20 @@ public class EscapeRoom {
         if(gameList.findPuzzle(puzzleID).isCompleted()){
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
             userList.getCurrentUser().getProgress().addSkip(puzzleID);
+            if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
+                endGame();
+            }
         }
         System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
+    }
+
+    public void goNextRoom(String roomID){
+        gameList.getCurrentGame().getCurrentRoom().goNextRoom(roomID);
+        System.out.println(gameList.getCurrentGame().getCurrentRoom().toString());
+    }
+
+    public void endGame(){
+        System.out.println("You escaped");
     }
 
 

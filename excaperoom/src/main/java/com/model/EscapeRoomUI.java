@@ -100,6 +100,10 @@ public class EscapeRoomUI {
         escapeRoom.logout();
 
         escapeRoom.login("LRIVERS45", "password");
+        escapeRoom.pickGame("Escape from Swearingen");
+        escapeRoom.enterGame();
+        
+        escapeRoom.goNextRoom("East Hallway");
 
 
     }

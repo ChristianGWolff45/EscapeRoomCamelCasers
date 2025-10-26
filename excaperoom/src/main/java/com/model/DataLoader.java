@@ -125,7 +125,7 @@ public class DataLoader extends DataConstants {
                     String roomId = (String) roomJSON.get(ROOM_ID);
                     String roomName = (String) roomJSON.get(ROOM_NAME);
                     boolean unlocked = (boolean) roomJSON.get(ROOM_UNLOCKED);
-                    boolean isExit = roomJSON.get("isExit") != null ? (boolean) roomJSON.get("isExit") : false;
+                    boolean isExit = (boolean) roomJSON.get(ROOM_IS_EXIT);
                     String orientation = (String) roomJSON.get(ROOM_ORIENTATION);
 
                     JSONArray puzzlesJSON = (JSONArray) roomJSON.get(ROOM_PUZZLES);
