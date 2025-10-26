@@ -41,6 +41,14 @@ public class EscapeRoom {
     }
 
     // Game Methods
+
+    public void playGame() {
+        Game currentGame = gameList.getCurrentGame();
+
+        currentGame.Run();
+        currentGame.playStory();
+        gameList.enterGame();
+    }
     public void startGame(Room room) {
    //     gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
     }
@@ -57,6 +65,10 @@ public class EscapeRoom {
         for(Game game : games){
             System.out.println(game.getName());
         }
+    }
+
+    public ArrayList<Game> getAllGames() {
+        return games;
     }
 
     public void pickGame(String name){
