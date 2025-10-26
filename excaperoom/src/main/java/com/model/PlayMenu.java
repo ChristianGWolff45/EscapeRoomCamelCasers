@@ -27,7 +27,7 @@ public class PlayMenu {
 
             switch (userCommand) {
                 case (0):
-                    // PlayGame
+                    escapeRoom.playGame();
                     break;
                 case (1):
                     // LoadGame

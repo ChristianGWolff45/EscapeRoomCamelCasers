@@ -23,11 +23,11 @@ public class EscapeRoom {
     }
 
     public boolean login(String username, String password) {
-        boolean loggedIn = userList.loginUser(username, password);
-        return loggedIn;
+       boolean loggedIn = userList.loginUser(username, password);
+       return loggedIn;
     }
 
-    public boolean isLoggedIn() {
+    public boolean isLoggedIn(){
         return userList.getCurrentUser() != null;
     }
 
@@ -41,8 +41,16 @@ public class EscapeRoom {
     }
 
     // Game Methods
+
+    public void playGame() {
+        Game currentGame = gameList.getCurrentGame();
+
+        currentGame.Run();
+        currentGame.playStory();
+        gameList.enterGame();
+    }
     public void startGame(Room room) {
-        // gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
+   //     gameList.setCurrentGame(gameList.newGame(userList.getCurrentUser(), room));
     }
 
     public void endCurrentGame() {
@@ -50,11 +58,11 @@ public class EscapeRoom {
     }
 
     public void loadGame() {
-
+        
     }
 
     public void printGames() {
-        for (Game game : games) {
+        for(Game game : games){
             System.out.println(game.getName());
         }
     }
@@ -63,90 +71,88 @@ public class EscapeRoom {
         return games;
     }
 
-    public void pickGame(String name) {
+    public void pickGame(String name){
         gameList.setCurrentGame(name);
         userList.getCurrentUser().loadGame();
     }
 
-    public void loadProgress() {
+    public void loadProgress(){
         userList.getCurrentUser().getProgress().displayProgress();
     }
 
-    public void playStory() {
+    public void playStory(){
         gameList.getCurrentGame().playStory();
     }
 
-    public void enterGame() {
+    public void enterGame(){
         gameList.enterGame();
     }
 
-    public void pickUpClue(String clueID) {
+    public void pickUpClue(String clueID){
         userList.getCurrentUser().addClue(clueID);
         displayClue(clueID);
     }
 
-    public void displayClue(String clueID) {
+    public void displayClue(String clueID){
         gameList.findClue(clueID).displayClue();
     }
 
-    public void useHint(String hintID) {
+    public void useHint(String hintID){
         userList.getCurrentUser().useHint(hintID);
         displayHint(hintID);
     }
 
-    public void displayHint(String hintID) {
+    public void displayHint(String hintID){
         gameList.findHint(hintID).displayHint();
     }
 
-    public void solvePuzzle(String puzzleID, String answer) {
+    public void solvePuzzle(String puzzleID, String answer){
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
-        if (gameList.findPuzzle(puzzleID).isCompleted()) {
+        if(gameList.findPuzzle(puzzleID).isCompleted()){
             System.out.println("Puzzle completed");
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
-            if (gameList.getCurrentGame().getCurrentRoom().unlockNeighbors()
-                    && gameList.getCurrentGame().getCurrentRoom().isExit()) {
+            if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
                 endGame();
             }
 
         }
-
+       
     }
 
-    public void solvePuzzle(String puzzleID, Direction[] answer) {
+    public void solvePuzzle(String puzzleID, Direction[] answer){
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
-        if (gameList.findPuzzle(puzzleID).isCompleted()) {
+        if(gameList.findPuzzle(puzzleID).isCompleted()){
             System.out.println("Puzzle completed");
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
-            if (gameList.getCurrentGame().getCurrentRoom().unlockNeighbors()
-                    && gameList.getCurrentGame().getCurrentRoom().isExit()) {
+            if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
                 endGame();
             }
 
         }
     }
 
-    public void skipPuzzle(String puzzleID) {
+    public void skipPuzzle(String puzzleID){
         gameList.findPuzzle(puzzleID).skipPuzzle();
-        if (gameList.findPuzzle(puzzleID).isCompleted()) {
+        if(gameList.findPuzzle(puzzleID).isCompleted()){
             System.out.println("Puzzle completed");
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
             userList.getCurrentUser().getProgress().addSkip(puzzleID);
-            if (gameList.getCurrentGame().getCurrentRoom().unlockNeighbors()
-                    && gameList.getCurrentGame().getCurrentRoom().isExit()) {
+            if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
                 endGame();
             }
         }
     }
 
-    public void goNextRoom(String roomID) {
+    public void goNextRoom(String roomID){
         gameList.getCurrentGame().getCurrentRoom().unlockNeighbors();
         gameList.getCurrentGame().goNextRoom(roomID);
         System.out.println(gameList.getCurrentGame().getCurrentRoom().getName());
         gameList.getCurrentGame().getCurrentRoom().printRoom();
     }
 
-    public void endGame() {
+    public void endGame(){
         System.out.println("You escaped");
     }
+
 
 }
