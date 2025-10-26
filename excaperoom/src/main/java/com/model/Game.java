@@ -2,6 +2,7 @@ package com.model;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.speech.Speak;
@@ -19,10 +20,11 @@ public class Game {
     private HashMap<String, Clue> clueMap = new HashMap<>();
     private String name;
     private String story;
+    private ArrayList<Room> roomList = new ArrayList<>();
 
 
     
-    public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story){
+    public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story, ArrayList<Room> roomList){
         this.name = name;
         this.user = user;
         this.currentRoom = startingRoom;
@@ -31,7 +33,11 @@ public class Game {
         this.puzzleMap = puzzleMap;
         this.clueMap = clueMap;
         this.story = story;
-        
+        this.roomList = roomList;
+
+        for(Room room : roomList){
+            room.printRoom();
+        }
     }
 
     public User getUser(){

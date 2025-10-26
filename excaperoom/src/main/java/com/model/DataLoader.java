@@ -195,6 +195,7 @@ public class DataLoader extends DataConstants {
 
                     Room room = new Room(roomId, roomName, puzzles, new ArrayList<>(), unlocked, isExit);
                     roomMap.put(roomId, room);
+                    rooms.add(room);
                 }
 
                 for (Object roomObj : roomsJSON) {
@@ -212,10 +213,11 @@ public class DataLoader extends DataConstants {
                         }
                     }
                 }
+                
 
                 Room startingRoom = roomMap.get(startingRoomId);
                 if (startingRoom != null) {
-                    Game game = new Game(gameName, user, startingRoom, hintMap, puzzleMap, clueMap, gameStory);
+                    Game game = new Game(gameName, user, startingRoom, hintMap, puzzleMap, clueMap, gameStory, rooms);
                     gameList.add(game);
                 }
 
