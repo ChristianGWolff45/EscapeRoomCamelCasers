@@ -6,13 +6,15 @@ public class PlayMenu {
     private String[] menuOptions = { "New Game", "Load Game", "Back" };
     private Scanner scanner;
     private EscapeRoom escapeRoom;
+    private String gameName;
 
-    public PlayMenu(EscapeRoom escapeRoom) {
+    public PlayMenu(EscapeRoom escapeRoom, String gameName) {
         scanner = new Scanner(System.in);
         this.escapeRoom = escapeRoom;
+        this.gameName = gameName;
     }
 
-    public void run() {
+    public boolean run() {
         while (true) {
             displayMainMenu();
 
@@ -31,22 +33,19 @@ public class PlayMenu {
                     // LoadGame
                     break;
                 case (2):
-                    if (escapeRoom.isLoggedIn()) {
-                        escapeRoom.logout();
-                        System.out.println("Logged out. Returning to main menu...");
-                    }
-                    return;
+                    return true;
             }
         }
     }
 
     private void displayMainMenu() {
-        System.out.println("***************Escape from Swearingen**************");
-        for (int i = 0; i < menuOptions.length; i++) {
-            System.out.println((i + 1) + ". " + menuOptions[i]);
-        }
-        System.out.println();
+    String displayName = (gameName != null) ? gameName : "Unknown Game";
+    System.out.println("***************" + displayName + "**************");
+    for (int i = 0; i < menuOptions.length; i++) {
+        System.out.println((i + 1) + ". " + menuOptions[i]);
     }
+    System.out.println();
+}
 
     private int getUserCommand(int numCommands) {
         System.out.println("What would you like to do?");

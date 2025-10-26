@@ -81,7 +81,7 @@ public class MainMenu {
         String password = getField("Password");
 
         if (escapeRoom.login(username, password)) {
-            System.out.println("LSuccesfully logged in as " + escapeRoom.getCurrentUser().getUsername());
+            System.out.println("Succesfully logged in as " + escapeRoom.getCurrentUser().getUsername());
             return true;
         } else {
             System.out.println("Invalid username or password.");
