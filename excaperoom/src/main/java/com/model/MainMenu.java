@@ -34,7 +34,7 @@ public class MainMenu {
                 case (2):
                     if (escapeRoom.isLoggedIn()) {
                         escapeRoom.logout();
-                        System.out.println("Logged out and exiting...");
+                        System.out.println("Exiting...");
                     } else {
                         System.out.println("Exiting...");
                     }
@@ -44,6 +44,7 @@ public class MainMenu {
     }
 
     private void displayMainMenu() {
+        System.out.println("\n----------------------------------------------------------------------------------------------------------------------");
         System.out.println("***************Escape from Swearingen**************");
         for (int i = 0; i < menuOptions.length; i++) {
             System.out.println((i + 1) + ". " + menuOptions[i]);

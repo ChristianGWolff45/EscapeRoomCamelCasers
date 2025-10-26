@@ -38,6 +38,7 @@ public class GameSelectionMenu {
     }
 
     private void displayGames() {
+        System.out.println("\n----------------------------------------------------------------------------------------------------------------------");
         System.out.println("***************Select a Game**************");
         int index = 1;
         for (Game game : escapeRoom.getAllGames()) {

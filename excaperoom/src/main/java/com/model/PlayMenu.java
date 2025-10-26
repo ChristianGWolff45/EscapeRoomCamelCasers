@@ -39,6 +39,7 @@ public class PlayMenu {
     }
 
     private void displayMainMenu() {
+    System.out.println("\n----------------------------------------------------------------------------------------------------------------------");
     String displayName = (gameName != null) ? gameName : "Unknown Game";
     System.out.println("***************" + displayName + "**************");
     for (int i = 0; i < menuOptions.length; i++) {
