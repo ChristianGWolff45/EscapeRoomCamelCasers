@@ -32,11 +32,16 @@ public abstract class Puzzle {
         if (this.answer.equals(answer)) {
             this.completed = true;
         }
+
     }
 
     public void enterAnswer(Direction[] answer){}
 
     public void skipPuzzle(){
+        this.completed = true;
+    }
+
+    public void complete(){
         this.completed = true;
     }
 

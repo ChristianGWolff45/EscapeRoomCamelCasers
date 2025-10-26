@@ -72,34 +72,40 @@ public class EscapeRoomUI {
     private void playGame() {
         // Call manu that leads to options to start a new game or load previous save
         EscapeRoom escapeRoom = new EscapeRoom();
-        escapeRoom.signUp("LRIVERS", "Leni", "Rivers", "password");
+        // escapeRoom.signUp("LRIVERS", "Leni", "Rivers", "password");
 
-        escapeRoom.signUp("LRIVERS45", "Leni", "Rivers", "password");
+        // escapeRoom.signUp("LRIVERS45", "Leni", "Rivers", "password");
+        // escapeRoom.login("LRIVERS45", "password");
+
+        // System.out.println("Pick a game to play");
+        // escapeRoom.printGames();
+
+        // escapeRoom.pickGame("Escape from Swearingen");
+        // escapeRoom.playStory();
+
+        // escapeRoom.enterGame();
+
+        // escapeRoom.pickUpClue("wordlePuzzle_Clue");
+        // escapeRoom.pickUpClue("multipleChoice_Clue1");
+        // escapeRoom.pickUpClue("multipleChoice_Clue2");
+
+        // escapeRoom.useHint("directionalPuzzle_Hint1");
+
+        // escapeRoom.useHint("wordlePuzzle_Hint");
+
+        // escapeRoom.solvePuzzle("wordlePuzzle", "CRANE");
+        // escapeRoom.solvePuzzle("directionalPuzzle", new Direction[] { Direction.RIGHT, Direction.DOWN, Direction.UP, Direction.LEFT });
+        // escapeRoom.skipPuzzle("multiplechoice");
+
+        // escapeRoom.logout();
+
         escapeRoom.login("LRIVERS45", "password");
-
-        System.out.println("Pick a game to play");
-        escapeRoom.printGames();
-
         escapeRoom.pickGame("Escape from Swearingen");
-        escapeRoom.playStory();
-
+        escapeRoom.loadProgress();
         escapeRoom.enterGame();
-
-        escapeRoom.pickUpClue("wordlePuzzle_Clue");
-        escapeRoom.pickUpClue("multipleChoice_Clue1");
-        escapeRoom.pickUpClue("multipleChoice_Clue2");
-
-        escapeRoom.useHint("directionalPuzzle_Hint1");
-
-        escapeRoom.useHint("wordlePuzzle_Hint");
-
-        escapeRoom.solvePuzzle("wordlePuzzle", "CRANE");
-        escapeRoom.solvePuzzle("directionalPuzzle", new Direction[] { Direction.RIGHT, Direction.DOWN, Direction.UP, Direction.LEFT });
-        escapeRoom.skipPuzzle("multiplechoice");
-
-        escapeRoom.logout();
-
-        escapeRoom.login("LRIVERS45", "password");
+        
+        escapeRoom.goNextRoom("East Hallway");
+        escapeRoom.solvePuzzle("multiplechoice2", "C");
 
 
     }

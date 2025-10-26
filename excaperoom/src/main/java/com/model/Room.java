@@ -32,6 +32,10 @@ public class Room {
         this.nextRooms.add(room);
     }
 
+    public String getRoomName() {
+        return roomName;
+    }
+
     public Room goNextRoom(String s) {
         for (Room neighbor : nextRooms) {
             if (neighbor.getName().equals(s)) {
@@ -40,19 +44,25 @@ public class Room {
                 }
             }
         }
-        return null;
+        return this;
     }
 
     public boolean isUnlocked() {
         return unlocked;
     }
 
-    public void unlock(String s) {
-        for (Room neighbor : nextRooms) {
-            if (neighbor.getName().equals(s)) {
-                neighbor.unlocked = true;
+    public boolean unlockNeighbors() {
+        System.out.println("unlocking rooms");
+        for(Puzzle puzzle : puzzles){
+            if(!puzzle.isCompleted()){
+                return false;
             }
         }
+        for (Room neighbor : nextRooms) {
+            neighbor.unlocked = true;
+            System.out.println(neighbor.getName() + " is unlocked");
+        }
+        return true;
     }
 
     public boolean isExit() {

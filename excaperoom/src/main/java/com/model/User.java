@@ -39,6 +39,12 @@ public class User {
         return this.username.equals(userName) && this.password.equals(password);
     }
 
+    public void loadGame(){
+        for(String puzzleID : progress.getPuzzles()){
+            GameList.getInstance().findPuzzle(puzzleID).complete();
+        }
+    }
+
     public String getUsername(){
         return username;
     }

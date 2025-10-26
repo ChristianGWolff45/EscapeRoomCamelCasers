@@ -34,10 +34,6 @@ public class Game {
         this.clueMap = clueMap;
         this.story = story;
         this.roomList = roomList;
-
-        for(Room room : roomList){
-            room.printRoom();
-        }
     }
 
     public User getUser(){
@@ -108,6 +104,10 @@ public class Game {
     public void playStory(){
         System.out.println(story);
         Speak.speak(story);
+    }
+
+    public void goNextRoom(String roomID){
+        currentRoom = currentRoom.goNextRoom(roomID);
     }
 
    

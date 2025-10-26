@@ -41,6 +41,7 @@ public abstract class DataConstants {
     protected static final String ROOM_NEXT_ROOMS = "nextRooms";
     protected static final String ROOM_UNLOCKED = "unlocked";
     protected static final String ROOM_ORIENTATION = "orientation";
+    protected static final String ROOM_IS_EXIT = "isExit";
 
     //Puzzle Data
     protected static final String PUZZLE_ID = "id";

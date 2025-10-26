@@ -50,7 +50,7 @@
                             "completed": false
                         },
                         {
-                            "id": "multiplechoice",
+                            "id": "multiplechoice1",
                             "type": "multiplechoice",
                             "clues": [
                                 {
@@ -77,6 +77,7 @@
                         "hallwayEast"
                     ],
                     "unlocked": true,
+                    "isExit": false,
                     "orientation": "BACK"
                 },
                 {
@@ -84,21 +85,26 @@
                     "roomName": "East Hallway",
                     "puzzles": [
                         {
-                            "id": "cipher1",
-                            "type": "cipher",
+                            "id": "multiplechoice2",
+                            "type": "multiplechoice",
                             "clues": [
                                 {
-                                    "id": "cipher1_Clue",
-                                    "description": "there must be a key hidden somewhere to solve this..."
+                                    "id": "multipleChoice_Clue1",
+                                    "description": "How many students are enrolled in the school of computing and engineering?"
+                                },
+                                {
+                                    "id": "multipleChoice_Clue2",
+                                    "description": "756 freshman, 769 sophomores, 800 juniors, 1009 seniors"
                                 }
                             ],
                             "hints": [
                                 {
-                                    "id": "cipher1_Hint",
-                                    "tip": "The sticky note near that computer looks like it could be helpful..."
+                                    "id": "multipleChoice_Hint",
+                                    "tip": "Add up the number of students from each year"
                                 }
                             ],
-                            "answer": "7A2P9NC",
+                            "choices": ["3500","3547","3909","4224"],
+                            "answer": "C",
                             "completed": false
                         }
                     ],
@@ -106,6 +112,7 @@
                         "startRoom"
                     ],
                     "unlocked": false,
+                    "isExit": true,
                     "orientation": "LEFT"
                 }
             ],

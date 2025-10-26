@@ -65,7 +65,7 @@ public class DataLoader extends DataConstants {
                 JSONArray puzzlesProgressJSONArray = (JSONArray) progressJSONObject.get(USER_PROGRESS_PUZZLES);
                 for(Object puzzle : puzzlesProgressJSONArray){
                     String puzzleID = (String) puzzle;
-                    hints.add(puzzleID);
+                    puzzles.add(puzzleID);
                 } 
 
                 Progress progress = new Progress(skips, hints, puzzles);
@@ -125,7 +125,7 @@ public class DataLoader extends DataConstants {
                     String roomId = (String) roomJSON.get(ROOM_ID);
                     String roomName = (String) roomJSON.get(ROOM_NAME);
                     boolean unlocked = (boolean) roomJSON.get(ROOM_UNLOCKED);
-                    boolean isExit = roomJSON.get("isExit") != null ? (boolean) roomJSON.get("isExit") : false;
+                    boolean isExit = (boolean) roomJSON.get(ROOM_IS_EXIT);
                     String orientation = (String) roomJSON.get(ROOM_ORIENTATION);
 
                     JSONArray puzzlesJSON = (JSONArray) roomJSON.get(ROOM_PUZZLES);
@@ -156,7 +156,7 @@ public class DataLoader extends DataConstants {
                             JSONObject hintJSON = (JSONObject) hintObj;
                             String hintTip = (String) hintJSON.get(HINT_TIP);
                             String hintId = (String) hintJSON.get(HINT_ID);
-                            Hint hint = new Hint(hintTip, hintId);
+                            Hint hint = new Hint(hintTip, hintId, puzzleId);
                             hints.add(hint);
                             hintMap.put(hint.getHintID(), hint);
                         }
