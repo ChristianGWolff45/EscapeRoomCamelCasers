@@ -1,1 +1,60 @@
-{"UserList":"userList","users":[{"firstName":"Larry","lastName":"Rivers","password":"sAfEpAsSwOrD@!","progress":{"skips":[],"puzzles":[],"hints":["wordlePuzzle_Hint"]},"id":"e911c356-c1fe-4653-ba8f-8875b4c9d30f","inventory":{"hints":["wordlePuzzle_Hint"],"clues":["wordlePuzzle_Clue"]},"username":"LRIVERS"},{"firstName":"Leni","lastName":"Rivers","password":"password","progress":{"skips":["multiplechoice1"],"puzzles":["wordlePuzzle","directionalPuzzle","multiplechoice1"],"hints":["directionalPuzzle_Hint1","wordlePuzzle_Hint"]},"id":"cb533ac5-86f7-48d3-8f53-5b77d6b9f0ab","inventory":{"hints":["directionalPuzzle_Hint1","wordlePuzzle_Hint"],"clues":["wordlePuzzle_Clue","multipleChoice_Clue1","multipleChoice_Clue2"]},"username":"LRIVERS45"},{"firstName":"Nicholas","lastName":"Lester","password":"pass124","progress":{"skips":[],"puzzles":[],"hints":[]},"id":"416d0f31-43ad-47f8-bea4-5abc4d7568b3","inventory":{"hints":[],"clues":[]},"username":"nclester"},{"firstName":"Nicholas","lastName":"Lester","password":"pass124","progress":{"skips":[],"puzzles":[],"hints":[]},"id":"4bbc34a5-13c5-4d10-bf01-a587bc64e8c3","inventory":{"hints":[],"clues":[]},"username":"nclester2"}]}
+
+{
+    "UserList": "userList",
+    "users": [
+        {
+            "firstName": "Larry",
+            "lastName": "Rivers",
+            "password": "sAfEpAsSwOrD@!",
+            "progress": {
+                "skips": [],
+                "puzzles": [],
+                "hints": [
+                    "wordlePuzzle_Hint"
+                ]
+            },
+            "id": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
+            "inventory": {
+                "hints": [
+                    "wordlePuzzle_Hint"
+                ],
+                "clues": [
+                    "wordlePuzzle_Clue"
+                ]
+            },
+            "username": "LRIVERS"
+        },
+        {
+            "firstName": "Leni",
+            "lastName": "Rivers",
+            "password": "password",
+            "progress": {
+                "skips": [
+                    "multiplechoice1"
+                ],
+                "puzzles": [
+                    "wordlePuzzle",
+                    "directionalPuzzle",
+                    "multiplechoice1"
+                ],
+                "hints": [
+                    "directionalPuzzle_Hint1",
+                    "wordlePuzzle_Hint"
+                ]
+            },
+            "id": "cb533ac5-86f7-48d3-8f53-5b77d6b9f0ab",
+            "inventory": {
+                "hints": [
+                    "directionalPuzzle_Hint1",
+                    "wordlePuzzle_Hint"
+                ],
+                "clues": [
+                    "wordlePuzzle_Clue",
+                    "multipleChoice_Clue1",
+                    "multipleChoice_Clue2"
+                ]
+            },
+            "username": "LRIVERS45"
+        }
+    ]
+}
