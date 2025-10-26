@@ -27,10 +27,11 @@ public class PlayMenu {
 
             switch (userCommand) {
                 case (0):
+                    escapeRoom.pickGame(gameName);
                     escapeRoom.playGame();
                     break;
                 case (1):
-                    // LoadGame
+                    escapeRoom.loadGame();
                     break;
                 case (2):
                     return true;
