@@ -55,4 +55,8 @@ public abstract class DataConstants {
     //Hint Data
     protected static final String HINT_ID = "id";
     protected static final String HINT_TIP = "tip";
+
+    //MultipleChoice 
+    protected static final String PUZZLE_CHOICES = "choices";
+
 }

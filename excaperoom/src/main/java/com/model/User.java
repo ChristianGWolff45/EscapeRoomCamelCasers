@@ -19,8 +19,8 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.progress = null;
-        this.inventory = null;
+        this.progress = new Progress();
+        this.inventory = new Inventory();
     }
 
     //for loading pre-existing user
@@ -67,8 +67,16 @@ public class User {
         return progress;
     }
 
+    public void addClue(String clueID){
+        inventory.addClue(clueID);
+    }
+
     public Inventory getInventory(){
         return inventory;
+    }
+
+    public void useHint(String hintID){
+        inventory.addHint(hintID);
     }
     
     @Override

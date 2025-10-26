@@ -10,6 +10,12 @@ public class Progress{
     int puzzlesCompleted;
     int totalPuzzles;
 
+    public Progress(){
+        this.skippedPuzzles = new ArrayList<>();
+        this.hintsUsed = new ArrayList<>();
+        this.puzzlesSolved = new ArrayList<>();
+
+    }
     public Progress(ArrayList<String> skipPuzzleID, ArrayList<String> usedHintsID, ArrayList<String> puzzleSolvedID){
         this.skippedPuzzles = (skipPuzzleID);
         this.hintsUsed = (usedHintsID);
@@ -17,8 +23,21 @@ public class Progress{
         this.puzzlesCompleted = puzzleSolvedID.size();
     } 
 
+    public void addHint(String hintID){
+        hintsUsed.add(hintID);
+    }
+
+    public void addSkip(String skipID){
+        skippedPuzzles.add(skipID);
+    }
+
+    public void completePuzzle(String puzzleID){
+        puzzlesSolved.add(puzzleID);
+    }
+
     public int displayProgressBar(){
-        totalPuzzles = GameList.countPuzzles();
+        GameList gameList = GameList.getInstance();
+        totalPuzzles = gameList.countPuzzles();
         int percent = 100 * (puzzlesCompleted/totalPuzzles);
         for(int i = 0; i < 100; i++){
             System.out.print("_");

@@ -84,7 +84,20 @@ public class EscapeRoomUI {
         escapeRoom.playStory();
 
         escapeRoom.enterGame();
-        
+
+        escapeRoom.pickUpClue("wordlePuzzle_Clue");
+        escapeRoom.pickUpClue("multipleChoice_Clue1");
+        escapeRoom.pickUpClue("multipleChoice_Clue2");
+
+        escapeRoom.useHint("directionalPuzzle_Hint1");
+
+        escapeRoom.useHint("wordlePuzzle_Hint");
+
+        escapeRoom.solvePuzzle("wordlePuzzle", "CRANE");
+        escapeRoom.solvePuzzle("directionalPuzzle", new Direction[] { Direction.RIGHT, Direction.DOWN, Direction.UP, Direction.LEFT });
+        escapeRoom.skipPuzzle("multiplechoice");
+
+        escapeRoom.logout();
 
 
     }

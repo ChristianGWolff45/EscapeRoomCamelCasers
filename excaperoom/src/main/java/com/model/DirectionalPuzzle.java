@@ -21,9 +21,9 @@ public class DirectionalPuzzle extends Puzzle{
      * @param answer accepts an array of directional moves
      * turns them into a string and calls the method enter answer from super class
      */
-    public void enterAnswer(direction[] answer) {
+    public void enterAnswer(Direction[] answer) {
         String stringified = "";
-        for(direction input : answer){
+        for(Direction input : answer){
             stringified += input;
         }
         enterAnswer(stringified);

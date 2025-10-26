@@ -1,6 +1,6 @@
 package com.model;
 
-public enum direction {
+public enum Direction {
     UP,
     RIGHT,
     DOWN,

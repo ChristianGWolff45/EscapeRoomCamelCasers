@@ -38,33 +38,38 @@
                             ],
                             "hints": [
                                 {
-                                    "id": "wordlePuzzle_Hint1",
+                                    "id": "directionalPuzzle_Hint1",
                                     "tip": "Try using the direction of the words in the word search"
                                 },
                                 {
-                                    "id": "wordlePuzzle_Hint2",
+                                    "id": "directionalPuzzle_Hint2",
                                     "tip": "excaperoom/src/main/java/com/model/images/wordSearchKey.pdf"
                                 }
                             ],
-                            "answer": "CRANE",
+                            "answer": "RIGHTDOWNUPLEFT",
                             "completed": false
                         },
                         {
-                            "id": "wordlePuzzle",
-                            "type": "wordle",
+                            "id": "multiplechoice",
+                            "type": "multiplechoice",
                             "clues": [
                                 {
-                                    "id": "wordlePuzzle_Clue",
-                                    "description": "Try to guess the five letter word..."
+                                    "id": "multipleChoice_Clue1",
+                                    "description": "How many students are enrolled in the school of computing and engineering?"
+                                },
+                                {
+                                    "id": "multipleChoice_Clue2",
+                                    "description": "756 freshman, 769 sophomores, 800 juniors, 1009 seniors"
                                 }
                             ],
                             "hints": [
                                 {
-                                    "id": "wordlePuzzle_Hint",
-                                    "tip": "The word starts with a C and ends with an E"
+                                    "id": "multipleChoice_Hint",
+                                    "tip": "Add up the number of students from each year"
                                 }
                             ],
-                            "answer": "CRANE",
+                            "choices": ["3909","3547","5032","4224"],
+                            "answer": "A",
                             "completed": false
                         }
                     ],

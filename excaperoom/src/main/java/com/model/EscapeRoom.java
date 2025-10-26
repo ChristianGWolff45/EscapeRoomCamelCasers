@@ -70,4 +70,37 @@ public class EscapeRoom {
         gameList.enterGame();
     }
 
+    public void pickUpClue(String clueID){
+        userList.getCurrentUser().addClue(clueID);
+        displayClue(clueID);
+    }
+
+    public void displayClue(String clueID){
+        gameList.findClue(clueID).displayClue();
+    }
+
+    public void useHint(String hintID){
+        userList.getCurrentUser().useHint(hintID);
+        displayHint(hintID);
+    }
+
+    public void displayHint(String hintID){
+        gameList.findHint(hintID).displayHint();
+    }
+
+    public void solvePuzzle(String puzzleID, String answer){
+        gameList.findPuzzle(puzzleID).enterAnswer(answer);
+        System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
+    }
+
+    public void solvePuzzle(String puzzleID, Direction[] answer){
+        gameList.findPuzzle(puzzleID).enterAnswer(answer);
+        System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
+    }
+
+    public void skipPuzzle(String puzzleID){
+        gameList.findPuzzle(puzzleID).skipPuzzle();
+        System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
+    }
+
 }

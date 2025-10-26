@@ -34,6 +34,12 @@ public abstract class Puzzle {
         }
     }
 
+    public void enterAnswer(Direction[] answer){}
+
+    public void skipPuzzle(){
+        this.completed = true;
+    }
+
     public String getID(){
         return puzzleID;
     }

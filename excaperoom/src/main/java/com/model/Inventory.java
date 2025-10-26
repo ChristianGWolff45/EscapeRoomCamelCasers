@@ -6,7 +6,10 @@ public class Inventory {
     private ArrayList<String> cluesID;
     private ArrayList<String> hintsID;
 
-    public Inventory(){}
+    public Inventory(){
+        cluesID = new ArrayList<>();
+        hintsID = new ArrayList<>();
+    }
 
     public Inventory(ArrayList<String> clues, ArrayList<String> hints) {
         cluesID = clues;
@@ -23,16 +26,18 @@ public class Inventory {
 
     public ArrayList<Clue> getClues(){
         ArrayList<Clue> clues = new ArrayList<>();
+        GameList gameList = GameList.getInstance();
         for(String clueID : cluesID){
-            clues.add(GameList.findClue(clueID));
+            clues.add(gameList.findClue(clueID));
         }
         return clues;
     }
 
     public ArrayList<Hint> getHints(){
         ArrayList<Hint> hints = new ArrayList<>();
+        GameList gameList = GameList.getInstance();
         for(String hintID : hintsID){
-            hints.add(GameList.findHint(hintID));
+            hints.add(gameList.findHint(hintID));
         }
         return hints;
     }

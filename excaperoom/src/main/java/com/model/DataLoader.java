@@ -167,7 +167,13 @@ public class DataLoader extends DataConstants {
                                 puzzle = new Wordle(clues, hints, answer, completed, puzzleId);
                                 break;
                             case "multiplechoice":
-                                puzzle = new MultipleChoice(clues, hints, answer, completed, puzzleId);
+                                ArrayList<String> options = new ArrayList<>();
+                                JSONArray choices = (JSONArray) puzzleJSON.get(PUZZLE_CHOICES);
+                                for(Object choice : choices){
+                                    
+                                    options.add((String) choice);
+                                }
+                                puzzle = new MultipleChoice(clues, hints, answer, completed, puzzleId, options);
                                 break;
                             case "directionalpuzzle":
                                 puzzle = new DirectionalPuzzle(clues, hints, answer, completed, puzzleId);

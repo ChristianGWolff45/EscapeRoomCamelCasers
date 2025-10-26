@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MultipleChoice extends Puzzle {
 
+    private ArrayList<String> options;
     /**
      * Constructor for MultipleChoice, utilizing superclass Puzzle
      * @param clues
@@ -11,8 +12,9 @@ public class MultipleChoice extends Puzzle {
      * @param answer
      * @param completed
      */
-    public MultipleChoice(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
+    public MultipleChoice(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID, ArrayList<String> options) {
         super(clues, hints, answer, completed, puzzleID);
+        this.options = options;
     }
 
     /**
@@ -33,6 +35,10 @@ public class MultipleChoice extends Puzzle {
      * Prompt question for MultipleChoice
      */
     public String toString() {
-        return "Multiple Choice:\nEnter the correct letter: ";
+        String output = "Multiple Choice:\nEnter the correct letter: ";
+        for(int i = 0; i < options.size(); i++){
+            output += (char)('A' + i) + ") " + options.get(i);
+        }
+        return output;
     }
 }

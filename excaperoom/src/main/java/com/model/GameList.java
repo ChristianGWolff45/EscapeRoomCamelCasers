@@ -55,19 +55,16 @@ public class GameList {
         games.remove(game);
     }
 
-    public static Puzzle findPuzzle(String puzzleID){
-        Game game = games.get(0);
-        return game.getPuzzle(puzzleID);
+    public Puzzle findPuzzle(String puzzleID){
+        return currentGame.getPuzzle(puzzleID);
     }
-    public static Clue findClue(String clueID){
-        Game game = games.get(0);
-        return game.getClue(clueID);
+    public Clue findClue(String clueID){
+        return currentGame.getClue(clueID);
     }
-    public static Hint findHint(String hintID){
-        Game game = games.get(0);
-        return game.getHint(hintID);
+    public Hint findHint(String hintID){
+        return currentGame.getHint(hintID);
     }
-    public static int countPuzzles(){
-        return games.get(0).getPuzzleCount();
+    public int countPuzzles(){
+        return currentGame.getPuzzleCount();
     }
 }
