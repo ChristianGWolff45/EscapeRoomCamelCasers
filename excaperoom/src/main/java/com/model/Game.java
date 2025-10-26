@@ -22,7 +22,7 @@ public class Game {
 
 
     
-    public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story){
+    public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story, ArrayList<Room> rooms){
         this.name = name;
         this.user = user;
         this.currentRoom = startingRoom;

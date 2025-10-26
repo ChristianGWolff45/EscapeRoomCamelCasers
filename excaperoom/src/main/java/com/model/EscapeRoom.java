@@ -59,8 +59,13 @@ public class EscapeRoom {
         }
     }
 
-    public boolean pickGame(String name){
-        return gameList.setCurrentGame(name);
+    public void pickGame(String name){
+        gameList.setCurrentGame(name);
+        userList.getCurrentUser().loadGame();
+    }
+
+    public void loadProgress(){
+        userList.getCurrentUser().getProgress().displayProgress();
     }
 
     public void playStory(){
@@ -126,8 +131,10 @@ public class EscapeRoom {
     }
 
     public void goNextRoom(String roomID){
+        gameList.getCurrentGame().getCurrentRoom().unlockNeighbors();
         gameList.getCurrentGame().getCurrentRoom().goNextRoom(roomID);
-        System.out.println(gameList.getCurrentGame().getCurrentRoom().toString());
+        System.out.println(gameList.getCurrentGame().getCurrentRoom().getName());
+        gameList.getCurrentGame().getCurrentRoom().printRoom();
     }
 
     public void endGame(){

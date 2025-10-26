@@ -48,6 +48,7 @@ public class Room {
     }
 
     public boolean unlockNeighbors() {
+        System.out.println("unlocking rooms");
         for(Puzzle puzzle : puzzles){
             if(!puzzle.isCompleted()){
                 return false;

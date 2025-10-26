@@ -65,7 +65,7 @@ public class DataLoader extends DataConstants {
                 JSONArray puzzlesProgressJSONArray = (JSONArray) progressJSONObject.get(USER_PROGRESS_PUZZLES);
                 for(Object puzzle : puzzlesProgressJSONArray){
                     String puzzleID = (String) puzzle;
-                    hints.add(puzzleID);
+                    puzzles.add(puzzleID);
                 } 
 
                 Progress progress = new Progress(skips, hints, puzzles);
@@ -156,7 +156,7 @@ public class DataLoader extends DataConstants {
                             JSONObject hintJSON = (JSONObject) hintObj;
                             String hintTip = (String) hintJSON.get(HINT_TIP);
                             String hintId = (String) hintJSON.get(HINT_ID);
-                            Hint hint = new Hint(hintTip, hintId);
+                            Hint hint = new Hint(hintTip, hintId, puzzleId);
                             hints.add(hint);
                             hintMap.put(hint.getHintID(), hint);
                         }
