@@ -5,6 +5,8 @@ public abstract class DataConstants {
     protected static final String USER_FILE_NAME = "json/UserList.json";
     protected static final String USER_TEMP_FILE_NAME = "json/users_temp.json";
     protected static final String USER_ID = "id";
+    protected static final String USER_LIST = "UserList";
+    protected static final String USER_USERS = "users";
     protected static final String USER_USER_NAME = "username";
     protected static final String USER_FIRST_NAME = "firstName";
     protected static final String USER_LAST_NAME = "lastName";

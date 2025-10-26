@@ -35,6 +35,19 @@ public class Progress{
         puzzlesSolved.add(puzzleID);
     }
 
+    public ArrayList<String> getSkips(){
+        return skippedPuzzles;
+    }
+
+    public ArrayList<String> getPuzzles(){
+        return puzzlesSolved;
+    }
+
+    public ArrayList<String> getHints(){
+        return hintsUsed;
+    }
+
+
     public int displayProgressBar(){
         GameList gameList = GameList.getInstance();
         totalPuzzles = gameList.countPuzzles();

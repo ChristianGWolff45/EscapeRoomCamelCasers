@@ -37,6 +37,7 @@ public class EscapeRoom {
 
     public void logout() {
         userList.saveUsers();
+
     }
 
     // Game Methods
@@ -90,17 +91,28 @@ public class EscapeRoom {
 
     public void solvePuzzle(String puzzleID, String answer){
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
+        if(gameList.findPuzzle(puzzleID).isCompleted()){
+            userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
+        }
         System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
     }
 
     public void solvePuzzle(String puzzleID, Direction[] answer){
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
+        if(gameList.findPuzzle(puzzleID).isCompleted()){
+            userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
+        }
         System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
     }
 
     public void skipPuzzle(String puzzleID){
         gameList.findPuzzle(puzzleID).skipPuzzle();
+        if(gameList.findPuzzle(puzzleID).isCompleted()){
+            userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
+            userList.getCurrentUser().getProgress().addSkip(puzzleID);
+        }
         System.out.println(gameList.findPuzzle(puzzleID).isCompleted() ? "Puzzle completed" : "Wrong Answer");
     }
+
 
 }

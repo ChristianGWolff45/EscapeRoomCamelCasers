@@ -2,20 +2,26 @@
     "UserList": "userList",
     "users": [
         {
-            "id": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
-            "username": "LRIVERS",
             "firstName": "Larry",
             "lastName": "Rivers",
             "password": "sAfEpAsSwOrD@!",
-            "inventory": {
-                "clues": ["wordlePuzzle_Clue"],
-                "hints": ["wordlePuzzle_Hint"]
-            },
             "progress": {
                 "skips": [],
-                "hints": ["wordlePuzzle_Hint"],
-                "puzzles": []
-            }
+                "puzzles": [],
+                "hints": [
+                    "wordlePuzzle_Hint"
+                ]
+            },
+            "id": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
+            "inventory": {
+                "hints": [
+                    "wordlePuzzle_Hint"
+                ],
+                "clues": [
+                    "wordlePuzzle_Clue"
+                ]
+            },
+            "username": "LRIVERS"
         }
     ]
 }

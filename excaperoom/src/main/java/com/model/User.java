@@ -71,12 +71,14 @@ public class User {
         inventory.addClue(clueID);
     }
 
+
     public Inventory getInventory(){
         return inventory;
     }
 
     public void useHint(String hintID){
         inventory.addHint(hintID);
+        progress.addHint(hintID);
     }
     
     @Override

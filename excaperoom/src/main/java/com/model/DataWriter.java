@@ -12,15 +12,17 @@ public class DataWriter extends DataConstants{
     public static void saveUser() {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getAllUsers();
-
+        JSONObject output = new JSONObject();
+        output.put(USER_LIST, "userList");
         JSONArray jsonUsers = new JSONArray();
 
         for(int i=0; i< users.size(); i++) {
             jsonUsers.add(getUserJSON(users.get(i)));
         }
+        output.put(USER_USERS, jsonUsers);
 
-        try (FileWriter file = new FileWriter(USER_TEMP_FILE_NAME)) {
-            file.write(jsonUsers.toJSONString());
+        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+            file.write(output.toJSONString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,6 +37,44 @@ public class DataWriter extends DataConstants{
         userDetails.put(USER_FIRST_NAME, user.getFirstName());
         userDetails.put(USER_LAST_NAME, user.getLastName());
         userDetails.put(USER_PASSWORD, user.getPassword());
+        JSONObject userInventory = new JSONObject();
+        JSONArray userClues = new JSONArray();
+        JSONArray userHints = new JSONArray();
+
+        for(String clueID : user.getInventory().getClueIDs()){
+            userClues.add(clueID);
+        }
+
+        for(String hintID : user.getInventory().getHintIDS()){
+            userHints.add(hintID);
+        }
+
+        userInventory.put(USER_INVENTORY_CLUES, userClues);
+        userInventory.put(USER_INVENTORY_HINTS, userHints);
+
+        userDetails.put(USER_INVENTORY, userInventory);
+
+        JSONObject userProgress = new JSONObject();
+        JSONArray userProgressSkips = new JSONArray();
+        JSONArray userProgressHints = new JSONArray();
+        JSONArray userProgressPuzzles = new JSONArray();
+
+        for(String userSkip : user.getProgress().getSkips()){
+            userProgressSkips.add(userSkip);
+        }
+        for(String userHint : user.getProgress().getHints()){
+            userProgressHints.add(userHint);
+        }
+        for(String userPuzzle : user.getProgress().getPuzzles()){
+            userProgressPuzzles.add(userPuzzle);
+        }
+
+        userProgress.put(USER_PROGRESS_SKIPS, userProgressSkips);
+        userProgress.put(USER_PROGRESS_HINTS, userProgressHints);
+        userProgress.put(USER_PROGRESS_PUZZLES, userProgressPuzzles);
+
+        userDetails.put(USER_PROGRESS, userProgress);
+
         return userDetails;
     }
 

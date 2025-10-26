@@ -1,1 +1,47 @@
-[{"firstName":"Larry","lastName":"Rivers","password":"sAfEpAsSwOrD@!","id":"e911c356-c1fe-4653-ba8f-8875b4c9d30f","username":"LRIVERS"},{"firstName":"Leni","lastName":"Rivers","password":"password","id":"28fec753-3639-4179-8b33-84a1357e7963","username":"LRIVERS45"}]
+[
+    {
+        "firstName": "Larry",
+        "lastName": "Rivers",
+        "password": "sAfEpAsSwOrD@!",
+        "progress": {
+            "skips": [],
+            "puzzles": [],
+            "hints": [
+                "wordlePuzzle_Hint"
+            ]
+        },
+        "id": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
+        "inventory": {
+            "hints": [
+                "wordlePuzzle_Hint"
+            ],
+            "clues": [
+                "wordlePuzzle_Clue"
+            ]
+        },
+        "username": "LRIVERS"
+    },
+    {
+        "firstName": "Leni",
+        "lastName": "Rivers",
+        "password": "password",
+        "progress": {
+            "skips": [],
+            "puzzles": [],
+            "hints": []
+        },
+        "id": "49e12156-4de0-49df-9775-a619fd3b593a",
+        "inventory": {
+            "hints": [
+                "directionalPuzzle_Hint1",
+                "wordlePuzzle_Hint"
+            ],
+            "clues": [
+                "wordlePuzzle_Clue",
+                "multipleChoice_Clue1",
+                "multipleChoice_Clue2"
+            ]
+        },
+        "username": "LRIVERS45"
+    }
+]

@@ -23,6 +23,12 @@ public class Inventory {
     public void addHint(String hintID){
         hintsID.add(hintID);
     }
+    public ArrayList<String> getClueIDs(){
+        return cluesID;
+    }
+    public ArrayList<String> getHintIDS(){
+        return hintsID;
+    }
 
     public ArrayList<Clue> getClues(){
         ArrayList<Clue> clues = new ArrayList<>();

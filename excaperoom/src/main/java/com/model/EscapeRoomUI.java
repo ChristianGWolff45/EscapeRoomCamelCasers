@@ -99,6 +99,8 @@ public class EscapeRoomUI {
 
         escapeRoom.logout();
 
+        escapeRoom.login("LRIVERS45", "password");
+
 
     }
 
