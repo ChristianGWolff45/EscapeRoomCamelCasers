@@ -23,6 +23,7 @@ public abstract class DataConstants {
     protected static final String USER_CERTIFICATE_TIME_TAKEN = "timeTaken";
     protected static final String USER_CERTIFICATE_HINTS_USED = "hintsUsed";
     protected static final String USER_CERTIFICATE_SKIPS_USED = "skipsUsed";
+    protected static final String USER_SCORE = "score";
 
 
     //Game Data

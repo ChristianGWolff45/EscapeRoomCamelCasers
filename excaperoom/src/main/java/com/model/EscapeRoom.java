@@ -154,7 +154,7 @@ public class EscapeRoom {
     public void endGame(){
         System.out.println("You escaped");
         userList.saveUsers();
-
+        userList.printAllUserScores();
     }
 
 
