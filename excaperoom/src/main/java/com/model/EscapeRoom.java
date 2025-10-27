@@ -60,7 +60,9 @@ public class EscapeRoom {
     public void loadGame() {
         
     }
-
+    /**
+     * prints out all games
+     */
     public void printGames() {
         for(Game game : games){
             System.out.println(game.getName());
@@ -70,42 +72,72 @@ public class EscapeRoom {
     public ArrayList<Game> getAllGames() {
         return games;
     }
-
+    /**
+     * 
+     * @param name sets current game to game of the same name
+     */
     public void pickGame(String name){
         gameList.setCurrentGame(name);
         userList.getCurrentUser().loadGame();
     }
-
+    /**
+     * loads user progress then displays it
+     */
     public void loadProgress(){
         userList.getCurrentUser().getProgress().displayProgress();
     }
-
+    /**
+     * hear the plot to the game
+     */
     public void playStory(){
         gameList.getCurrentGame().playStory();
     }
-
+    /**
+     * loads starting room
+     */
     public void enterGame(){
         gameList.enterGame();
     }
-
+    /**
+     * 
+     * @param clueID adds clue to user inventory
+     * then displays it
+     */
     public void pickUpClue(String clueID){
         userList.getCurrentUser().addClue(clueID);
         displayClue(clueID);
     }
+    /**
+     * 
+     * @param clueID displays clue
+     */
 
     public void displayClue(String clueID){
         gameList.findClue(clueID).displayClue();
     }
-
+    /**
+     * 
+     * @param hintID uses hint for user
+     * then displays it
+     */
     public void useHint(String hintID){
         userList.getCurrentUser().useHint(hintID);
         displayHint(hintID);
     }
-
+    /**
+     * 
+     * @param hintID displays hint
+     */
     public void displayHint(String hintID){
         gameList.findHint(hintID).displayHint();
     }
-
+    /**
+     * @param puzzleID enter a puzzleID to solve
+     * @param answer enter a string answer
+     * checks if answer is answer for the puzzle
+     * if so attempts to unlock neighboring doors
+     * if last puzzle endsgame
+     */
     public void solvePuzzle(String puzzleID, String answer){
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
         if(gameList.findPuzzle(puzzleID).isCompleted()){
@@ -118,6 +150,13 @@ public class EscapeRoom {
         }
        
     }
+    /**
+     * @param puzzleID enter a puzzleID to solve
+     * @param answer enter an array of directions
+     * checks if answer is answer for the puzzle
+     * if so attempts to unlock neighboring doors
+     * if last puzzle endsgame
+     */
 
     public void solvePuzzle(String puzzleID, Direction[] answer){
         gameList.findPuzzle(puzzleID).enterAnswer(answer);
@@ -130,7 +169,11 @@ public class EscapeRoom {
 
         }
     }
-
+    /**
+     * @param puzzleID enter a puzzleID to skip
+     * skips puzzle for current user attempts to unlock neighboring doors
+     * if last puzzle endsgame
+     */
     public void skipPuzzle(String puzzleID){
         gameList.findPuzzle(puzzleID).skipPuzzle();
         if(gameList.findPuzzle(puzzleID).isCompleted()){

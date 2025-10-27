@@ -20,7 +20,14 @@ public class UserList {
     public ArrayList<User> getUsers() {
         return users;
     }
-
+    /**
+     * 
+     * @param username
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @return true if user is created false if user already exists
+     */
     public boolean addUser(String username, String firstName, String lastName, String password) {
         if (haveUser(username)) {
             System.out.println("\nAn account with that username already exists\n");
@@ -49,7 +56,11 @@ public class UserList {
         }
         return userList;
     }
-
+    /**
+     * 
+     * @param username
+     * @return true if user exists
+     */
     public boolean haveUser(String username) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
@@ -58,7 +69,12 @@ public class UserList {
         }
         return false;
     }
-
+    /**
+     * 
+     * @param username
+     * @param password
+     * @return true if username and password match
+     */
     public boolean loginUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -80,7 +96,9 @@ public class UserList {
         }
         return false;
     }
-
+    /**
+     * saves user data to json
+     */
     public void logout() {
         if (isLoggedIn()) {
             saveUsers();
@@ -100,15 +118,24 @@ public class UserList {
             }
         }
     }
-
+    /**
+     * 
+     * @return true if any user is logged in
+     */
     public boolean isLoggedIn() {
         return currentUser != null;
     }
-
+    /**
+     * 
+     * @param user
+     */
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
-
+    /**
+     * 
+     * @return currentUSer
+     */
     public User getCurrentUser() {
         return currentUser;
     }
@@ -116,11 +143,15 @@ public class UserList {
     public ArrayList<User> getAllUsers() {
         return users;
     }
-
+    /**
+     * writes the user to json
+     */
     public void saveUsers() {
         DataWriter.saveUser();
     }
-
+    /**
+     * prints all users scores
+     */
     public void printAllUserScores() {
     System.out.println("User Scores:");
     for (User user : users) {
