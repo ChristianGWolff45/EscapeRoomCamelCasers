@@ -1,0 +1,2 @@
+{"game":"Escape from Swearingen","certificate":
+{"timeTaken":0,"Score":-1500,"skipsUsed":8,"hintsUsed":9}}

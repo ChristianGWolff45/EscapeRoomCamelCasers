@@ -4,7 +4,7 @@ public abstract class DataConstants {
     //User Data
     protected static final String USER_FILE_NAME = "json/UserList.json";
     protected static final String USER_TEMP_FILE_NAME = "json/users_temp.json";
-    protected static final String USER_TEMP_CERTIFICATE = "certifacates/Certificate1";
+    protected static final String USER_TEMP_CERTIFICATE = "excaperoom/src/main/java/com/model/certifacates/Certificate1.txt";
     protected static final String USER_ID = "id";
     protected static final String USER_LIST = "UserList";
     protected static final String USER_USERS = "users";
@@ -23,6 +23,8 @@ public abstract class DataConstants {
     protected static final String USER_CERTIFICATE_TIME_TAKEN = "timeTaken";
     protected static final String USER_CERTIFICATE_HINTS_USED = "hintsUsed";
     protected static final String USER_CERTIFICATE_SKIPS_USED = "skipsUsed";
+    protected static final String USER_SCORE = "Score";
+
 
 
     //Game Data
@@ -36,6 +38,7 @@ public abstract class DataConstants {
     protected static final String GAME_CERT_TIME_TAKEN = "timeTaken";
     protected static final String GAME_CERT_HINTS_USED = "hintsUsed";
     protected static final String GAME_CERT_CLUES_USED = "cluesUsed";
+
 
 
     //Room Data
@@ -67,5 +70,8 @@ public abstract class DataConstants {
 
     //MultipleChoice 
     protected static final String PUZZLE_CHOICES = "choices";
+
+    //SaveCertificate
+    protected static final String GAME = "game";
 
 }

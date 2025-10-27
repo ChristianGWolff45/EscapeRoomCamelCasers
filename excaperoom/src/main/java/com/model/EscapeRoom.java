@@ -155,6 +155,8 @@ public class EscapeRoom {
         System.out.println("You escaped");
         userList.saveUsers();
 
+        DataWriter.saveCertificate();
+
     }
 
 
