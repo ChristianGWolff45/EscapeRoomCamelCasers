@@ -102,6 +102,7 @@ public class DataWriter extends DataConstants{
         output2 += "\nYou used " + user.getCertificate().getHintsUsed() + " hints";
         output2 += "\nYou used " + user.getCertificate().getSkipsUsed() + " skips";
         output2 += "\nYou took " + user.getCertificate().timeTakenMMSS();
+        output2 += "\nYou got  " + user.getScore() + " points!";
 
         output.put(USER_CERTIFICATE, certificate);
         try (FileWriter file = new FileWriter(USER_TEMP_CERTIFICATE)) {
