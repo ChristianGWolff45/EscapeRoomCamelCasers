@@ -11,6 +11,7 @@ public class User {
     private Progress progress;
     private Inventory inventory;
     private Orientation orientation;
+    private Certificate certificate;
 
     //for creating a user
     public User(String username, String firstName, String lastName, String password) {
@@ -21,10 +22,11 @@ public class User {
         this.password = password;
         this.progress = new Progress();
         this.inventory = new Inventory();
+        this.certificate = new Certificate();
     }
 
     //for loading pre-existing user
-    public User(UUID id, String username, String firstName, String lastName, String password, Inventory inventory, Progress progress) {
+    public User(UUID id, String username, String firstName, String lastName, String password, Inventory inventory, Progress progress, Certificate certificate) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -33,6 +35,7 @@ public class User {
         this.progress = progress;
         this.inventory = inventory;
         this.progress = progress;
+        this.certificate = certificate;
     }
 
     public boolean isMatch(String userName, String password) {
@@ -85,8 +88,16 @@ public class User {
     public void useHint(String hintID){
         inventory.addHint(hintID);
         progress.addHint(hintID);
+        certificate.useHint();
+    }
+
+    public void useSkip(){
+        certificate.useSkip();
     }
     
+    public Certificate getCertificate(){
+        return certificate;
+    }
     @Override
     public String toString() {
         return String.format("%s (%s %s)", username, firstName, lastName);
