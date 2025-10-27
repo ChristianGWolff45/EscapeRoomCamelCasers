@@ -98,13 +98,22 @@ public class DataWriter extends DataConstants{
         certificate.put(USER_CERTIFICATE_SKIPS_USED, user.getCertificate().getSkipsUsed());
         certificate.put(USER_SCORE, user.getScore());
 
+        String output2 = "Congratulation: you escaped " + GameList.getInstance().getCurrentGame().getName();
+        output2 += "\nYou used " + user.getCertificate().getHintsUsed() + " hints";
+        output2 += "\nYou used " + user.getCertificate().getSkipsUsed() + " skips";
+        output2 += "\nYou took " + user.getCertificate().timeTakenMMSS();
+
         output.put(USER_CERTIFICATE, certificate);
         try (FileWriter file = new FileWriter(USER_TEMP_CERTIFICATE)) {
-            file.write(output.toJSONString());
+            file.write(output2);
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        
+
     }
 
     public static void main(String[] args) {
