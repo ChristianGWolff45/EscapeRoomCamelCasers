@@ -107,11 +107,12 @@ public class User {
      * @return score
      */
     public int getScore() {
+        setScore();
         return score;
     }
 
     public void setScore() {
-        this.score = 1000 - certificate.getTimeTakenInt() - 100*certificate.getHintsUsed() - 200*certificate.getSkipsUsed();
+        this.score = 5000 - certificate.getTimeTakenInt() - 100*certificate.getHintsUsed() - 200*certificate.getSkipsUsed();
     }
 
     @Override

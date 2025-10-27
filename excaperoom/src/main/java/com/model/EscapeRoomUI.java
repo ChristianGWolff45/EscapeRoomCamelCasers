@@ -106,6 +106,7 @@ public class EscapeRoomUI {
 
     private void playGame() {
         // Call manu that leads to options to start a new game or load previous save
+        
         EscapeRoom escapeRoom = new EscapeRoom();
         escapeRoom.signUp("LRIVERS", "Leni", "Rivers", "password");
 
@@ -142,6 +143,8 @@ public class EscapeRoomUI {
         escapeRoom.goNextRoom("East Hallway");
         escapeRoom.useHint("directionalPuzzle_Hint2");
         escapeRoom.skipPuzzle("multiplechoice2");
+
+        
 
 
     }

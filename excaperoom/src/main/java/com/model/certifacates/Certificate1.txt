@@ -1,5 +1,5 @@
 Congratulation: you escaped Escape from Swearingen
-You used 6 hints
-You used 4 skips
+You used 3 hints
+You used 2 skips
 You took 00:00
-You got  0 points!
+You got  4300 points!
