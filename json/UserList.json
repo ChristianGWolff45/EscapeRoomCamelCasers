@@ -1,4 +1,3 @@
-
 {
     "UserList": "userList",
     "users": [
@@ -6,6 +5,11 @@
             "firstName": "Larry",
             "lastName": "Rivers",
             "password": "sAfEpAsSwOrD@!",
+            "certificate": {
+                "timeTaken": 0,
+                "skipsUsed": 0,
+                "hintsUsed": 0
+            },
             "progress": {
                 "skips": [],
                 "puzzles": [],
@@ -28,25 +32,35 @@
             "firstName": "Leni",
             "lastName": "Rivers",
             "password": "password",
+            "certificate": {
+                "timeTaken": 0,
+                "skipsUsed": 2,
+                "hintsUsed": 3
+            },
             "progress": {
                 "skips": [
-                    "multiplechoice1"
+                    "multiplechoice1",
+                    "multiplechoice2"
                 ],
                 "puzzles": [
                     "wordlePuzzle",
                     "directionalPuzzle",
-                    "multiplechoice1"
+                    "multiplechoice1",
+                    "multiplechoice2",
+                    "multiplechoice2"
                 ],
                 "hints": [
                     "directionalPuzzle_Hint1",
-                    "wordlePuzzle_Hint"
+                    "wordlePuzzle_Hint",
+                    "directionalPuzzle_Hint2"
                 ]
             },
             "id": "cb533ac5-86f7-48d3-8f53-5b77d6b9f0ab",
             "inventory": {
                 "hints": [
                     "directionalPuzzle_Hint1",
-                    "wordlePuzzle_Hint"
+                    "wordlePuzzle_Hint",
+                    "directionalPuzzle_Hint2"
                 ],
                 "clues": [
                     "wordlePuzzle_Clue",

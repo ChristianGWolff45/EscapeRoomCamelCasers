@@ -119,12 +119,8 @@
             "user": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
             "startingRoom": "startRoom",
             "mainMenu": "defaultMenu",
-            "timeLeft": "00:30:00",
-            "certificate": {
-                "timeTaken": 0,
-                "hintsUsed": 0,
-                "skipsUsed": 0
-            }
+            "timeLeft": "00:30:00"
+            
         }
     ]
 }

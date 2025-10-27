@@ -125,6 +125,7 @@ public class EscapeRoom {
             System.out.println("Puzzle completed");
             userList.getCurrentUser().getProgress().completePuzzle(puzzleID);
             userList.getCurrentUser().getProgress().addSkip(puzzleID);
+            userList.getCurrentUser().useSkip();
             if(gameList.getCurrentGame().getCurrentRoom().unlockNeighbors() && gameList.getCurrentGame().getCurrentRoom().isExit()){
                 endGame();
             }
@@ -140,6 +141,8 @@ public class EscapeRoom {
 
     public void endGame(){
         System.out.println("You escaped");
+        userList.saveUsers();
+
     }
 
 

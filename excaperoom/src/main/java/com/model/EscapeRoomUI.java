@@ -105,7 +105,8 @@ public class EscapeRoomUI {
         escapeRoom.enterGame();
         
         escapeRoom.goNextRoom("East Hallway");
-        escapeRoom.solvePuzzle("multiplechoice2", "C");
+        escapeRoom.useHint("directionalPuzzle_Hint2");
+        escapeRoom.skipPuzzle("multiplechoice2");
 
 
     }

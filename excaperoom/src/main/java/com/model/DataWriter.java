@@ -75,6 +75,14 @@ public class DataWriter extends DataConstants{
 
         userDetails.put(USER_PROGRESS, userProgress);
 
+        JSONObject userCertificate = new JSONObject();
+        userCertificate.put(USER_CERTIFICATE_TIME_TAKEN, user.getCertificate().getTimeTakenInt());
+        userCertificate.put(USER_CERTIFICATE_HINTS_USED, user.getCertificate().getHintsUsed());
+        userCertificate.put(USER_CERTIFICATE_SKIPS_USED, user.getCertificate().getSkipsUsed());
+
+
+        userDetails.put(USER_CERTIFICATE, userCertificate);
+
         return userDetails;
     }
 

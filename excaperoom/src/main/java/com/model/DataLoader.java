@@ -70,7 +70,13 @@ public class DataLoader extends DataConstants {
 
                 Progress progress = new Progress(skips, hints, puzzles);
 
-                userList.add(new User(id, username, firstName, lastName, password, inventory, progress));
+                JSONObject certificateJSONObject = (JSONObject) personJSON.get(USER_CERTIFICATE);
+                long certificateTime = (long) certificateJSONObject.get(USER_CERTIFICATE_TIME_TAKEN); 
+                long certificateHintsUsed = (long) certificateJSONObject.get(USER_CERTIFICATE_HINTS_USED); 
+                long certificateSkipsUsed = (long) certificateJSONObject.get(USER_CERTIFICATE_SKIPS_USED);
+                Certificate certificate = new Certificate((int) certificateTime, (int)certificateHintsUsed, (int)certificateSkipsUsed); 
+
+                userList.add(new User(id, username, firstName, lastName, password, inventory, progress, certificate));
             }
 
 
