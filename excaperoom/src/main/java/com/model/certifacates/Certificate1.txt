@@ -1,2 +1,4 @@
-{"game":"Escape from Swearingen","certificate":
-{"timeTaken":0,"Score":-1500,"skipsUsed":8,"hintsUsed":9}}
+Congratulation: you escaped Escape from Swearingen
+You used 11 hints
+You used 10 skips
+You took 00:00
