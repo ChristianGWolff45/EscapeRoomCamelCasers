@@ -120,4 +120,12 @@ public class UserList {
     public void saveUsers() {
         DataWriter.saveUser();
     }
+
+    public void printAllUserScores() {
+    System.out.println("User Scores:");
+    for (User user : users) {
+        System.out.println(user.getUsername() + ": " + user.getScore());
+    }
+}
+
 }
