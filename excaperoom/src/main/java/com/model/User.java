@@ -98,6 +98,17 @@ public class User {
     public Certificate getCertificate(){
         return certificate;
     }
+
+    /**
+     * calculate score, starting from 1000 subtract seconds,
+     * -100 for each hint used and -200 for each skip used
+     * 
+     * @return score
+     */
+    public int getScore() {
+        return 1000 - certificate.getTimeTakenInt() - 100*certificate.getHintsUsed() - 200*certificate.getSkipsUsed();
+    }
+
     @Override
     public String toString() {
         return String.format("%s (%s %s)", username, firstName, lastName);
