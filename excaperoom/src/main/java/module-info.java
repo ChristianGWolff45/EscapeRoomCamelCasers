@@ -3,6 +3,7 @@ module com.excape {
     requires javafx.fxml;
     requires json.simple;
     requires freetts;
+    requires junit;
 
     opens com.excape to javafx.fxml;
     exports com.excape;
