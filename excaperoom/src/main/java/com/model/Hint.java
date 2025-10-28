@@ -21,10 +21,16 @@ public class Hint {
     public String getHintID(){
         return id;
     }
+    /**
+     * hear puzzle description
+     */
     public void hearHint() {
         Speak.speak(tip);
     }
-
+    /**
+     * 
+     * @return puzzleID
+     */
     public String getPuzzleID() {
         return puzzleID;
     }

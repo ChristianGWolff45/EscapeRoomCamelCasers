@@ -36,15 +36,22 @@ public abstract class Puzzle {
     }
 
     public void enterAnswer(Direction[] answer){}
-
+    /**
+     * set puzzle to completed
+     */
     public void skipPuzzle(){
         this.completed = true;
     }
-
+    /**
+     * set puzzle to completed
+     */
     public void complete(){
         this.completed = true;
     }
-
+    /**
+     * 
+     * @return string puzzleID
+     */
     public String getID(){
         return puzzleID;
     }
@@ -70,15 +77,24 @@ public abstract class Puzzle {
         this.completed = true;
         // Certificate.useSkip();
     }
-
+    /**
+     * 
+     * @return arrayList of hints associated with puzzle
+     */
     public ArrayList<Hint> getHints() {
         return hints;
     }
-
+    /**
+     * 
+     * @return arrayList of clues associated with puzzle
+     */
     public ArrayList<Clue> getClues() {
         return clues;
     }
-
+    /**
+     * 
+     * @return string puzzleID
+     */
     public String getPuzzleID(){
         return puzzleID;
     }
