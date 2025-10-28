@@ -39,13 +39,24 @@ public class Game {
     public User getUser(){
         return user;
     }
+    /**
+     * 
+     * @return current room of game
+     */
     public Room getCurrentRoom(){
         return currentRoom;
     }
-
+    /**
+     * 
+     * @return certificate associated with game
+     */
     public Certificate getCertificate(){
         return certificate;
     }
+    /**
+     * 
+     * @return name of room
+     */
     public String getName(){
         return this.name;
     }
@@ -76,36 +87,63 @@ public class Game {
         return String.format("%02d:%02d", minutes, seconds);
 
     }
+    /**
+     * 
+     * starts the timer
+     */
     public void Run(){
         startTime = Instant.now();
     }
     public void loadGame(){
     }
+    /**
+     * setsTimeTaken using timeElapsed function
+     */
     public void endGame(){
         certificate.setTimeTaken(getTimeElapsed());
     }
-    
+    /**
+     * 
+     * @param puzzleID 
+     * @return a puzzle using puzzleID
+     */
     public Puzzle getPuzzle(String puzzleID){
         return puzzleMap.get(puzzleID);
     }
-
+    /**
+     * 
+     * @param hintID string hint
+     * @return finds and returns hint using hintID
+     */
     public Hint getHint(String hintID){
         return hintMap.get(hintID);
     }
-
+    /**
+     * 
+     * @param clueID String id for clue
+     * @return a specific clue
+     */
     public Clue getClue(String clueID){
         return clueMap.get(clueID);
     }
-
+    /**
+     * 
+     * @return number of puzzles in game
+     */
     public int getPuzzleCount(){
         return puzzleMap.size();
     }
-
+    /**
+     * prints out and reads story
+     */
     public void playStory(){
         System.out.println(story);
         Speak.speak(story);
     }
-
+    /**
+     * 
+     * @param roomID sets current room to roomID if it is unlocked
+     */
     public void goNextRoom(String roomID){
         currentRoom = currentRoom.goNextRoom(roomID);
     }

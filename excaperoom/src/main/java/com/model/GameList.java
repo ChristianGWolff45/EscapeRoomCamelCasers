@@ -17,14 +17,14 @@ public class GameList {
         }
         return instance;
     }
-
+    
     public ArrayList<Game> getAllGames() {
         return games;
     }
     /**
      * 
      * @param gameString
-     * @return
+     * @return return true if game exists
      */
     public boolean setCurrentGame(String gameString) {
         for(Game game : games){
