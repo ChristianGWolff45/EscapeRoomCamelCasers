@@ -30,8 +30,9 @@ public class Wordle extends Puzzle{
      * green = right letter right place
      */
     public String[][] guessAnswer(String guess){
-        guess = guess.toUpperCase();
+        if(guess == null) return (new String[0][]);
         String[][] output = new String[guess.length()][2];
+        guess = guess.toUpperCase();
         HashMap<Character, Set<Integer>> copyLetterIndex = deepCopyMap(letterIndex);
         for(int i = 0; i < guess.length(); i++){
             char letter = guess.charAt(i);

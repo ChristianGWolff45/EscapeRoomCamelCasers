@@ -32,8 +32,9 @@ public abstract class Puzzle {
         if (this.answer.equals(answer)) {
             this.completed = true;
         }
-
     }
+
+    abstract public String[][] guessAnswer(String answer);
 
     public void enterAnswer(Direction[] answer){}
     /**
