@@ -34,7 +34,7 @@ public abstract class Puzzle {
         }
     }
 
-    abstract public String[][] guessAnswer(String answer);
+    public String[][] guessAnswer(String answer){return null;};
 
     public void enterAnswer(Direction[] answer){}
     /**
