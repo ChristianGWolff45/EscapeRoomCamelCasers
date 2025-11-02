@@ -22,7 +22,17 @@ public class Game {
     private String story;
     private ArrayList<Room> roomList = new ArrayList<>();
 
-
+    /**
+     * 
+     * @param name
+     * @param user
+     * @param startingRoom
+     * @param hintMap
+     * @param puzzleMap
+     * @param clueMap
+     * @param story
+     * @param roomList
+     */
     
     public Game(String name, User user, Room startingRoom, HashMap<String, Hint> hintMap, HashMap<String, Puzzle> puzzleMap, HashMap<String, Clue> clueMap, String story, ArrayList<Room> roomList){
         this.name = name;
