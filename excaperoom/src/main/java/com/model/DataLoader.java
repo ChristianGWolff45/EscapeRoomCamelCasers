@@ -193,7 +193,7 @@ public class DataLoader extends DataConstants {
                         
 
                         if (completed) {
-                            puzzle.puzzleSolved(); // mark solved as true
+                            puzzle.complete(); // mark solved as true
                         }
                         puzzles.add(puzzle);
                         puzzleMap.put(puzzle.getPuzzleID(), puzzle);

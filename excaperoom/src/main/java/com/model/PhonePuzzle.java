@@ -19,7 +19,7 @@ public class PhonePuzzle extends Puzzle {
             return "Correct!";
         } else {
             return "Incorrect, try again.";
-        }
+        } 
     }
 
     /**

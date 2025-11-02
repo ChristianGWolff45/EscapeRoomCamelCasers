@@ -107,7 +107,7 @@ public class Room {
     public void printRoom(){
         System.out.println(roomName);
         for(Puzzle puzzle : puzzles){
-            System.out.println(puzzle.getID());
+            System.out.println(puzzle.getPuzzleID());
             for(Clue clue : puzzle.getClues()){
                 System.out.println(clue.getClueID());
             }

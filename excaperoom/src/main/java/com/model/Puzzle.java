@@ -34,6 +34,8 @@ public abstract class Puzzle {
         }
     }
 
+
+    //only used by wordle class
     public String[][] guessAnswer(String answer){return null;};
 
     public void enterAnswer(Direction[] answer){}
@@ -49,20 +51,7 @@ public abstract class Puzzle {
     public void complete(){
         this.completed = true;
     }
-    /**
-     * 
-     * @return string puzzleID
-     */
-    public String getID(){
-        return puzzleID;
-    }
 
-    /**
-     * Determines if the user has solved the puzzle without using a skip, then marks it as completed
-     */
-    public void puzzleSolved(){
-        this.completed = true;
-    }
     /**
      * get state of puzzle
      * @return
@@ -71,13 +60,7 @@ public abstract class Puzzle {
         return this.completed;
     }
 
-    /**
-     * use a skip and mark puzzle as completed
-     */
-    public void useSkip() {
-        this.completed = true;
-        // Certificate.useSkip();
-    }
+
     /**
      * 
      * @return arrayList of hints associated with puzzle

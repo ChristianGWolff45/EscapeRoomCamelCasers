@@ -6,11 +6,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 
-
-
-
-
-
 public class wordleTest {
     @Test
     public void testTesting(){
