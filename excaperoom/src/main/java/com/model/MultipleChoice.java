@@ -35,9 +35,9 @@ public class MultipleChoice extends Puzzle {
      * Prompt question for MultipleChoice
      */
     public String toString() {
-        String output = "Multiple Choice:\nEnter the correct letter: ";
+        String output = "Multiple Choice:\nEnter the correct letter:\n";
         for(int i = 0; i < options.size(); i++){
-            output += (char)('A' + i) + ") " + options.get(i);
+            output += (char)('A' + i) + ") " + options.get(i) + "   ";
         }
         return output;
     }
