@@ -12,11 +12,22 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
 
+    private static String userFilePath = DataConstants.USER_FILE_NAME;
+    private static String gameFilePath = DataConstants.GAME_FILE_NAME;
+
+    public static void setUserFilePath(String path) {
+        userFilePath = path;
+    }
+
+    public static void setGameFilePath(String path) {
+        gameFilePath = path;
+    }
+
     public static ArrayList<User> getUserList() {
         ArrayList<User> userList = new ArrayList<>();
 
         try {
-            FileReader reader = new FileReader(USER_FILE_NAME);
+            FileReader reader = new FileReader(userFilePath);
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
             JSONArray peopleJSON = (JSONArray) jsonObject.get("users");
@@ -93,7 +104,7 @@ public class DataLoader extends DataConstants {
         try {
             ArrayList<User> users = getUserList();
 
-            FileReader reader = new FileReader(GAME_FILE_NAME);
+            FileReader reader = new FileReader(gameFilePath);
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
             JSONArray gamesJSON = (JSONArray) jsonObject.get(GAME_LIST);

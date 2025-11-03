@@ -9,6 +9,17 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants{
 
+    private static String userFilePath = USER_FILE_NAME;
+    private static String tempCertificatePath = USER_TEMP_CERTIFICATE;
+
+    public static void setUserFilePath(String path) {
+        userFilePath = path;
+    }
+
+    public static void setTempCertificatePath(String path) {
+        tempCertificatePath = path;
+    }
+
     public static void saveUser() {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getAllUsers();
@@ -21,7 +32,7 @@ public class DataWriter extends DataConstants{
         }
         output.put(USER_USERS, jsonUsers);
 
-        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+        try (FileWriter file = new FileWriter(userFilePath)) {
             file.write(output.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -105,18 +116,13 @@ public class DataWriter extends DataConstants{
         output2 += "\nYou got  " + user.getScore() + " points!";
 
         output.put(USER_CERTIFICATE, certificate);
-        try (FileWriter file = new FileWriter(USER_TEMP_CERTIFICATE)) {
+        try (FileWriter file = new FileWriter(tempCertificatePath)) {
             file.write(output2);
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        
-
     }
-
     public static void main(String[] args) {
         DataWriter.saveUser();
     }
