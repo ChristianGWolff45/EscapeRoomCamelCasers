@@ -2,7 +2,9 @@ package com.model;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-
+/**
+ * @author Christian Wolff
+ */
 public class PhonePuzzleTest {
     @Test
     public void testEnterGuess_wrongGuess(){

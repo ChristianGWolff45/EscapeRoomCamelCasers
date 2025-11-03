@@ -3,7 +3,12 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
+/**
+ * @author Christian Wolff
+ */
+/**
+ * issues: #50, #51, #52, #53
+ */
 public class ProgressTest {
     @Test
     public void nullConstructor(){

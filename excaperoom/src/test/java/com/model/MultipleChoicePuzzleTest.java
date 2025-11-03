@@ -3,6 +3,14 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+
+/**
+ * @author Christian Wolff
+ */
+
+ /**
+  * issues #38, #39
+  */
 public class MultipleChoicePuzzleTest {
     @Test
     public void testConstructor_normalOptions(){

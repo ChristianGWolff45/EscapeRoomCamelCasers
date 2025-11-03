@@ -5,7 +5,9 @@ import java.util.Arrays;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-
+/**
+ * @author Christian Wolff
+ */
 public class wordleTest {
     @Test
     public void testTesting(){
