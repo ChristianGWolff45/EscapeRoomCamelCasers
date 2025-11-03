@@ -9,9 +9,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * JUnit4 tests for com.model.Room using only ArrayList (no Collections helpers).
- */
 public class RoomTest {
 
     private Room room;
@@ -140,7 +137,6 @@ public class RoomTest {
 
     /**
      * Minimal concrete Puzzle subclass for use in Room tests.
-     * Uses the Puzzle constructor from your code.
      */
     static class TestPuzzle extends Puzzle {
         TestPuzzle(ArrayList<Clue> clues, ArrayList<Hint> hints, String answer, boolean completed, String puzzleID) {
