@@ -79,7 +79,7 @@ public class Progress{
      * and what hints were used
      */
     public void displayProgress(){
-        int percent  = displayProgressBar();
+        int percent = displayProgressBar();
         System.out.println("You have solved " + puzzlesCompleted + " out of " + totalPuzzles + " puzzles!" + " You are " + percent + "% of the way done!");
         System.out.print("\nPuzzles Solved: ");
         for(String puzzle : puzzlesSolved){

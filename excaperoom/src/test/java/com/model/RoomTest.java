@@ -1,11 +1,13 @@
 package com.model;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * JUnit4 tests for com.model.Room using only ArrayList (no Collections helpers).
@@ -19,17 +21,17 @@ public class RoomTest {
     @Before
     public void setUp() {
         // create a completed puzzle using real Clue/Hint objects
-        ArrayList<Clue> clues = new ArrayList<Clue>();
-        ArrayList<Hint> hints = new ArrayList<Hint>();
+        ArrayList<Clue> clues = new ArrayList<>();
+        ArrayList<Hint> hints = new ArrayList<>();
         TestPuzzle completedPuzzle = new TestPuzzle(clues, hints, "ANSWER", false, "p1");
         completedPuzzle.complete(); // ensure puzzle marked completed for tests that need it
 
-        ArrayList<Puzzle> puzzles = new ArrayList<Puzzle>();
+        ArrayList<Puzzle> puzzles = new ArrayList<>();
         puzzles.add(completedPuzzle);
 
-        ArrayList<Room> nextRooms = new ArrayList<Room>();
-        neighborLocked = new Room("r2", "LockedNeighbor", new ArrayList<Puzzle>(), new ArrayList<Room>(), false, false);
-        neighborUnlocked = new Room("r3", "UnlockedNeighbor", new ArrayList<Puzzle>(), new ArrayList<Room>(), true, false);
+        ArrayList<Room> nextRooms = new ArrayList<>();
+        neighborLocked = new Room("r2", "LockedNeighbor", new ArrayList<>(), new ArrayList<>(), false, false);
+        neighborUnlocked = new Room("r3", "UnlockedNeighbor", new ArrayList<>(), new ArrayList<>(), true, false);
 
         nextRooms.add(neighborLocked);
         nextRooms.add(neighborUnlocked);
@@ -46,7 +48,7 @@ public class RoomTest {
     @Test
     public void addNextRoomAppendsNewNeighborAndNavigationRespectsLock() {
         // add locked neighbor
-        Room newRoomLocked = new Room("r4", "NewRoom", new ArrayList<Puzzle>(), new ArrayList<Room>(), false, false);
+        Room newRoomLocked = new Room("r4", "NewRoom", new ArrayList<>(), new ArrayList<>(), false, false);
         room.addNextRoom(newRoomLocked);
 
         // attempt to go to locked neighbor - should return current room
@@ -54,7 +56,7 @@ public class RoomTest {
         assertSame("New locked neighbor should not be entered", room, result);
 
         // add unlocked neighbor and navigate to it
-        Room newRoomUnlocked = new Room("r5", "NewRoomUnlocked", new ArrayList<Puzzle>(), new ArrayList<Room>(), true, false);
+        Room newRoomUnlocked = new Room("r5", "NewRoomUnlocked", new ArrayList<>(), new ArrayList<>(), true, false);
         room.addNextRoom(newRoomUnlocked);
 
         Room moved = room.goNextRoom("NewRoomUnlocked");
@@ -86,17 +88,17 @@ public class RoomTest {
     @Test
     public void unlockNeighborsFailsIfAnyPuzzleIncomplete() {
         // create puzzles: one completed, one incomplete
-        ArrayList<Clue> c = new ArrayList<Clue>();
-        ArrayList<Hint> h = new ArrayList<Hint>();
+        ArrayList<Clue> c = new ArrayList<>();
+        ArrayList<Hint> h = new ArrayList<>();
         TestPuzzle done = new TestPuzzle(c, h, "YES", false, "done");
         done.complete();
         TestPuzzle notDone = new TestPuzzle(c, h, "NO", false, "notdone");
 
-        ArrayList<Puzzle> mixed = new ArrayList<Puzzle>();
+        ArrayList<Puzzle> mixed = new ArrayList<>();
         mixed.add(done);
         mixed.add(notDone);
 
-        ArrayList<Room> neighborList = new ArrayList<Room>();
+        ArrayList<Room> neighborList = new ArrayList<>();
         neighborList.add(neighborLocked);
 
         Room r = new Room("rA", "MixedRoom", mixed, neighborList, true, false);
@@ -108,15 +110,15 @@ public class RoomTest {
 
     @Test
     public void unlockNeighborsUnlocksAllNeighborsWhenAllPuzzlesCompleted() {
-        ArrayList<Clue> c = new ArrayList<Clue>();
-        ArrayList<Hint> h = new ArrayList<Hint>();
+        ArrayList<Clue> c = new ArrayList<>();
+        ArrayList<Hint> h = new ArrayList<>();
         TestPuzzle doneA = new TestPuzzle(c, h, "X", false, "pA");
         doneA.complete();
 
-        ArrayList<Puzzle> allDone = new ArrayList<Puzzle>();
+        ArrayList<Puzzle> allDone = new ArrayList<>();
         allDone.add(doneA);
 
-        ArrayList<Room> neighborList = new ArrayList<Room>();
+        ArrayList<Room> neighborList = new ArrayList<>();
         neighborList.add(neighborLocked);
 
         Room r = new Room("rB", "DoneRoom", allDone, neighborList, true, false);
@@ -129,7 +131,7 @@ public class RoomTest {
 
     @Test
     public void isExitReflectsConstructorValue() {
-        Room exitRoom = new Room("exit", "ExitRoom", new ArrayList<Puzzle>(), new ArrayList<Room>(), true, true);
+        Room exitRoom = new Room("exit", "ExitRoom", new ArrayList<>(), new ArrayList<>(), true, true);
         assertTrue("Room constructed as exit should return true for isExit()", exitRoom.isExit());
         assertFalse("Normal room should not be exit", room.isExit());
     }
