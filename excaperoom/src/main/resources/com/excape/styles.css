@@ -1,0 +1,36 @@
+.root {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Helvetica";
+    -fx-text-fill: #ffffff; 
+
+    /* dark garnet gradient background */
+    -fx-background-color: linear-gradient(to bottom, #2c0004, #0e0000);
+}
+
+
+
+.text {
+    -fx-text-fill: white;
+    -fx-fill: white;
+    -fill: white;
+}
+
+.button{
+  -fx-text-fill: white;
+  -fx-background-color: #73000A;
+  -background-color: #73000A;
+}
+
+Rectangle {
+  -fx-text-fill: white;
+}
+VBox .text {
+  -fx-radius: 20;
+  -fx-text-fill: white;
+  -fx-fill: white;
+  -fill: white;
+}
+
+VBox {
+  -fx-background-color: BLACK;
+}
