@@ -1,0 +1,33 @@
+.root {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Helvetica";
+    -fx-text-fill: #ffffff; 
+
+    /* dark garnet gradient background */
+    -fx-background-color: black;
+}
+
+.AnchorPane {
+    -fx-background-color: black;
+}
+.text{
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+
+.button, .toggle-button {
+  -fx-text-fill: white;
+  -fx-background-color: #73000A;
+  -fx-background-radius: 6;
+  -fx-padding: 20 20 20 20;
+  -fx-font-size: 14px;
+}
+
+
+
+.root,
+.scroll-pane,
+.scroll-pane .viewport,
+AnchorPane {
+    -fx-background-color: black;
+}

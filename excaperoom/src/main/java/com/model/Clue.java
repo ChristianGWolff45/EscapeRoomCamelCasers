@@ -33,5 +33,9 @@ public class Clue {
     public void displayClue() {
         System.out.println(id + ": " + description);
     }
+
+    public String getDescription(){
+        return description;
+    }
     
 }
