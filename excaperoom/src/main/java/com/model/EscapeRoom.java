@@ -115,21 +115,25 @@ public class EscapeRoom {
     public void displayClue(String clueID){
         gameList.findClue(clueID).displayClue();
     }
+
+    public void hearHint(String hintID){
+        gameList.findHint(hintID).hearHint();
+    }
     /**
      * 
      * @param hintID uses hint for user
      * then displays it
      */
-    public void useHint(String hintID){
+    public String useHint(String hintID){
         userList.getCurrentUser().useHint(hintID);
-        displayHint(hintID);
+        return displayHint(hintID);
     }
     /**
      * 
      * @param hintID displays hint
      */
-    public void displayHint(String hintID){
-        gameList.findHint(hintID).displayHint();
+    public String displayHint(String hintID){
+        return gameList.findHint(hintID).displayHint();
     }
     /**
      * @param puzzleID enter a puzzleID to solve
@@ -202,5 +206,8 @@ public class EscapeRoom {
 
     }
 
+    public boolean puzzleUnlocked(String puzzleID){
+        return gameList.findPuzzle(puzzleID).isCompleted();
+    }
 
 }

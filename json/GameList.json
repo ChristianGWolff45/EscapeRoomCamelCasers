@@ -40,13 +40,9 @@
                                 {
                                     "id": "directionalPuzzle_Hint1",
                                     "tip": "Try using the direction of the words in the word search"
-                                },
-                                {
-                                    "id": "directionalPuzzle_Hint2",
-                                    "tip": "excaperoom/src/main/java/com/model/images/wordSearchKey.pdf"
                                 }
                             ],
-                            "answer": "RIGHTDOWNUPLEFT",
+                            "answer": "→↓↑←",
                             "completed": false
                         },
                         {

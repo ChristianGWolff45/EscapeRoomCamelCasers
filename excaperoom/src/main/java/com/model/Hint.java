@@ -38,8 +38,8 @@ public class Hint {
     /**
      * Display hint tip
      */
-    public void displayHint() {
-        System.out.println(id + ": " + tip);
+    public String displayHint() {
+        return (id + ": " + tip);
     }
 
     public String getDescription() {
