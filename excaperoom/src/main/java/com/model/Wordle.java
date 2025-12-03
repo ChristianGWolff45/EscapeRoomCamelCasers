@@ -53,11 +53,18 @@ public class Wordle extends Puzzle{
                     output[i][1] ="red";
                 }else{
                     Iterator<Integer> it = copyLetterIndex.get(letter).iterator();
-                    it.next();
+                    if(it.hasNext()){
+                        it.next();
+                        output[i][0] = String.valueOf(letter);
+                        output[i][1] = "yellow";
+                        it.remove();
+                        if(copyLetterIndex.get(letter).isEmpty()) copyLetterIndex.remove(letter);
+                    } else {
+                    // defensive fallback: no occurrences left
                     output[i][0] = String.valueOf(letter);
-                    output[i][1] = "yellow";
-                    it.remove();
-                    if(copyLetterIndex.get(letter).isEmpty()) copyLetterIndex.remove(letter);
+                    output[i][1] = "red";
+                    copyLetterIndex.remove(letter);
+                    }
                 }
             }
         }

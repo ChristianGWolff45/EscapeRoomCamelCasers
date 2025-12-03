@@ -1,0 +1,91 @@
+/* ---------------------------------------------
+   GLOBAL NEWSPAPER LOOK
+   --------------------------------------------- */
+.root {
+    -fx-font-family: "Georgia", "Times New Roman", serif;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #f6f3ee, #e9e6dd);
+}
+
+/* ---------------------------------------------
+   HEADER / MASTHEAD
+   --------------------------------------------- */
+.header {
+    -fx-alignment: center;
+    -fx-padding: 18 0 6 0;
+}
+
+.masthead {
+    -fx-font-size: 34px;
+    -fx-fill: #111111;
+    -fx-font-weight: bold;
+    -fx-font-family: "Bodoni MT", "Georgia", serif;
+}
+
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-fill: #333333;
+}
+
+/* ---------------------------------------------
+   STATUS TEXT (bottom message)
+   --------------------------------------------- */
+.status {
+    -fx-font-size: 14px;
+    -fx-fill: #2b2b2b;
+}
+
+/* ---------------------------------------------
+   GRID BOARD STYLING
+   --------------------------------------------- */
+.board {
+    -fx-alignment: center;
+}
+
+/* Base tile appearance */
+.tile-bg {
+    -fx-arc-width: 6;
+    -fx-arc-height: 6;
+    -fx-stroke: #73000A;
+    -fx-stroke-width: 1;
+    -fx-fill: white;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 3, 0, 0, 1);
+}
+
+.tile-text {
+    -fx-fill: #1a1a1a;
+    -fx-font-weight: bold;
+}
+
+/* ---------------------------------------------
+   TILE STATES (Wordle-style)
+   --------------------------------------------- */
+
+/* Correct letter, correct position */
+.tile-correct {
+    -fx-fill: #6aaa64; /* green */
+}
+
+/* Correct letter, wrong position */
+.tile-present {
+    -fx-fill: #c9b458; /* gold */
+}
+
+/* Letter not in word */
+.tile-absent {
+    -fx-fill: #787c7e; /* gray */
+}
+
+.text {
+    -fx-text-fill: white;
+    -fx-fill: white;
+    -fill: white;
+}
+
+.button{
+  -fx-text-fill: white;
+  -fx-background-color: #73000A;
+  -background-color: #73000A;
+  -fx-pref-width: 150px;
+  -fx-pref-height: 40px;
+}

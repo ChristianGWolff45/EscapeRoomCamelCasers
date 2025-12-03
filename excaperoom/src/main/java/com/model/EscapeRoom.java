@@ -210,4 +210,8 @@ public class EscapeRoom {
         return gameList.findPuzzle(puzzleID).isCompleted();
     }
 
+    public String[][] wordleResponse(String puzzleID, String guess){
+        return gameList.findPuzzle(puzzleID).guessAnswer(guess);
+    }
+
 }
