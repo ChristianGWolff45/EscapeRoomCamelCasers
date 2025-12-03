@@ -6,6 +6,7 @@ import com.model.EscapeRoom;
 import com.model.GameList;
 import com.model.Hint;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -79,22 +80,18 @@ public class NewspaperPage1Controller implements Initializable {
                 boardGrid.setFocusTraversable(true);
                 boardGrid.addEventFilter(KeyEvent.KEY_PRESSED, keyHandler);
                 nodeHandlerRegistered = true;
-                System.out.println("[Controller] Node-level key handler registered on boardGrid.");
             } catch (Exception e) {
                 System.out.println("[Controller] Node-level registration failed: " + e);
             }
         } else {
-            System.out.println("[Controller] WARNING: boardGrid is null in initialize()");
         }
 
         // Scene-level registration when scene becomes available (idempotent)
         if (boardGrid != null) {
             boardGrid.sceneProperty().addListener((obs, oldScene, newScene) -> {
                 if (newScene != null) {
-                    System.out.println("[Controller] sceneProperty changed - newScene available.");
                     registerSceneHandlerOnce(newScene);
                 } else {
-                    System.out.println("[Controller] sceneProperty changed - scene removed.");
                     sceneHandlerRegistered = false;
                 }
             });
@@ -322,26 +319,16 @@ public class NewspaperPage1Controller implements Initializable {
 
     @FXML
     private void onNextPage(ActionEvent event) {
-        System.out.println("[UI] Next page requested");
-        // enable Prev once we move forward
-        if (prevButton != null) {
-            prevButton.setDisable(false);
-            prevButton.setOpacity(1.0);
+        try {
+            App.setRoot("NewspaperPage2");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-
-    // Example navigation (commented) — replace with your real FXML filename and logic:
-    // try {
-    //     Parent nextRoot = FXMLLoader.load(getClass().getResource("NewspaperPage2.fxml"));
-    //     Stage st = (Stage)((Node)event.getSource()).getScene().getWindow();
-    //     st.getScene().setRoot(nextRoot);
-    // } catch (Exception e) {
-    //     e.printStackTrace();
-    // }
     }
 
     @FXML
     private void onPrevPage(ActionEvent event) {
-        System.out.println("[UI] Previous page requested");
         // Implement your backward navigation here. If this is the first page, keep disabled:
         // Example to disable again after going back:
         // prevButton.setDisable(true);
@@ -357,11 +344,11 @@ public class NewspaperPage1Controller implements Initializable {
 
     @FXML
     private void onHint(ActionEvent event) {
-        System.out.println("[UI] Hint requested");
+        escapeRoom.hearHint("wordlePuzzle_Hint");
         Alert a = new Alert(AlertType.INFORMATION);
         a.setTitle("Hint");
         a.setHeaderText("Small hint");
-        a.setContentText("Look for mechanical parts in the room. (Example hint text)");
+        a.setContentText(escapeRoom.useHint("wordlePuzzle_Hint"));
         a.showAndWait();
     }
 }

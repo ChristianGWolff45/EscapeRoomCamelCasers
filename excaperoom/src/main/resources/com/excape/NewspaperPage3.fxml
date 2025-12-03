@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.excape.NewspaperPage3Controller"
+            stylesheets="@wordle-styles.css"
+            focusTraversable="true">
+
+    <!-- Top: newspaper header with navigation buttons -->
+    <top>
+        <VBox spacing="6.0" BorderPane.alignment="CENTER" style="-fx-padding: 6 12 6 12;">
+            <!-- Centered small button group (lines up with bottom nav center) -->
+            <!-- Centered small button group that aligns with bottom NEXT button -->
+            <HBox spacing="600" alignment="CENTER">
+                <!-- Left placeholder (lines up with PREV button) -->
+                <Region />
+
+                <!-- Exit aligned above NEXT -->
+                <Button fx:id="exitButton" text="Exit" onAction="#onExit" />
+            </HBox>
+            <VBox alignment="CENTER" spacing="2.0" styleClass="header">
+                <Text styleClass="masthead">THE DAILY PUZZLE</Text>
+                <Text styleClass="subtitle">News Article</Text>
+            </VBox>
+            <HBox alignment="CENTER" spacing="12" style="-fx-padding: 8 0 8 0;">
+            <!-- ImageView will load the article image from resources.
+                 Replace @article.png with the correct resource path if needed. -->
+                <VBox alignment="CENTER" spacing="6">
+                    <ImageView fx:id="articleImage"
+                            fitWidth="800"
+                            preserveRatio="true"
+                            smooth="true"
+                            pickOnBounds="true">
+                        <image>
+                            <!-- classpath resource relative to FXML location -->
+                            <Image url="@images/WordSearch.png" />
+                        </image>
+                    </ImageView>
+                </VBox>
+            </HBox>
+
+            <!-- Newspaper masthead under the top buttons -->
+
+        </VBox>
+    </top>
+
+
+
+    <!-- Bottom: controls / status -->
+    <bottom>
+        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 12;">
+            
+            <!-- Navigation buttons centered -->
+            <HBox alignment="CENTER" spacing="480">
+                <Button fx:id="prevButton" text="◀ PREV" 
+                        onAction="#onPrevPage" 
+                />
+
+                <Button fx:id="nextButton" text="NEXT ▶" 
+                        onAction="#onNextPage" 
+                        disable="true" opacity="0.45" 
+                        />
+            </HBox>
+
+
+        </VBox>
+    </bottom>
+</BorderPane>
