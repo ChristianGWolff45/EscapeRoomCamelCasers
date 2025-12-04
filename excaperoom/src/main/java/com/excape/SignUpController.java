@@ -1,12 +1,19 @@
 package com.excape;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import com.model.EscapeRoom;
+import java.io.IOException;
 
 public class SignUpController {
 
@@ -57,14 +64,32 @@ public class SignUpController {
         boolean success = escapeRoom.signUp(username, firstName, lastName, password);
         
         if (success) {
+            // Sign up successful - navigate to next screen or show success message
             System.out.println("Sign up successful!");
         } else {
+            // Sign up failed - show error message
             System.out.println("Sign up failed. Username may already exist.");
         }
     }
 
     @FXML
-    private void handleLogin() {
-        // Handle Log In button click - navigate to login screen
+    private void handleLogin(ActionEvent event) {
+        try {
+            // Load the Login FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent loginRoot = loader.load();
+            
+            // Get the current stage from the event source
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            
+            // Set the new scene
+            Scene loginScene = new Scene(loginRoot);
+            stage.setScene(loginScene);
+            stage.show();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading Login.fxml");
+        }
     }
 }
