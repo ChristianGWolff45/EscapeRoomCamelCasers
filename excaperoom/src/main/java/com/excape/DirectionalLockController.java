@@ -49,11 +49,11 @@ public class DirectionalLockController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // ensure display starts empty
         sequenceText.setText("");
-        escapeRoom.signUp("Test", "PuzzleID", "PuzzleID", "Password");
-        escapeRoom.login("Test", "Password");
-        escapeRoom.pickGame("Escape from Swearingen");
-        System.out.println("test");
-        System.out.println(GameList.getInstance().getCurrentGame());
+        // escapeRoom.signUp("Test", "PuzzleID", "PuzzleID", "Password");
+        // escapeRoom.login("Test", "Password");
+        // escapeRoom.pickGame("Escape from Swearingen");
+        // System.out.println("test");
+        // System.out.println(GameList.getInstance().getCurrentGame());
     }
 
     // Arrow button handlers - append symbol and update displayed text
