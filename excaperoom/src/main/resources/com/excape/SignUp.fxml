@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane id="Login_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="Login_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.SignUpController">
    <children>
-      <TextField id="SignUp_Username_TextField" layoutX="50.0" layoutY="224.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Username" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
-      <TextField id="SignUp_Password_TextField" layoutX="50.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Password" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
+      <TextField fx:id="SignUp_Username_TextField" id="SignUp_Username_TextField" layoutX="50.0" layoutY="224.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Username" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
+      <TextField fx:id="SignUp_Password_TextField" id="SignUp_Password_TextField" layoutX="50.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Password" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
       <Text id="Login_Password_Text" fill="WHITE" layoutX="50.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
       <Text id="Login_Username_Text" fill="WHITE" layoutX="52.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-      <Button id="SignUp_Begin_Button" layoutX="100.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: rgb(130, 23, 25); -fx-background-radius: 5;" text="Begin Adventure!" textFill="WHITE" />
+      <Button id="SignUp_Begin_Button" layoutX="100.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: rgb(130, 23, 25); -fx-background-radius: 5;" text="Begin Adventure!" textFill="WHITE" onAction="#handleBeginAdventure" />
       <ImageView id="Login_Key_ImageView" fitHeight="47.0" fitWidth="50.0" layoutX="177.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Key.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="50.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Unlock the mystery. Begin your escape room adventure!" />
-      <Button id="SignUp_Login_Button" layoutX="169.0" layoutY="374.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: rgb(130, 23, 25);" text="Log In" textFill="WHITE" />
-      <TextField id="SignUp_LastName_TextField" layoutX="50.0" layoutY="180.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Last Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
-      <TextField id="SignUp_FirstName_TextField" layoutX="51.0" layoutY="136.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your First Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
+      <Button id="SignUp_Login_Button" layoutX="169.0" layoutY="374.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: rgb(130, 23, 25);" text="Log In" textFill="WHITE" onAction="#handleLogin"/>
+      <TextField fx:id="SignUp_LastName_TextField" id="SignUp_LastName_TextField" layoutX="50.0" layoutY="180.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Last Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
+      <TextField fx:id="SignUp_FirstName_TextField" id="SignUp_FirstName_TextField" layoutX="51.0" layoutY="136.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your First Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
       <Text id="Login_Password_Text" fill="WHITE" layoutX="51.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
       <Text id="Login_Password_Text" fill="WHITE" layoutX="50.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
    </children>

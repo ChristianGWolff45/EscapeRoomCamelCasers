@@ -6,16 +6,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import com.model.EscapeRoom;
 
 public class SignUpController {
+
+    private EscapeRoom escapeRoom;
 
     @FXML
     private Pane Login_Pane;
 
-     @FXML
+    @FXML
     private TextField SignUp_FirstName_TextField;
 
-     @FXML
+    @FXML
     private TextField SignUp_LastName_TextField;
 
     @FXML
@@ -41,16 +44,27 @@ public class SignUpController {
 
     @FXML
     private void initialize() {
-        // Initialization logic here
+        escapeRoom = new EscapeRoom();
     }
 
     @FXML
     private void handleBeginAdventure() {
-        // Handle Begin Adventure button click
+        String firstName = SignUp_FirstName_TextField.getText();
+        String lastName = SignUp_LastName_TextField.getText();
+        String username = SignUp_Username_TextField.getText();
+        String password = SignUp_Password_TextField.getText();
+
+        boolean success = escapeRoom.signUp(username, firstName, lastName, password);
+        
+        if (success) {
+            System.out.println("Sign up successful!");
+        } else {
+            System.out.println("Sign up failed. Username may already exist.");
+        }
     }
 
     @FXML
     private void handleLogin() {
-        // Handle Log In button click
+        // Handle Log In button click - navigate to login screen
     }
 }
