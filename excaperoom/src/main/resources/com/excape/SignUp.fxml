@@ -21,8 +21,8 @@
       </ImageView>
       <Text fill="WHITE" layoutX="50.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Unlock the mystery. Begin your escape room adventure!" />
       <Button id="SignUp_Login_Button" layoutX="169.0" layoutY="374.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: rgb(130, 23, 25);" text="Log In" textFill="WHITE" />
-      <TextField id="SignUp_Username_TextField" layoutX="50.0" layoutY="180.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Last Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
-      <TextField id="SignUp_Username_TextField" layoutX="51.0" layoutY="136.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your First Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
+      <TextField id="SignUp_LastName_TextField" layoutX="50.0" layoutY="180.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your Last Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
+      <TextField id="SignUp_FirstName_TextField" layoutX="51.0" layoutY="136.0" prefHeight="25.0" prefWidth="300.0" promptText="Enter your First Name" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40); -fx-border-radius: 5;" />
       <Text id="Login_Password_Text" fill="WHITE" layoutX="51.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
       <Text id="Login_Password_Text" fill="WHITE" layoutX="50.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
    </children>
