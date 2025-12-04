@@ -1,0 +1,97 @@
+.leaderboard-row {
+    -fx-pref-height: 50;
+    -fx-alignment: CENTER-LEFT;
+    -fx-spacing: 10;
+    -fx-padding: 10 20 10 20;
+
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #9F0712;
+    -fx-border-opacity: 0.4;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10px 0;
+}
+
+.leaderboard-row:hover {
+    -fx-background-color: #383838;
+}
+
+.rank-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-min-width: 50px;
+}
+
+.username-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.score-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffe3e3;
+}
+
+#leaderboardVBox {
+    -fx-background-color: #1E1E1E;
+}
+
+#mainScrollPane {
+    -fx-background-color: transparent;
+    -fx-border-radius: -leaderboard-radius;
+}
+
+#mainScrollPane .viewport {
+    -fx-background-color: #1E1E1E;
+}
+
+#mainScrollPane .scroll-bar:vertical,
+#mainScrollPane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+#mainScrollPane .scroll-bar .thumb {
+    -fx-background-color: #9F0712;
+    -fx-opacity: 0.4;
+    -fx-background-radius: 5em;
+}
+
+#mainScrollPane .scroll-bar .thumb:hover {
+    -fx-background-color: #a3212a;
+}
+
+#mainScrollPane .scroll-bar .increment-button,
+#mainScrollPane .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+
+#mainScrollPane .scroll-bar .track {
+    -fx-background-color: #333333;
+    -fx-background-radius: 5em;
+}
+
+.username-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-text-overrun: ellipsis;
+    -fx-max-width: 250; 
+    -fx-min-width: 0; 
+}
+
+.button{
+    -fx-background-color: #491113;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #5c1116;
+}
+
+.button:pressed {
+    -fx-background-color: #521113;
+}
