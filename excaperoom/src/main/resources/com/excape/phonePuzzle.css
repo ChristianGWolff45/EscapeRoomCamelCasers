@@ -34,10 +34,13 @@
 
 /* TOP DISPLAYS (typed digits and letter groups) */
 #numberDisplay {
-    -fx-fill: #ffffff;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-opacity: 0.98;
+}
+
+.display-text {
+    -fx-fill: white;
 }
 
 /* (lettersDisplay kept for compatibility; you can remove if unused) */
@@ -84,7 +87,7 @@
     -fx-border-radius: 40px;
 
     -fx-alignment: center;
-    -fx-padding: 6;              /* breath for internal graphics */
+    -fx-padding: 6;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 6, 0.3, 1, 3);
 }
 
@@ -135,7 +138,6 @@
 .button .text {
     -fx-text-alignment: center;
     -fx-translate-y: 0;
-    /* ensure text color inherits correctly inside graphic nodes */
     -fx-fill: inherit;
 }
 
@@ -145,11 +147,10 @@
     -fx-faint-focus-color: transparent;
 }
 
-/* EXIT button (small circular X in top-right) */
-/* Use same garnet family as other buttons and visible white X */
+/* EXIT button */
 .exit-button {
-    -fx-background-color: #73000A;   /* garnet */
-    -fx-text-fill: #ffffff;          /* white X */
+    -fx-background-color: #73000A;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
 
@@ -166,12 +167,22 @@
     -fx-opacity: 1.0;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 4, 0.2, 0, 1);
 }
-
-/* Make hover/pressed match the other garnet button behavior */
 .exit-button:hover   { -fx-background-color: #9b0012; }
 .exit-button:pressed { -fx-background-color: #520008; }
 
-/* Responsive layout hints (optional, doesn't force scaling) */
+/* SUCCESS / FAILURE color styles for the Text display */
+/* Target Text nodes explicitly so JavaFX styling applies correctly */
+Text.number-correct {
+    -fx-fill: #00e645;        /* bright green */
+    -fx-font-weight: bold;
+}
+
+Text.number-wrong {
+    -fx-fill: #db0e0e;        /* bright red */
+    -fx-font-weight: bold;
+}
+
+/* Responsive layout hints (optional) */
 @media screen and (max-width: 700px) {
     .button.circle-button { -fx-min-width: 64px; -fx-min-height: 64px; -fx-max-width: 64px; -fx-max-height: 64px; }
     .call-button { -fx-min-width: 72px; -fx-min-height: 72px; -fx-max-width: 72px; -fx-max-height: 72px; }

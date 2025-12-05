@@ -45,6 +45,7 @@
               text=""
               wrappingWidth="240"
               textAlignment="CENTER"
+              styleClass="display-text"
               style="-fx-font-size:22px; -fx-font-weight:bold;"/>
       </children>
     </VBox>

@@ -1,11 +1,14 @@
 package com.excape;
 
+import com.model.EscapeRoom;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -13,17 +16,28 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Phone puzzle controller — multi-tap keypad that decodes digits to letters and submits a guess.
+ * Integrates with EscapeRoom to mark puzzle as solved in the same way as your other puzzles.
+ */
 public class PhoneController {
 
     @FXML private Text numberDisplay;        // fx:id in FXML for showing raw digits / final word
     @FXML private Button exitButton;         // fx:id in FXML (optional)
     @FXML private GridPane keypadGrid;       // fx:id in FXML (optional, defensive attachments)
 
+    // Optional: if you have a hint button, add an @FXML field for it so we can disable it on success.
+    @FXML private Button hintButton;         // optional; if not present in FXML, leave it null
+
     // typed raw digits buffer (keeps repeats for multi-tap)
     private final StringBuilder typed = new StringBuilder();
 
     // mapping digit -> letters for multi-tap decoding
     private final Map<Character, String> digitToLetters = new HashMap<>();
+
+    // Puzzle integration
+    private final String PuzzleID = "phonePuzzle";
+    private final EscapeRoom escapeRoom = new EscapeRoom();
 
     public PhoneController() {
         digitToLetters.put('0', " ");
@@ -40,8 +54,14 @@ public class PhoneController {
 
     @FXML
     private void initialize() {
-        // ensure display starts empty
-        if (numberDisplay != null) numberDisplay.setText("");
+        // ensure display starts empty and base display class is present
+        if (numberDisplay != null) {
+            numberDisplay.setText("");
+            // ensure default display class is present so CSS default color applies
+            if (!numberDisplay.getStyleClass().contains("display-text")) {
+                numberDisplay.getStyleClass().add("display-text");
+            }
+        }
 
         // Attach defensive handlers once the scene graph is realized
         Platform.runLater(new Runnable() {
@@ -52,10 +72,6 @@ public class PhoneController {
         });
     }
 
-    /**
-     * Attach handlers to any Button children of the keypadGrid that are missing onAction.
-     * Also adds a mouseClicked debug print so we can see clicks in the console.
-     */
     private void attachButtonHandlersIfMissing() {
         if (keypadGrid == null) {
             System.out.println("PhoneController: keypadGrid is null (no defensive attachment).");
@@ -71,7 +87,7 @@ public class PhoneController {
                     b.setOnAction(event -> handleNumberClick(event));
                 }
 
-                // Add a mouse-click debug print for visibility
+                // Add a mouse-click debug print for visibility (optional)
                 b.setOnMouseClicked(evt -> {
                     Object ud = b.getUserData();
                     String label = (ud != null) ? ud.toString() : b.getText();
@@ -99,9 +115,11 @@ public class PhoneController {
 
         typed.append(d);
 
-        // Show raw digits while typing
+        // Show raw digits while typing and clear any previous result styling
         if (numberDisplay != null) {
             numberDisplay.setText(typed.toString());
+            numberDisplay.getStyleClass().remove("number-correct");
+            numberDisplay.getStyleClass().remove("number-wrong");
         }
 
         System.out.println("handleNumberClick: appended digit " + d + " (raw buffer: " + typed + ")");
@@ -132,20 +150,57 @@ public class PhoneController {
         }
 
         String decoded = decodeMultiTap(raw);
-        if (numberDisplay != null) numberDisplay.setText(decoded);
 
-        System.out.println("handleCall: submitted raw=" + raw + " decoded=" + decoded);
+        if (numberDisplay != null) {
+            // show decoded word
+            numberDisplay.setText(decoded);
 
-        // clear after submit
+            // reset classes
+            numberDisplay.getStyleClass().remove("number-correct");
+            numberDisplay.getStyleClass().remove("number-wrong");
+        }
+
+        // Use centralized helper to evaluate guess (it will call solvePuzzle & check unlocked)
+        boolean correct = isCorrectGuess(decoded);
+
+        if (numberDisplay != null) {
+            if (correct) numberDisplay.getStyleClass().add("number-correct");
+            else numberDisplay.getStyleClass().add("number-wrong");
+
+            System.out.println("handleCall: classes now = " + numberDisplay.getStyleClass());
+        }
+
+        if (correct) {
+            showAlert(AlertType.INFORMATION, "Unlocked!", "The puzzle is solved — well done!");
+            setButtonsDisabled(true);
+        } else {
+            showAlert(AlertType.ERROR, "Incorrect", "That guess is incorrect.");
+        }
+
+        // clear buffer for next attempt
         typed.setLength(0);
     }
 
+    /**
+    * Minimal helper that asks the EscapeRoom backend whether the given decoded word
+    * solves the puzzle. It will call solvePuzzle(...) to let the backend evaluate it,
+    * then return the unlocked state.
+    */
+    private boolean isCorrectGuess(String decodedWord) {
+        if (decodedWord == null) return false;
+        // normalize (adjust depending on backend expectations)
+        String guess = decodedWord.trim();
+
+        // let backend evaluate the guess (some backends expect specific casing)
+        escapeRoom.solvePuzzle(PuzzleID, guess);
+
+        // return whether the puzzle is now unlocked
+        return escapeRoom.puzzleUnlocked(PuzzleID);
+    }
+
+
     // ------------------- multi-tap decoder -------------------
 
-    /**
-     * Group consecutive identical digits and pick the corresponding letter.
-     * e.g. "36664" -> groups: "3","666","4" -> D O G -> "dog"
-     */
     private String decodeMultiTap(String digits) {
         if (digits == null || digits.isEmpty()) return "";
 
@@ -162,8 +217,6 @@ public class PhoneController {
                 int idx = (count - 1) % letters.length();
                 out.append(letters.charAt(idx));
             }
-            // else ignore digits with no letter mapping
-
             i = j;
         }
 
@@ -172,22 +225,12 @@ public class PhoneController {
 
     // ------------------- digit extraction -------------------
 
-    /**
-     * Try to extract a single-digit string from the given Button.
-     * Order:
-     *  1) userData
-     *  2) graphic Text with styleClass "digit-text" (via lookup)
-     *  3) first Text found recursively inside graphic
-     *  4) button.getText()
-     */
     private String getDigitFromButton(Button btn) {
-        // 1) userData
         Object ud = btn.getUserData();
         if (ud != null && !ud.toString().isEmpty()) {
             return ud.toString();
         }
 
-        // 2) graphic lookup
         if (btn.getGraphic() instanceof Parent) {
             Parent root = (Parent) btn.getGraphic();
 
@@ -199,12 +242,10 @@ public class PhoneController {
                 }
             } catch (Exception ignored) {}
 
-            // 3) recursive search
             String foundText = findTextInNode(root);
             if (foundText != null) return foundText;
         }
 
-        // 4) button text
         String bt = btn.getText();
         if (bt != null && !bt.isEmpty()) return bt.substring(0, 1);
 
@@ -226,13 +267,35 @@ public class PhoneController {
         return null;
     }
 
+    // ------------------- helpers: alerts & disabling -------------------
+
+    private void showAlert(AlertType type, String title, String message) {
+        Alert a = new Alert(type);
+        a.setTitle(title);
+        a.setHeaderText(null);
+        a.setContentText(message);
+        a.showAndWait();
+    }
+
+    private void setButtonsDisabled(boolean disabled) {
+        // disable all buttons in keypadGrid
+        if (keypadGrid != null) {
+            for (Node node : keypadGrid.getChildren()) {
+                if (node instanceof Button) {
+                    ((Button) node).setDisable(disabled);
+                }
+            }
+        }
+
+        // disable exit/hint if present
+        if (exitButton != null) exitButton.setDisable(disabled);
+        if (hintButton != null) hintButton.setDisable(disabled);
+    }
+
     // ------------------- exit / navigator -------------------
 
-    public interface Navigator {
-        void goBack();
-    }
+    public interface Navigator { void goBack(); }
     private Navigator navigator;
-
     public void setNavigator(Navigator nav) { this.navigator = nav; }
 
     @FXML
