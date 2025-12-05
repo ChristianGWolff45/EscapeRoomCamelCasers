@@ -46,6 +46,13 @@ public class RoomController {
     @FXML
     private void handlePhoneClicked(MouseEvent event) {
         System.out.println("Phone clicked!");
+        try {
+            App.setRoot("phonePuzzle");
+            System.out.println("setRoot call returned");
+        } catch (IOException e) {
+            System.err.println("Failed to switch to GameInventoryClues:");
+            e.printStackTrace();
+        }
 
     }
     
@@ -64,6 +71,13 @@ public class RoomController {
     @FXML
     private void handleLockClicked(MouseEvent event) {
         System.out.println("Lock clicked!");
+        try {
+            App.setRoot("Lock");
+            System.out.println("setRoot call returned");
+        } catch (IOException e) {
+            System.err.println("Failed to switch to GameInventoryClues:");
+            e.printStackTrace();
+        }
     }
 
     @FXML

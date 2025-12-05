@@ -42,7 +42,7 @@ public class MultipleChoiceController {
     private final String[] choices = new String[] {
             "26,000",    // index 0 (top-left, A)
             "42,000",   // index 1 (top-right, B)
-            "35,000",// index 2 (bottom-left, C) <-- CORRECT
+            "37,000",// index 2 (bottom-left, C) <-- CORRECT
             "21,000"     // index 3 (bottom-right, D)
     };
 

@@ -1,6 +1,8 @@
 package com.excape;
 
 import com.model.EscapeRoom;
+import com.model.GameList;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -288,7 +291,6 @@ public class PhoneController {
         }
 
         // disable exit/hint if present
-        if (exitButton != null) exitButton.setDisable(disabled);
         if (hintButton != null) hintButton.setDisable(disabled);
     }
 
@@ -300,9 +302,11 @@ public class PhoneController {
 
     @FXML
     private void handleExit(ActionEvent event) {
-        if (navigator != null) {
-            navigator.goBack();
-            return;
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
         }
 
         Object src = event.getSource();
