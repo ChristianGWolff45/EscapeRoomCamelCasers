@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<?import java.net.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.excape.PhoneController"
+           stylesheets="@phonePuzzle.css"
+           prefWidth="640" prefHeight="640">
+
+  <children>
+    <!-- Bigger phone frame so notch/home and keypad fit comfortably.
+         mouseTransparent prevents it from intercepting clicks. -->
+    <Rectangle fx:id="phoneFrame"
+               width="320" height="560"
+               arcWidth="36" arcHeight="36"
+               styleClass="phone-frame"
+               StackPane.alignment="CENTER"
+               mouseTransparent="true"/>
+
+    <!-- Top speaker notch (positioned for fullscreen as requested) -->
+    <Rectangle fx:id="speakerNotch"
+               width="70" height="6"
+               arcWidth="3" arcHeight="3"
+               StackPane.alignment="TOP_CENTER"
+               styleClass="speaker-notch"
+               translateY="124"/>
+
+    <!-- Typed-number display (centered horizontally, positioned with translateY = -220 as you used) -->
+    <VBox fx:id="displayBox"
+          StackPane.alignment="TOP_CENTER"
+          alignment="CENTER"
+          spacing="4"
+          prefWidth="260"
+          translateY="-220">
+      <children>
+        <Text fx:id="numberDisplay" id="numberDisplay"
+              text=""
+              wrappingWidth="240"
+              textAlignment="CENTER"
+              style="-fx-font-size:22px; -fx-font-weight:bold;"/>
+      </children>
+    </VBox>
+
+    <!-- Keypad grid: CENTERED in the StackPane (so it sits centered inside the phoneFrame) -->
+    <GridPane fx:id="keypadGrid" hgap="14" vgap="14"
+              StackPane.alignment="CENTER">
+      <padding>
+        <!-- top padding increased so keypad sits below the display area;
+             bottom padding leaves space for Call button + home bar -->
+        <Insets top="150" right="28" bottom="110" left="28"/>
+      </padding>
+
+      <children>
+        <!-- Row 0 -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                onAction="#handleNumberClick" userData="1" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="1"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="0"
+                onAction="#handleNumberClick" userData="2" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="2"/>
+              <Text styleClass="letters-text" text="ABC"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="0"
+                onAction="#handleNumberClick" userData="3" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="3"/>
+              <Text styleClass="letters-text" text="DEF"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Row 1 -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="1"
+                onAction="#handleNumberClick" userData="4" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="4"/>
+              <Text styleClass="letters-text" text="GHI"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="1"
+                onAction="#handleNumberClick" userData="5" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="5"/>
+              <Text styleClass="letters-text" text="JKL"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="1"
+                onAction="#handleNumberClick" userData="6" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="6"/>
+              <Text styleClass="letters-text" text="MNO"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Row 2 -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="2"
+                onAction="#handleNumberClick" userData="7" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="7"/>
+              <Text styleClass="letters-text" text="PQRS"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="2"
+                onAction="#handleNumberClick" userData="8" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="8"/>
+              <Text styleClass="letters-text" text="TUV"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="2"
+                onAction="#handleNumberClick" userData="9" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="9"/>
+              <Text styleClass="letters-text" text="WXYZ"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Row 3 -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="3"
+                onAction="#handleClear" styleClass="rect-button">
+          <graphic>
+            <VBox alignment="CENTER">
+              <Text styleClass="letters-text" text="Clear"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="3"
+                onAction="#handleNumberClick" userData="0" styleClass="circle-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="0"/>
+              <Text styleClass="letters-text" text="␣"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="3"
+                onAction="#handleBackspace" styleClass="rect-button">
+          <graphic>
+            <VBox alignment="CENTER">
+              <Text styleClass="letters-text" text="Back"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Row 4: Call (Enter Guess) centered under 0 -->
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="4"
+                onAction="#handleCall" styleClass="call-button">
+          <graphic>
+            <VBox alignment="CENTER" spacing="2">
+              <Text styleClass="digit-text" text="📞"/>
+              <Text styleClass="letters-text" text="Call"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+      </children>
+    </GridPane>
+
+    <!-- Bottom home bar (inside frame) -->
+    <Rectangle fx:id="homeBar"
+               width="90" height="6"
+               arcWidth="3" arcHeight="3"
+               StackPane.alignment="BOTTOM_CENTER"
+               styleClass="home-bar"
+               translateY="-124"/>
+
+    <!-- EXIT / BACK button (top-right inside phone frame) placed last so it renders on top -->
+    <Button fx:id="exitButton"
+            text="✕"
+            onAction="#handleExit"
+            StackPane.alignment="TOP_RIGHT"
+            translateX="-14" translateY="26"
+            styleClass="exit-button"/>
+
+  </children>
+</StackPane>

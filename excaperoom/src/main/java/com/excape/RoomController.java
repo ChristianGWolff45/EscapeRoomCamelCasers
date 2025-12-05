@@ -30,6 +30,12 @@ public class RoomController {
     private ImageView examItem;
     @FXML
     private ImageView menuButton;
+
+    @FXML
+    private ImageView arrowRight;
+
+    @FXML
+    private ImageView arrowLeft;
     
     @FXML
     private void initialize() {
@@ -75,6 +81,16 @@ public class RoomController {
             System.err.println("Failed to switch to GameInventoryClues:");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void handleArrowLeftClicked(MouseEvent event) {
+        System.out.println("Left Arrow clicked!");
+    }
+
+    @FXML
+    private void handleArrowRightClicked(MouseEvent event) {
+        System.out.println("Right Arrow clicked!");
     }
     
     private void loadScene(MouseEvent event, String fxmlFile) {

@@ -4,7 +4,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.RoomController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
@@ -20,6 +19,11 @@
       <ImageView fx:id="newspaperItem" fitHeight="52.0" fitWidth="99.0" layoutX="306.0" layoutY="193.0" onMouseClicked="#handleNewspaperClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
             <Image url="@images/newspaper.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowRight" fitHeight="70.0" fitWidth="60.0" layoutX="540.0" layoutY="177.0" onMouseClicked="#handleArrowRightClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@images/arrow-right.png" />
          </image>
       </ImageView>
    </children>
