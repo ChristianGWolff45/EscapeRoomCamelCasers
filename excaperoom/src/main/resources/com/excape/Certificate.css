@@ -1,0 +1,40 @@
+#AnchorPane {
+    -fx-background-radius: 15;
+    -fx-background-color: #FFFFFF;
+}
+
+
+#ScorePane {
+    -fx-background-color: #9B1B30;
+    -fx-background-radius: 15;
+    -fx-border-color: black;
+    -fx-border-radius: 15;
+}
+
+#TimePane {
+    -fx-border-color: black;
+    -fx-border-radius: 15;
+}
+
+#HintPane {
+    -fx-border-color: black;
+    -fx-border-radius: 15;  
+}
+
+#SkipPane {
+    -fx-border-color: black;
+    -fx-border-radius: 15; 
+}
+
+.button{
+    -fx-background-color: #9B1B30;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #5c1116;
+}
+
+.button:pressed {
+    -fx-background-color: #361011;
+}
