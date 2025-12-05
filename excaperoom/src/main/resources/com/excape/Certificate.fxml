@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane prefHeight="895.0" prefWidth="629.0" styleClass="Certificate.css" stylesheets="@Certificate.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.CertificateController">
+   <children>
+      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="760.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="1000.0" layoutX="0.0" layoutY="0.0" stroke="#9B1B30" strokeType="INSIDE" strokeWidth="10.0" width="760.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="294.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Trophy.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="285.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Certificate of Achievement">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" fill="#9b1b30" height="5.0" layoutX="303.0" layoutY="208.0" stroke="#9b1b30" strokeType="INSIDE" width="150.0" />
+            <Pane id="ScorePane" layoutX="149.0" layoutY="414.0" prefHeight="150.0" prefWidth="461.0">
+               <children>
+                  <Text fill="WHITE" layoutX="187.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FINAL SCORE" wrappingWidth="120.69009399414062">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="48.0" fitWidth="33.0" layoutX="153.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Medal.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="scoreText" fill="WHITE" layoutX="200.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[SCORE]">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <Pane id="TimePane" layoutX="149.0" layoutY="571.0" prefHeight="100.0" prefWidth="222.0">
+               <children>
+                  <Text layoutX="83.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Used" wrappingWidth="72.00000000000011">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="63.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Clock.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="timeText" fill="#9b1b30" layoutX="91.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Time]" wrappingWidth="41.500000000000114">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane id="HintPane" layoutX="387.0" layoutY="571.0" prefHeight="100.0" prefWidth="225.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="63.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Lightbulb.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="85.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints Used" wrappingWidth="72.00000000000011">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="hintsText" fill="#9b1b30" layoutX="103.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[#]" wrappingWidth="41.500000000000114">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane id="SkipPane" layoutX="148.0" layoutY="679.0" prefHeight="81.0" prefWidth="461.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="186.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Skip.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="207.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skips Used" wrappingWidth="72.00000000000011">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="skipsText" fill="#9b1b30" layoutX="224.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[#]" wrappingWidth="16.16665649414074">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Text layoutX="249.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This certificate is proudly awarded to:">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="usernameText" fill="#9b1b30" layoutX="323.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Username]">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="3.0" fill="#9b1b30" height="1.0" layoutX="264.0" layoutY="328.0" stroke="#9b1b30" strokeType="INSIDE" width="228.0" />
+            <Text layoutX="164.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For exceptional perfomance with the following achievements:">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="58.0" layoutX="25.0" layoutY="25.0" stroke="#9b1b30" strokeType="INSIDE" width="3.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="3.0" layoutX="28.0" layoutY="25.0" stroke="#9b1b30" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="3.0" layoutX="672.0" layoutY="25.0" stroke="#9b1b30" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="58.0" layoutX="732.0" layoutY="25.0" stroke="#9b1b30" strokeType="INSIDE" width="3.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="58.0" layoutX="25.0" layoutY="917.0" stroke="#9b1b30" strokeType="INSIDE" width="3.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="3.0" layoutX="28.0" layoutY="972.0" stroke="#9b1b30" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="3.0" layoutX="672.0" layoutY="972.0" stroke="#9b1b30" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b1b30" height="58.0" layoutX="732.0" layoutY="917.0" stroke="#9b1b30" strokeType="INSIDE" width="3.0" />
+            <Button fx:id="leaderboardButton" layoutX="278.0" layoutY="891.0" mnemonicParsing="false" onAction="#handleContinueToLeaderboard" prefHeight="40.0" prefWidth="200.0" text="Continue to Leaderboard" textFill="#9b1b30" />
+            <Rectangle arcHeight="3.0" height="1.0" layoutX="503.0" layoutY="853.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <Rectangle arcHeight="3.0" height="1.0" layoutX="150.0" layoutY="853.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <Text layoutX="189.0" layoutY="866.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+               <font>
+                  <Font name="Arial" size="10.0" />
+               </font>
+            </Text>
+            <Text layoutX="532.0" layoutY="866.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signature">
+               <font>
+                  <Font name="Arial" size="10.0" />
+               </font>
+            </Text>
+            <Text id="dateText" layoutX="186.0" layoutY="846.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Date]">
+               <font>
+                  <Font name="Arial" size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#9b1b30" layoutX="518.0" layoutY="846.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Master">
+               <font>
+                  <Font name="Segoe Script" size="10.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

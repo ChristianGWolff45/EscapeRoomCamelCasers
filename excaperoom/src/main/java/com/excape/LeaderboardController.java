@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import com.model.User;
 import com.model.UserList;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -28,6 +29,13 @@ public class LeaderboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadLeaderboard();
+    }
+
+     @FXML
+    private void handleContinue() {
+        System.out.println("Exiting application...");
+        Platform.exit(); // Gracefully closes JavaFX application
+        System.exit(0);  // Ensures complete shutdown
     }
 
     private void loadLeaderboard() {

@@ -17,7 +17,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("SignUp"), 640, 480);
+        Parent root = loadFXML("GamePicker"); //Starting Scene
+        scene = new Scene(root, 1100, 1100); //640x480
+        root.setStyle("-fx-background-color: #121212;"); // so all scenes have same background
         stage.setResizable(true);
         stage.setScene(scene);
         stage.show();

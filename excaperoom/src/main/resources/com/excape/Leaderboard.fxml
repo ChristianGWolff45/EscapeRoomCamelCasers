@@ -4,35 +4,41 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.LeaderboardController">  <children>
-        <Circle fill="#46080966" layoutX="318.0" layoutY="86.0" radius="45.0" stroke="#45080966" strokeType="INSIDE" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f0712" height="5.0" layoutX="285.0" layoutY="104.0" stroke="#9f0712" strokeType="INSIDE" width="66.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="43.0" layoutX="309.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" style="-fx-stroke: #9F0712;" width="15.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="328.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" style="-fx-stroke: #9F0712;" width="15.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="21.0" layoutX="292.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" style="-fx-stroke: #9F0712;" width="13.0" />
-        <Text fill="WHITE" layoutX="253.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leaderboard">
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Text>
-        <Text fill="#ffe3e399" layoutX="191.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compare your score with others.">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <ScrollPane fx:id="mainScrollPane" layoutX="149.0" layoutY="208.0" prefHeight="198.0" prefWidth="274.0" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="208.0"> <content>
-               <VBox fx:id="leaderboardVBox" prefHeight="197.0" prefWidth="320.0" /> 
-            </content>
-         </ScrollPane>
-      <Button layoutX="262.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Continue" textFill="WHITE" />
-    </children>
-    <stylesheets>
-        <URL value="@leaderboard.css" /> 
-    </stylesheets>
-</AnchorPane>
+
+<StackPane style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.LeaderboardController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #1E1E1E;">  <children>
+              <Circle fill="#46080966" layoutX="318.0" layoutY="86.0" radius="45.0" stroke="#45080966" strokeType="INSIDE" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f0712" height="5.0" layoutX="285.0" layoutY="104.0" stroke="#9f0712" strokeType="INSIDE" width="66.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="43.0" layoutX="309.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" style="-fx-stroke: #9F0712;" width="15.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="328.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" style="-fx-stroke: #9F0712;" width="15.0" />
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="21.0" layoutX="292.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" style="-fx-stroke: #9F0712;" width="13.0" />
+              <Text fill="WHITE" layoutX="253.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leaderboard">
+                  <font>
+                      <Font size="24.0" />
+                  </font>
+              </Text>
+              <Text fill="#ffe3e399" layoutX="191.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compare your score with others.">
+                  <font>
+                      <Font size="18.0" />
+                  </font>
+              </Text>
+              <ScrollPane fx:id="mainScrollPane" layoutX="149.0" layoutY="208.0" prefHeight="198.0" prefWidth="274.0" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="208.0"> <content>
+                     <VBox fx:id="leaderboardVBox" prefHeight="197.0" prefWidth="320.0" /> 
+                  </content>
+               </ScrollPane>
+            <Button fx:id="exitButton" layoutX="262.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="26.0" prefWidth="110.0" text="Exit" textFill="WHITE" />
+          </children>
+          <stylesheets>
+              <URL value="@leaderboard.css" /> 
+          </stylesheets>
+      </AnchorPane>
+   </children>
+</StackPane>
