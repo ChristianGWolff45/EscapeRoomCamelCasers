@@ -58,7 +58,8 @@
                     disable="true" opacity="0.45" />
 
             <Button fx:id="nextButton" text="NEXT ▶" 
-                    onAction="#onNextPage" />
+                    onAction="#onNextPage" 
+                    />
         </HBox>
 
         <!-- Status text below navigation -->

@@ -71,7 +71,7 @@
 
                 <Button fx:id="nextButton" text="NEXT ▶" 
                         onAction="#onNextPage" 
-                        disable="true" opacity="0.45" 
+                        disable="false" opacity="0.45" 
                         />
             </HBox>
 

@@ -1,19 +1,22 @@
 package com.excape;
 
+import java.io.IOException;
+
+import com.model.EscapeRoom;
+import com.model.UserList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import com.model.EscapeRoom;
-import java.io.IOException;
 
 public class SignUpController {
 
@@ -62,10 +65,17 @@ public class SignUpController {
         String password = SignUp_Password_TextField.getText();
 
         boolean success = escapeRoom.signUp(username, firstName, lastName, password);
+        escapeRoom.login(username, password);
+        System.out.println(escapeRoom.getCurrentUser());
+        System.out.println(UserList.getInstance().getCurrentUser());
         
         if (success) {
             // Sign up successful - navigate to next screen or show success message
             System.out.println("Sign up successful!");
+            try {
+                App.setRoot("GamePicker");
+            } catch (IOException ex) {
+            }
         } else {
             // Sign up failed - show error message
             System.out.println("Sign up failed. Username may already exist.");

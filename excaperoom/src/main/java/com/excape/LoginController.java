@@ -1,19 +1,20 @@
 package com.excape;
 
+import java.io.IOException;
+
+import com.model.EscapeRoom;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import com.model.EscapeRoom;
-import java.io.IOException;
 
 public class LoginController {
 
@@ -52,7 +53,7 @@ public class LoginController {
     }
 
     @FXML
-    private void handleBeginAdventure() {
+    private void handleBeginAdventure() throws IOException {
         String username = Login_Username_TextField.getText();
         String password = Login_Password_TextField.getText();
 
@@ -62,6 +63,10 @@ public class LoginController {
             // Login successful - navigate to main game screen or show success message
             System.out.println("Login successful!");
             // TODO: Navigate to game screen
+            try {
+                App.setRoot("GamePicker");
+            } catch (IOException ex) {
+            }
         } else {
             // Login failed - show error message
             System.out.println("Login failed. Invalid username or password.");
@@ -79,8 +84,10 @@ public class LoginController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             
             // Set the new scene
-            Scene signupScene = new Scene(signupRoot);
-            stage.setScene(signupScene);
+            try {
+                App.setRoot("SignUp");
+            } catch (IOException ex) {
+            }
             
         } catch (IOException e) {
             e.printStackTrace();

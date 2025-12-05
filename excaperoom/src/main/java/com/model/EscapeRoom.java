@@ -10,8 +10,6 @@ public class EscapeRoom {
     public EscapeRoom() {
         userList = UserList.getInstance();
         gameList = GameList.getInstance();
-        userList.setCurrentUser(null);
-        gameList.setCurrentGame(null);
         games = gameList.getAllGames();
 
     }

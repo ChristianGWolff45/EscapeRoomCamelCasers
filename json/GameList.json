@@ -1,5 +1,4 @@
 {
-    "GameList": "gameList",
     "games": [
         {
             "name": "Escape from Swearingen",
@@ -12,12 +11,7 @@
                         {
                             "id": "wordlePuzzle",
                             "type": "wordle",
-                            "clues": [
-                                {
-                                    "id": "wordlePuzzle_Clue",
-                                    "description": "Try to guess the five letter word..."
-                                }
-                            ],
+                            "clues":[],
                             "hints": [
                                 {
                                     "id": "wordlePuzzle_Hint",
@@ -115,7 +109,7 @@
                             "clues": [
                                 {
                                     "id": "directionalPuzzle_Clue",
-                                    "description": "excaperoom/src/main/java/com/model/images/wordSearch.pdf"
+                                    "description": "The word search from the newspaper seems promising"
                                 }
                             ],
                             "hints": [
@@ -136,7 +130,7 @@
                 }
             ],
             "user": "e911c356-c1fe-4653-ba8f-8875b4c9d30f",
-            "startingRoom": "startRoom",
+            "startingRoom": "Room1",
             "mainMenu": "defaultMenu",
             "timeLeft": "00:30:00"
             

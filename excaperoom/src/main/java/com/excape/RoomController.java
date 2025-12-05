@@ -1,6 +1,9 @@
 package com.excape;
 
-import javafx.event.ActionEvent;
+import java.io.IOException;
+
+import com.model.EscapeRoom;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,8 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import com.model.EscapeRoom;
-import java.io.IOException;
 
 public class RoomController {
     
@@ -44,11 +45,19 @@ public class RoomController {
     @FXML
     private void handlePhoneClicked(MouseEvent event) {
         System.out.println("Phone clicked!");
+
     }
     
     @FXML
     private void handleNewspaperClicked(MouseEvent event) {
         System.out.println("Newspaper clicked!");
+        try {
+            App.setRoot("NewspaperPage1");
+            System.out.println("setRoot call returned");
+        } catch (IOException e) {
+            System.err.println("Failed to switch to GameInventoryClues:");
+            e.printStackTrace();
+        }
     }
     
     @FXML
@@ -64,7 +73,14 @@ public class RoomController {
     @FXML
     private void handleMenuClick(MouseEvent event) {
         System.out.println("Menu clicked!");
-        loadScene(event, "GameInventoryClues.fxml");
+        System.out.println("Menu clicked!");
+        try {
+            App.setRoot("GameInventoryClues"); // pass the FXML name without .fxml
+            System.out.println("setRoot call returned");
+        } catch (IOException e) {
+            System.err.println("Failed to switch to GameInventoryClues:");
+            e.printStackTrace();
+        }
     }
 
     @FXML
