@@ -2,11 +2,11 @@ package com.excape;
 
 import java.io.IOException;
 
+import com.model.EscapeRoom;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class NewspaperPage2Controller {
     @FXML private Button prevButton;
@@ -18,6 +18,8 @@ public class NewspaperPage2Controller {
 
     @FXML
     private void onNextPage(ActionEvent event) {
+        EscapeRoom escapeRoom = new EscapeRoom();
+        escapeRoom.pickUpClue("directionalPuzzle_Clue");
         try {
             App.setRoot("NewspaperPage3");
         } catch (IOException e) {
@@ -38,9 +40,12 @@ public class NewspaperPage2Controller {
 
     @FXML
     private void onExit(ActionEvent event) {
-        System.out.println("[UI] Exit requested");
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+        try {
+            App.setRoot("Room1");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
 
 

@@ -44,7 +44,7 @@
                   <Insets left="20.0" top="30.0" />
                </VBox.margin>
             </Text>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="877.0" text="PlayGame">
+            <Button fx:id="EscapeSwearingen" onAction="#EscapeSwearingen" mnemonicParsing="false" prefHeight="25.0" prefWidth="877.0" text="PlayGame">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="60.0" />
                </VBox.margin>

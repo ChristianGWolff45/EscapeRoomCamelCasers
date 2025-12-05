@@ -1,6 +1,5 @@
 package com.excape;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +48,7 @@ public class InventoryCluesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        gameList = GameList.getInstance();
-        userList = UserList.getInstance();
-        userList.loginUser("LRIVERS", "sAfEpAsSwOrD@!");
-        user = userList.getCurrentUser();
-
-        gameList.setCurrentGame("Escape from Swearingen");
-
+        user = UserList.getInstance().getCurrentUser();
         // show current user's hints
         displayUserItems();
     }
@@ -202,39 +195,17 @@ public class InventoryCluesController implements Initializable {
     private Button hintsButton;
 
     @FXML
-    private void onHintsClick() throws IOException {
-        App.setRoot("GameInventoryHints"); 
+    private void onHintsClick() {
+        try {
+            App.setRoot("GameInventoryHints"); 
+            System.out.println("setRoot call returned");
+        } catch (Exception e) {
+            System.err.println("Failed to load GameInventoryHints.fxml:");
+            e.printStackTrace();
+        }
+        
     }
 }
 
 
 
-//                        <StackPane fx:id="cardStack"
-//                                    AnchorPane.leftAnchor="115.0"
-//                                    AnchorPane.topAnchor="453.0"
-//                                    prefWidth="383.0" prefHeight="100.0">
-//                             <children>
-//                                 <Rectangle fx:id="cardRect"
-//                                            arcWidth="20.0" arcHeight="20.0"
-//                                            width="383.0" height="100.0"
-//                                            fill="#27272a" stroke="BLACK" strokeType="INSIDE"/>
-
-//                                 <VBox fx:id="cardVBox" spacing="4.0" alignment="TOP_LEFT"
-//                                       prefWidth="363.0" maxWidth="363.0">
-//                                     <padding>
-//                                         <Insets top="8.0" right="10.0" bottom="8.0" left="10.0"/>
-//                                     </padding>
-
-//                                     <Label fx:id="hintTitle" text="Mock Hint Name" textFill="WHITE" wrapText="true"
-//                                            style="-fx-font-weight: bold; -fx-font-size: 12px;" />
-
-//                                     <Label fx:id="puzzleName" text="Mock Puzzle Name" textFill="#9d2235" wrapText="true"
-//                                            style="-fx-font-size: 11px;" />
-
-//                                     <Label fx:id="hintDescription"
-//                                            text="Mock puzzle name description that is long and should wrap across multiple lines"
-//                                            wrapText="true" prefWidth="363.0" maxWidth="363.0" textFill="WHITE"
-//                                            style="-fx-font-size: 11px;" />
-//                                 </VBox>
-//                             </children>
-//                         </StackPane>
