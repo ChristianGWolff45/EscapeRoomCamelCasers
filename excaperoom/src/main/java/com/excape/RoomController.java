@@ -29,6 +29,12 @@ public class RoomController {
     private ImageView examItem;
     @FXML
     private ImageView menuButton;
+
+    @FXML
+    private ImageView arrowRight;
+
+    @FXML
+    private ImageView arrowLeft;
     
     @FXML
     private void initialize() {
@@ -59,6 +65,16 @@ public class RoomController {
     private void handleMenuClick(MouseEvent event) {
         System.out.println("Menu clicked!");
         loadScene(event, "GameInventoryClues.fxml");
+    }
+
+    @FXML
+    private void handleArrowLeftClicked(MouseEvent event) {
+        System.out.println("Left Arrow clicked!");
+    }
+
+    @FXML
+    private void handleArrowRightClicked(MouseEvent event) {
+        System.out.println("Right Arrow clicked!");
     }
     
     private void loadScene(MouseEvent event, String fxmlFile) {

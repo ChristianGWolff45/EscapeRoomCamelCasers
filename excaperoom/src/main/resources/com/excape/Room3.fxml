@@ -25,5 +25,15 @@
             <Point3D y="1.0" />
          </rotationAxis>
       </ImageView>
+      <ImageView fx:id="arrowRight" fitHeight="70.0" fitWidth="60.0" layoutX="540.0" layoutY="177.0" onMouseClicked="#handleArrowRightClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@images/arrow-right.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowLeft" fitHeight="70.0" fitWidth="60.0" layoutY="177.0" onMouseClicked="#handleArrowLeftClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@images/arrow-left.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
