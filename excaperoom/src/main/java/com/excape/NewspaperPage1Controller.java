@@ -66,9 +66,6 @@ public class NewspaperPage1Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        escapeRoom.signUp("Test", "PuzzleID", "PuzzleID", "Password");
-        escapeRoom.login("Test", "Password");
-        escapeRoom.pickGame("Escape from Swearingen");
 
 
         buildBoard();
@@ -319,6 +316,8 @@ public class NewspaperPage1Controller implements Initializable {
 
     @FXML
     private void onNextPage(ActionEvent event) {
+        EscapeRoom escapeRoom = new EscapeRoom();
+        escapeRoom.pickUpClue("multipleChoice_Clue1");
         try {
             App.setRoot("NewspaperPage2");
         } catch (IOException e) {
@@ -337,9 +336,12 @@ public class NewspaperPage1Controller implements Initializable {
 
     @FXML
     private void onExit(ActionEvent event) {
-        System.out.println("[UI] Exit requested");
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+        try {
+            App.setRoot("Room1");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
 
     @FXML

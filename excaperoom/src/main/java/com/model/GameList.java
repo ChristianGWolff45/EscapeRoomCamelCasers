@@ -28,6 +28,7 @@ public class GameList {
      */
     public boolean setCurrentGame(String gameString) {
         for(Game game : games){
+            System.out.println(game.getName());
             if(game.getName().equals(gameString)){
                 currentGame = game;
                 return true;

@@ -4,9 +4,7 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class NewspaperPage3Controller {
     @FXML private Button prevButton;
@@ -38,9 +36,12 @@ public class NewspaperPage3Controller {
 
     @FXML
     private void onExit(ActionEvent event) {
-        System.out.println("[UI] Exit requested");
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+        try {
+            App.setRoot("Room1");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
 
 

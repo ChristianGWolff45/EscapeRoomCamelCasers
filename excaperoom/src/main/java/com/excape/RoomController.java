@@ -1,6 +1,10 @@
 package com.excape;
 
-import javafx.event.ActionEvent;
+import java.io.IOException;
+
+import com.model.EscapeRoom;
+import com.model.GameList;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,12 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import com.model.EscapeRoom;
-import java.io.IOException;
 
 public class RoomController {
     
-    private EscapeRoom escapeRoom;
+    private EscapeRoom escapeRoom = new EscapeRoom();
     
     @FXML
     private ImageView phoneItem;
@@ -29,6 +31,12 @@ public class RoomController {
     private ImageView examItem;
     @FXML
     private ImageView menuButton;
+
+    @FXML
+    private ImageView arrowRight;
+
+    @FXML
+    private ImageView arrowLeft;
     
     @FXML
     private void initialize() {
@@ -38,11 +46,19 @@ public class RoomController {
     @FXML
     private void handlePhoneClicked(MouseEvent event) {
         System.out.println("Phone clicked!");
+
     }
     
     @FXML
     private void handleNewspaperClicked(MouseEvent event) {
         System.out.println("Newspaper clicked!");
+        try {
+            App.setRoot("NewspaperPage1");
+            System.out.println("setRoot call returned");
+        } catch (IOException e) {
+            System.err.println("Failed to switch to GameInventoryClues:");
+            e.printStackTrace();
+        }
     }
     
     @FXML
@@ -58,7 +74,79 @@ public class RoomController {
     @FXML
     private void handleMenuClick(MouseEvent event) {
         System.out.println("Menu clicked!");
-        loadScene(event, "GameInventoryClues.fxml");
+        System.out.println("Menu clicked!");
+        try {
+            App.setRoot("GameInventoryClues"); // pass the FXML name without .fxml
+            System.out.println("setRoot call returned");
+        } catch (IOException e) {
+            System.err.println("Failed to switch to GameInventoryClues:");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleArrowRightClicked(MouseEvent event) {
+        escapeRoom.goNextRoom("Room2");
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
+    }
+
+    @FXML
+    private void handleArrowLeftClickedTwo(MouseEvent event) {
+        try {
+            App.setRoot("Room1");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
+    }
+
+    @FXML
+    private void handleArrowRightClickedTwo(MouseEvent event) {
+        escapeRoom.goNextRoom("Room3");
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
+    }
+
+    @FXML
+    private void handleArrowLeftClickedThree(MouseEvent event) {
+        escapeRoom.goNextRoom("Room2");
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
+    }
+
+    @FXML
+    private void handleArrowRightClickedThree(MouseEvent event) {
+        escapeRoom.goNextRoom("Room4");
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
+    }
+
+    @FXML
+    private void handleArrowLeftClickedFour(MouseEvent event) {
+        escapeRoom.goNextRoom("Room3");
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
     
     private void loadScene(MouseEvent event, String fxmlFile) {

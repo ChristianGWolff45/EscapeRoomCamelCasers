@@ -21,5 +21,10 @@
             <Image url="@images/lock.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="arrowLeft" fitHeight="70.0" fitWidth="60.0" layoutY="177.0" onMouseClicked="#handleArrowLeftClickedFour" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@images/arrow-left.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
