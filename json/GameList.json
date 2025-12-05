@@ -6,8 +6,8 @@
             "story": "Welcome to the engineering building at the University of South Carolina, many of souls have lost their way in the labrynth will you join them or will you escape?",
             "rooms": [ 
                 {
-                    "id": "startRoom",
-                    "roomName": "Lobby",
+                    "id": "Room1",
+                    "roomName": "Room1",
                     "puzzles": [
                         {
                             "id": "wordlePuzzle",
@@ -26,59 +26,18 @@
                             ],
                             "answer": "LOGIC",
                             "completed": false
-                        },
-                        {
-                            "id": "directionalPuzzle",
-                            "type": "directionalpuzzle",
-                            "clues": [
-                                {
-                                    "id": "directionalPuzzle_Clue",
-                                    "description": "excaperoom/src/main/java/com/model/images/wordSearch.pdf"
-                                }
-                            ],
-                            "hints": [
-                                {
-                                    "id": "directionalPuzzle_Hint1",
-                                    "tip": "Try using the direction of the words in the word search"
-                                }
-                            ],
-                            "answer": "→↓↑←",
-                            "completed": false
-                        },
-                        {
-                            "id": "multiplechoice1",
-                            "type": "multiplechoice",
-                            "clues": [
-                                {
-                                    "id": "multipleChoice_Clue1",
-                                    "description": "How many students are enrolled in the school of computing and engineering?"
-                                },
-                                {
-                                    "id": "multipleChoice_Clue2",
-                                    "description": "756 freshman, 769 sophomores, 800 juniors, 1009 seniors"
-                                }
-                            ],
-                            "hints": [
-                                {
-                                    "id": "multipleChoice_Hint",
-                                    "tip": "Add up the number of students from each year"
-                                }
-                            ],
-                            "choices": ["3909","3547","5032","4224"],
-                            "answer": "A",
-                            "completed": false
                         }
                     ],
                     "nextRooms": [
-                        "hallwayEast"
+                        "Room2"
                     ],
                     "unlocked": true,
                     "isExit": false,
                     "orientation": "BACK"
                 },
                 {
-                    "id": "hallwayEast",
-                    "roomName": "East Hallway",
+                    "id": "Room2",
+                    "roomName": "Room2",
                     "puzzles": [
                         {
                             "id": "multiplechoice2",
@@ -105,7 +64,71 @@
                         }
                     ],
                     "nextRooms": [
-                        "startRoom"
+                        "Room3"
+                    ],
+                    "unlocked": false,
+                    "isExit": false,
+                    "orientation": "LEFT"
+                },
+                {
+                    "id": "Room3",
+                    "roomName": "Room3",
+                    "puzzles": [
+                        {
+                            "id": "phonePuzzle",
+                            "type": "phonePuzzle",
+                            "clues": [
+                                {
+                                    "id": "multipleChoice_Clue1",
+                                    "description": "How many students are enrolled in the school of computing and engineering?"
+                                },
+                                {
+                                    "id": "multipleChoice_Clue2",
+                                    "description": "756 freshman, 769 sophomores, 800 juniors, 1009 seniors"
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "multipleChoice_Hint",
+                                    "tip": "Add up the number of students from each year"
+                                }
+                            ],
+                            "choices": ["3500","3547","3909","4224"],
+                            "answer": "C",
+                            "completed": false
+                        }
+                    ],
+                    "nextRooms": [
+                        "Room4"
+                    ],
+                    "unlocked": false,
+                    "isExit": false,
+                    "orientation": "LEFT"
+                },
+                {
+                    "id": "Room4",
+                    "roomName": "Room4",
+                    "puzzles": [
+                        {
+                            "id": "directionalPuzzle",
+                            "type": "directionalpuzzle",
+                            "clues": [
+                                {
+                                    "id": "directionalPuzzle_Clue",
+                                    "description": "excaperoom/src/main/java/com/model/images/wordSearch.pdf"
+                                }
+                            ],
+                            "hints": [
+                                {
+                                    "id": "directionalPuzzle_Hint1",
+                                    "tip": "Try using the direction of the words in the word search"
+                                }
+                            ],
+                            "answer": "→↓↑←",
+                            "completed": false
+                        }
+                    ],
+                    "nextRooms": [
                     ],
                     "unlocked": false,
                     "isExit": true,

@@ -17,7 +17,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("phonePuzzle"), 640, 480); //NewspaperPage2
+        scene = new Scene(loadFXML("Leaderboard"), 640, 480);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
