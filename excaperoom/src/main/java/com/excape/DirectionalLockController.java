@@ -1,10 +1,10 @@
 package com.excape;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.model.EscapeRoom;
-import com.model.GameList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,11 +49,6 @@ public class DirectionalLockController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // ensure display starts empty
         sequenceText.setText("");
-        // escapeRoom.signUp("Test", "PuzzleID", "PuzzleID", "Password");
-        // escapeRoom.login("Test", "Password");
-        // escapeRoom.pickGame("Escape from Swearingen");
-        // System.out.println("test");
-        // System.out.println(GameList.getInstance().getCurrentGame());
     }
 
     // Arrow button handlers - append symbol and update displayed text
@@ -96,13 +91,19 @@ public class DirectionalLockController implements Initializable{
     @FXML
     private void pressedExit(ActionEvent event) {
         // Close the window that contains the Exit button
- 
+        try {
+            App.setRoot("Room4");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
 
     // Hint: show a small hint dialog
     @FXML
     private void pressedHint() {
         escapeRoom.hearHint("directionalPuzzle_Hint1");
+        escapeRoom.useHint("directionalPuzzle_Hint1");
         showAlert(AlertType.INFORMATION, "Hint", escapeRoom.useHint("directionalPuzzle_Hint1"));
     }
 

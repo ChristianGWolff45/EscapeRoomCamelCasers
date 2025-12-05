@@ -69,6 +69,12 @@ public class RoomController {
     @FXML
     private void handleExamClicked(MouseEvent event) {
         System.out.println("Exam clicked!");
+        try {
+            App.setRoot("multipleChoice");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
     
     @FXML
@@ -91,14 +97,15 @@ public class RoomController {
             App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Failed to load Room1.fxml");
+            System.out.println("Failed to load Room2.fxml");
         }
     }
 
     @FXML
     private void handleArrowLeftClickedTwo(MouseEvent event) {
+        escapeRoom.goNextRoom("Room1");
         try {
-            App.setRoot("Room1");   
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Failed to load Room1.fxml");
@@ -112,7 +119,7 @@ public class RoomController {
             App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Failed to load Room1.fxml");
+            System.out.println("Failed to load Room3.fxml");
         }
     }
 
@@ -122,8 +129,8 @@ public class RoomController {
         try {
             App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Failed to load Room1.fxml");
+            e.printStackTrace(); 
+            System.out.println("Failed to load Room2.fxml");
         }
     }
 

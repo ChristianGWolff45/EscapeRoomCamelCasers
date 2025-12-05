@@ -1,6 +1,8 @@
 package com.excape;
 
 import com.model.EscapeRoom;
+import com.model.GameList;
+
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 
 /**
@@ -31,7 +34,7 @@ public class MultipleChoiceController {
     @FXML private Button hintButton; // optional; may be null if not in FXML
 
     // Puzzle integration
-    private final String PuzzleID = "mcPuzzle";
+    private final String PuzzleID = "multiplechoice2";
     private final EscapeRoom escapeRoom = new EscapeRoom();
 
     // Hard-coded question + choices
@@ -39,7 +42,7 @@ public class MultipleChoiceController {
     private final String[] choices = new String[] {
             "26,000",    // index 0 (top-left, A)
             "42,000",   // index 1 (top-right, B)
-            "35,000 (correct)",// index 2 (bottom-left, C) <-- CORRECT
+            "35,000",// index 2 (bottom-left, C) <-- CORRECT
             "21,000"     // index 3 (bottom-right, D)
     };
 
@@ -294,8 +297,6 @@ private void handleCall(ActionEvent event) {
                 }
             }
         }
-
-        if (exitButton != null) exitButton.setDisable(disabled);
         if (hintButton != null) hintButton.setDisable(disabled);
     }
 
@@ -307,16 +308,11 @@ private void handleCall(ActionEvent event) {
 
     @FXML
     private void handleExit(ActionEvent event) {
-        if (navigator != null) {
-            navigator.goBack();
-            return;
-        }
-
-        Object src = event.getSource();
-        if (src instanceof Node) {
-            Node n = (Node) src;
-            Stage stage = (Stage) n.getScene().getWindow();
-            if (stage != null) stage.close();
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
         }
     }
 

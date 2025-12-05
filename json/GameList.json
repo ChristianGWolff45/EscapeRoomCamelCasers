@@ -58,6 +58,7 @@
                         }
                     ],
                     "nextRooms": [
+                        "Room1",
                         "Room3"
                     ],
                     "unlocked": false,
@@ -92,6 +93,7 @@
                         }
                     ],
                     "nextRooms": [
+                        "Room2",
                         "Room4"
                     ],
                     "unlocked": false,
@@ -122,6 +124,7 @@
                         }
                     ],
                     "nextRooms": [
+                        "Room3"
                     ],
                     "unlocked": false,
                     "isExit": true,
