@@ -78,9 +78,17 @@ public class DirectionalLockController implements Initializable{
         String current = entered.toString();
         escapeRoom.solvePuzzle(PuzzleID, current);
         if (escapeRoom.puzzleUnlocked(PuzzleID)) {
+
             showAlert(AlertType.INFORMATION, "Unlocked!", "The lock clicks open — correct sequence!");
             // optional: disable buttons so user can't continue entering
             setButtonsDisabled(true);
+            try {
+                App.setRoot("Certificate");   
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Failed to load Room1.fxml");
+            }
+            
         } else {
             showAlert(AlertType.ERROR, "Incorrect", "That sequence is incorrect."); 
             clearSequence();
