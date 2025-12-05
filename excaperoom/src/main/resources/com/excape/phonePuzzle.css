@@ -1,0 +1,178 @@
+/* phonePuzzle.css
+   Garnet-framed smartphone look with dark gray screen and centered circular buttons
+*/
+
+/* Page background */
+.root {
+    -fx-background-color: black;
+}
+
+/* PHONE FRAME: garnet border, dark interior */
+.phone-frame {
+    -fx-fill: linear-gradient(to bottom, #1f1f1f 0%, #0e0e0e 100%); /* screen interior */
+    -fx-stroke: #73000A;          /* garnet border */
+    -fx-stroke-width: 5;
+    -fx-arc-width: 36;
+    -fx-arc-height: 36;
+    -fx-effect: dropshadow(gaussian, rgba(115,0,10,0.45), 22, 0.4, 0, 6);
+}
+
+/* SPEAKER NOTCH */
+.speaker-notch {
+    -fx-fill: #222222;
+    -fx-stroke: #3b3b3b;
+    -fx-stroke-width: 1;
+    -fx-arc-width: 3;
+    -fx-arc-height: 3;
+}
+
+/* HOME BAR */
+.home-bar {
+    -fx-fill: #333333;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 4, 0.2, 0, 1);
+}
+
+/* TOP DISPLAYS (typed digits and letter groups) */
+#numberDisplay {
+    -fx-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-opacity: 0.98;
+}
+
+/* (lettersDisplay kept for compatibility; you can remove if unused) */
+#lettersDisplay {
+    -fx-fill: #dcdcdc;
+    -fx-font-size: 12px;
+    -fx-opacity: 0.9;
+}
+
+/* GRID: ensure it stays nicely centered inside the frame */
+#keypadGrid {
+    -fx-alignment: center;
+}
+
+/* DIGIT and LETTER text inside the circular buttons */
+.digit-text {
+    -fx-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-effect: null;
+}
+
+.letters-text {
+    -fx-fill: #f6e9e9;
+    -fx-font-size: 10px;
+    -fx-opacity: 0.95;
+}
+
+/* CIRCULAR NUMBER BUTTONS */
+.button.circle-button {
+    -fx-background-color: #73000A; /* garnet */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+
+    /* fixed circular size */
+    -fx-min-width: 76px;
+    -fx-min-height: 76px;
+    -fx-max-width: 76px;
+    -fx-max-height: 76px;
+
+    /* large radius to make a true circle */
+    -fx-background-radius: 40px;
+    -fx-border-radius: 40px;
+
+    -fx-alignment: center;
+    -fx-padding: 6;              /* breath for internal graphics */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 6, 0.3, 1, 3);
+}
+
+/* hover / pressed */
+.button.circle-button:hover   { -fx-background-color: #9b0012; }
+.button.circle-button:pressed { -fx-background-color: #520008; }
+
+/* RECTANGULAR small buttons (Clear, Back) */
+.button.rect-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: rgba(255,255,255,0.06);
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-min-width: 76px;
+    -fx-min-height: 36px;
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0.2, 0, 1);
+}
+.button.rect-button:hover {
+    -fx-background-color: rgba(255,255,255,0.03);
+}
+
+/* CALL (ENTER) BUTTON - green circular */
+.call-button {
+    -fx-background-color: #0f9d58; /* green */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+
+    -fx-min-width: 86px;
+    -fx-min-height: 86px;
+    -fx-max-width: 86px;
+    -fx-max-height: 86px;
+
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 8, 0.3, 0, 3);
+}
+
+/* call hover/pressed */
+.call-button:hover   { -fx-background-color: #13c76b; }
+.call-button:pressed { -fx-background-color: #0a7d46; }
+
+/* small tweaks so Text nodes inside graphics align nicely */
+.button .text {
+    -fx-text-alignment: center;
+    -fx-translate-y: 0;
+    /* ensure text color inherits correctly inside graphic nodes */
+    -fx-fill: inherit;
+}
+
+/* Reduce default focus ring visibility (optional) */
+.button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* EXIT button (small circular X in top-right) */
+/* Use same garnet family as other buttons and visible white X */
+.exit-button {
+    -fx-background-color: #73000A;   /* garnet */
+    -fx-text-fill: #ffffff;          /* white X */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+    -fx-max-width: 36px;
+    -fx-max-height: 36px;
+
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: rgba(255,255,255,0.08);
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-opacity: 1.0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 4, 0.2, 0, 1);
+}
+
+/* Make hover/pressed match the other garnet button behavior */
+.exit-button:hover   { -fx-background-color: #9b0012; }
+.exit-button:pressed { -fx-background-color: #520008; }
+
+/* Responsive layout hints (optional, doesn't force scaling) */
+@media screen and (max-width: 700px) {
+    .button.circle-button { -fx-min-width: 64px; -fx-min-height: 64px; -fx-max-width: 64px; -fx-max-height: 64px; }
+    .call-button { -fx-min-width: 72px; -fx-min-height: 72px; -fx-max-width: 72px; -fx-max-height: 72px; }
+}
