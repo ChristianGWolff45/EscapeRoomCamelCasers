@@ -32,8 +32,6 @@ public class InventoryCluesController implements Initializable {
     // FXML injection: scrollPane's content should be an AnchorPane in your FXML
     @FXML private ScrollPane scrollPane;
 
-    private GameList gameList;
-    private UserList userList;
     private User user;
 
     // keep track of rendered hints so we can compute layout and remove them later
@@ -74,7 +72,7 @@ public class InventoryCluesController implements Initializable {
 
             int index = 0;
             for (String clueID : clueIDs) {
-                Clue clue = gameList.findClue(clueID);
+                Clue clue = GameList.getInstance().findClue(clueID);
                 if (clue == null) {
                     System.err.println("Hint not found for id: " + clueID);
                     continue;
