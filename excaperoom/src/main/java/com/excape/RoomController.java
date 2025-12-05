@@ -68,13 +68,33 @@ public class RoomController {
     }
 
     @FXML
-    private void handleArrowLeftClicked(MouseEvent event) {
-        System.out.println("Left Arrow clicked!");
+    private void handleArrowRightClicked(MouseEvent event) {
+        System.out.println("Right Arrow clicked!");
     }
 
     @FXML
-    private void handleArrowRightClicked(MouseEvent event) {
-        System.out.println("Right Arrow clicked!");
+    private void handleArrowLeftClickedTwo(MouseEvent event) {
+        System.out.println("Left Arrow clicked! in Room 2");
+    }
+
+    @FXML
+    private void handleArrowRightClickedTwo(MouseEvent event) {
+        System.out.println("Right Arrow clicked! in Room 2");
+    }
+
+    @FXML
+    private void handleArrowLeftClickedThree(MouseEvent event) {
+        System.out.println("Left Arrow clicked! in Room 3");
+    }
+
+    @FXML
+    private void handleArrowRightClickedThree(MouseEvent event) {
+        System.out.println("Right Arrow clicked! in Room 3");
+    }
+
+    @FXML
+    private void handleArrowLeftClickedFour(MouseEvent event) {
+        System.out.println("Left Arrow clicked! in Room 4");
     }
     
     private void loadScene(MouseEvent event, String fxmlFile) {
