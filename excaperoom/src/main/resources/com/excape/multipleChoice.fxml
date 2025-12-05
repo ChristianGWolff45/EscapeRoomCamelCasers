@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx/13"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.excape.MultipleChoiceController"
+           prefWidth="1100" prefHeight="850"
+           style="-fx-background-color: black;">
+
+  <children>
+
+    <!-- MUCH LARGER PANEL -->
+    <Rectangle fx:id="panelFrame"
+               width="820" height="600"
+               arcWidth="28" arcHeight="28"
+               styleClass="panel-frame"
+               StackPane.alignment="CENTER"/>
+
+    <!-- ENLARGED CONTENT AREA -->
+    <VBox spacing="30" alignment="CENTER" StackPane.alignment="CENTER"
+          maxWidth="720" minWidth="720">
+      <padding>
+        <Insets top="40" right="36" bottom="36" left="36"/>
+      </padding>
+
+      <!-- BIG QUESTION -->
+      <Text fx:id="questionDisplay"
+            wrappingWidth="680"
+            textAlignment="CENTER"
+            styleClass="display-text"
+            style="-fx-font-size:36px; -fx-font-weight:bold;"/>
+
+      <!-- SELECTION READOUT (bigger too) -->
+      <Text fx:id="selectionDisplay"
+            wrappingWidth="680"
+            textAlignment="CENTER"
+            styleClass="display-text"
+            style="-fx-font-size:22px; -fx-opacity:0.95;"/>
+
+      <!-- VERY LARGE CHOICE BUTTONS -->
+      <GridPane fx:id="choicesGrid" hgap="28" vgap="28" alignment="CENTER">
+        <padding>
+          <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+
+        <!-- Choice A -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                onAction="#handleChoiceClick" userData="0" styleClass="rect-button"
+                maxWidth="320" minWidth="320" minHeight="90">
+          <graphic>
+            <VBox alignment="CENTER_LEFT">
+              <Text styleClass="letters-text" text="Choice A"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Choice B -->
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="0"
+                onAction="#handleChoiceClick" userData="1" styleClass="rect-button"
+                maxWidth="320" minWidth="320" minHeight="90">
+          <graphic>
+            <VBox alignment="CENTER_LEFT">
+              <Text styleClass="letters-text" text="Choice B"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Choice C (Correct) -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="1"
+                onAction="#handleChoiceClick" userData="2" styleClass="rect-button"
+                maxWidth="320" minWidth="320" minHeight="90">
+          <graphic>
+            <VBox alignment="CENTER_LEFT">
+              <Text styleClass="letters-text" text="Choice C"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Choice D -->
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="1"
+                onAction="#handleChoiceClick" userData="3" styleClass="rect-button"
+                maxWidth="320" minWidth="320" minHeight="90">
+          <graphic>
+            <VBox alignment="CENTER_LEFT">
+              <Text styleClass="letters-text" text="Choice D"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- CLEAR + SUBMIT -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="2"
+                onAction="#handleClear" styleClass="rect-button"
+                maxWidth="320" minWidth="320" minHeight="70">
+          <graphic>
+            <VBox alignment="CENTER">
+              <Text styleClass="letters-text" text="Clear"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="2"
+                onAction="#handleCall" styleClass="call-button"
+                maxWidth="320" minWidth="320" minHeight="70">
+          <graphic>
+            <VBox alignment="CENTER" spacing="4">
+              <Text styleClass="digit-text" text="✔"/>
+              <Text styleClass="letters-text" text="Submit"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+      </GridPane>
+    </VBox>
+
+    <!-- EXIT BUTTON -->
+    <Button fx:id="exitButton"
+            text="✕"
+            onAction="#handleExit"
+            StackPane.alignment="TOP_RIGHT"
+            translateX="-22" translateY="22"
+            styleClass="exit-button"/>
+
+  </children>
+</StackPane>
