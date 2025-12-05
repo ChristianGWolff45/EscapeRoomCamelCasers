@@ -34,7 +34,9 @@
         <Button fx:id="exitButton"
                 text="Exit"
                 AnchorPane.topAnchor="20.0"
-                AnchorPane.rightAnchor="30.0" />
+                AnchorPane.rightAnchor="30.0" 
+                onAction="#onExit"
+                />
 
         <Label text="Game Inventory"
                AnchorPane.topAnchor="65.0"

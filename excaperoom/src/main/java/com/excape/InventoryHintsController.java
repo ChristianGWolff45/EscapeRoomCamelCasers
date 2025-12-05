@@ -13,6 +13,7 @@ import com.model.UserList;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -203,6 +204,15 @@ public class InventoryHintsController implements Initializable {
     @FXML
     private void onHintsClick() throws IOException {
         App.setRoot("GameInventoryClues"); 
+    }
+    @FXML
+    private void onExit(ActionEvent event) {
+        try {
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
 }
 
