@@ -1,16 +1,18 @@
 package com.excape;
 
-import com.model.User;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.model.Certificate;
+import com.model.User;
+import com.model.UserList;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-public class CertificateController {
+public class CertificateController implements Initializable {
 
     @FXML
     private Text scoreText;
@@ -32,36 +34,17 @@ public class CertificateController {
 
     private User currentUser;
 
-    /* 
-    @FXML
-    public void initialize() {
-         
-        User testUser = new User("TestPlayer", "John", "Doe", "password123");
-
-        // Simulate game actions
-        testUser.useHint("hint1");
-        testUser.useHint("hint2");
-        testUser.useSkip();
-
-        // Set the test user
-        setUser(testUser);
-
-        // Print to console for verification
-        System.out.println("Username: " + testUser.getUsername());
-        System.out.println("Score: " + testUser.getScore());
-        System.out.println("Time: " + testUser.getCertificate().timeTakenMMSS());
-        System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
-        System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
-    } 
-        */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Populate certificate UI after FXML loads
+        populateCertificate();
+    }
 
     @FXML
     private void handleContinueToLeaderboard() {
         System.out.println("Button clicked!");
-
         try {
             App.setRoot("Leaderboard");
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error loading leaderboard: " + e.getMessage());
@@ -74,17 +57,17 @@ public class CertificateController {
     }
 
     private void populateCertificate() {
+        if (currentUser == null) {
+            currentUser = UserList.getInstance().getCurrentUser();
+        }
+
         if (currentUser != null) {
             Certificate cert = currentUser.getCertificate();
 
             usernameText.setText(currentUser.getUsername());
-
             scoreText.setText(String.valueOf(currentUser.getScore()));
-
             timeText.setText(cert.timeTakenMMSS());
-
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
-
             skipsText.setText(String.valueOf(cert.getSkipsUsed()));
         }
     }
