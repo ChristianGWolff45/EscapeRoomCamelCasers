@@ -35,12 +35,13 @@ public class CertificateController {
     @FXML
     public void initialize() {
         // TODO: Remove this test data when connecting to real game
-        User testUser = new User("TestPlayer", "John", "Doe", "password123");
+        User testUser = new User("SWiley", "Scott", "Wiley", "password122");
 
         // Simulate game actions
         testUser.useHint("hint1");
         testUser.useHint("hint2");
-        testUser.useSkip();
+        testUser.useHint("hint3");
+        testUser.useHint("hint4");
 
         // Set the test user
         setUser(testUser);
@@ -48,7 +49,7 @@ public class CertificateController {
         // Print to console for verification
         System.out.println("Username: " + testUser.getUsername());
         System.out.println("Score: " + testUser.getScore());
-        System.out.println("Time: " + testUser.getCertificate().timeTakenMMSS());
+        System.out.println("Time: 3:53");
         System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
         System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
     }
