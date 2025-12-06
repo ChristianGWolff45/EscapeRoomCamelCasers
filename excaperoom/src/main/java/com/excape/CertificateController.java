@@ -48,7 +48,6 @@ public class CertificateController {
 
         // Print to console for verification
         System.out.println("Username: " + testUser.getUsername());
-        System.out.println("Score: " + testUser.getScore());
         System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
         System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
     }
@@ -75,10 +74,7 @@ public class CertificateController {
         if (currentUser != null) {
             Certificate cert = currentUser.getCertificate();
 
-            usernameText.setText(currentUser.getUsername());
-
-            scoreText.setText(String.valueOf(currentUser.getScore()));
-
+            usernameText.setText(currentUser.getUsername());;
 
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
 

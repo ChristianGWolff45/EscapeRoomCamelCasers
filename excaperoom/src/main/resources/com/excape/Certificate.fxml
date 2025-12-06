@@ -39,7 +39,7 @@
                         <Image url="@images/Medal.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="scoreText" fill="WHITE" layoutX="200.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[SCORE]">
+                  <Text fx:id="scoreText" fill="WHITE" layoutX="200.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4500">
                      <font>
                         <Font name="Arial" size="36.0" />
                      </font>
