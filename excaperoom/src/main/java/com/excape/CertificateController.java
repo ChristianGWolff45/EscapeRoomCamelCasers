@@ -69,14 +69,13 @@ public class CertificateController {
     private void populateCertificate() {
         if (currentUser != null) {
             EscapeRoom escapeRoom = new EscapeRoom();
-            escapeRoom.login(currentUser.getUsername(), currentUser.getPassword());
             Certificate cert = currentUser.getCertificate();
 
             usernameText.setText(currentUser.getUsername());
 
             scoreText.setText(String.valueOf(currentUser.getScore()));
 
-            timeText.setText(cert.timeTakenMMSS());
+            timeText.setText("05:13");
 
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
 
