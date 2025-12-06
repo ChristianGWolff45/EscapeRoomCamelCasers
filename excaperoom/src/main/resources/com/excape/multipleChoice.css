@@ -117,6 +117,41 @@ Text.number-wrong {
     -fx-text-alignment: left;
 }
 
+/* Control buttons (Hint + EXIT) — identical style for both */
+.control-button {
+    -fx-background-color: #73000A; /* garnet */
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: rgba(255,255,255,0.06);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 6, 0.2, 0, 2);
+    -fx-padding: 10 18 10 18;
+    -fx-cursor: hand;
+}
+
+.control-button:hover { -fx-background-color: #9b0012; }
+.control-button:pressed { -fx-background-color: #520008; }
+
+/* Remove special exit-control styling so Exit matches Hint exactly */
+.exit-control {
+    /* intentionally left blank to keep identical look */
+}
+
+/* Slightly increase display font sizes if needed (already set inline in FXML) */
+/* ensure selection text classes (number-correct/number-wrong) remain effective */
+Text.number-correct {
+    -fx-fill: #00e645;
+    -fx-font-weight: bold;
+}
+
+Text.number-wrong {
+    -fx-fill: #db0e0e;
+    -fx-font-weight: bold;
+}
+
 /* responsive hints */
 @media screen and (max-width: 700px) {
     .button.rect-button { -fx-min-width: 160px; -fx-min-height: 52px; }

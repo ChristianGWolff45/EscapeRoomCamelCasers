@@ -49,7 +49,7 @@
                             "hints": [
                                 {
                                     "id": "multipleChoice_Hint",
-                                    "tip": "Add up the number of students from each year"
+                                    "tip": "The answer is on the second page of the Newspaper."
                                 }
                             ],
                             "choices": ["3500","3547","3909","4224"],
@@ -74,18 +74,14 @@
                             "type": "phonePuzzle",
                             "clues": [
                                 {
-                                    "id": "multipleChoice_Clue1",
+                                    "id": "phonePuzzle_Clue1",
                                     "description": "How many students are enrolled in the school of computing and engineering?"
-                                },
-                                {
-                                    "id": "multipleChoice_Clue2",
-                                    "description": "756 freshman, 769 sophomores, 800 juniors, 1009 seniors"
                                 }
                             ],
                             "hints": [
                                 {
-                                    "id": "multipleChoice_Hint",
-                                    "tip": "Add up the number of students from each year"
+                                    "id": "phonePuzzle_Hint",
+                                    "tip": "Call 'portia' using the keypad (3-666-4 = dog)."
                                 }
                             ],
                             "answer": "portia",
