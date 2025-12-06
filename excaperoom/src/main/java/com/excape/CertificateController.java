@@ -41,10 +41,9 @@ public class CertificateController {
 
     private User currentUser;
 
-    /* 
+    
     @FXML
     public void initialize() {
-        // TODO: Remove this test data when connecting to real game
         User testUser = new User("TestPlayer", "John", "Doe", "password123");
 
         // Simulate game actions
@@ -62,7 +61,7 @@ public class CertificateController {
         System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
         System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
     }
-        */
+    
 
     @FXML
     private void handleContinueToLeaderboard() {
