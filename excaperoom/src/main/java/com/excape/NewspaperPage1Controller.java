@@ -152,10 +152,8 @@ public class NewspaperPage1Controller implements Initializable {
 
     // Centralized key handler logic
     private void coreOnKeyPressed(KeyEvent ev) {
-        if (ev.getTarget() instanceof javafx.scene.control.Button) {
-            System.out.println("[Controller] Ignored key event from Button target.");
-            return;
-        }
+        // NOTE: removed early-return that ignored events when the event target was a Button.
+        // That check prevented scene-level key handling when focus was on a button (e.g., after closing an Alert).
 
         KeyCode code = ev.getCode();
         System.out.println("[Controller] Key pressed: code=" + code + " text='" + ev.getText() + "'");
@@ -262,7 +260,7 @@ public class NewspaperPage1Controller implements Initializable {
     }
 
     // Fallback evaluation (controller-only) in case model is absent or throws
-   
+
     private void showAlert(String title, String message) {
         Alert a = new Alert(AlertType.INFORMATION);
         a.setTitle(title);
@@ -337,7 +335,7 @@ public class NewspaperPage1Controller implements Initializable {
     @FXML
     private void onExit(ActionEvent event) {
         try {
-            App.setRoot("Room1");   
+            App.setRoot("Room1");
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Failed to load Room1.fxml");
@@ -352,5 +350,10 @@ public class NewspaperPage1Controller implements Initializable {
         a.setHeaderText("Small hint");
         a.setContentText(escapeRoom.useHint("wordlePuzzle_Hint"));
         a.showAndWait();
+
+        // Restore focus to the board so typing works immediately afterwards
+        Platform.runLater(() -> {
+            if (boardGrid != null) boardGrid.requestFocus();
+        });
     }
 }
