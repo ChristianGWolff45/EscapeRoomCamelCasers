@@ -139,7 +139,7 @@
                   <Font name="Arial" size="10.0" />
                </font>
             </Text>
-            <Text fx:id="dateText" layoutX="186.0" layoutY="846.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Date]">
+            <Text fx:id="dateText" layoutX="175.0" layoutY="846.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Date]">
                <font>
                   <Font name="Arial" size="10.0" />
                </font>

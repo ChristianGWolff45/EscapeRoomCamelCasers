@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.ImagePattern?>
 <?import javafx.scene.shape.Rectangle?>
@@ -14,50 +11,53 @@
 <?import javafx.scene.text.Text?>
 <?import java.net.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.GamePickerController">
-   <children>
-      <VBox layoutX="390.0" layoutY="129.0" prefHeight="467.0" prefWidth="293.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0"  height="200.0" stroke="BLACK" strokeType="INSIDE" width="874.0">
-               <fill>
-                  <ImagePattern>
-                     <image>
-                  <!-- resource path relative to the FXML file; try @../images/Swearingen.png or @/com/yourpkg/images/Swearingen.png -->
-                        <Image url="@images/Swearingen.png" />
-                     </image>
-                  </ImagePattern>
-               </fill>
-            </Rectangle>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Escape Swearingen" style="-fx-fill: white;">
-               <VBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" style="-fx-fill: white;" strokeWidth="0.0" text="Welcome to the engineering building at the University of South Carolina, many of souls have lost their way in the labrynth will you join them or will you escape?" wrappingWidth="843.99609375">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" top="30.0" />
-               </VBox.margin>
-            </Text>
-            <Button fx:id="EscapeSwearingen" onAction="#EscapeSwearingen" mnemonicParsing="false" prefHeight="25.0" prefWidth="877.0" text="PlayGame">
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" top="60.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-      <Text layoutX="600.0" style="-fx-fill: white;" strokeType="OUTSIDE" strokeWidth="0.0" text="Escape Room Game Picker" wrappingWidth="1072.0"  AnchorPane.topAnchor="40.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
-   </children>
-   <stylesheets>
+<StackPane xmlns="http://javafx.com/javafx/13"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.excape.GamePickerController"
+           prefWidth="1072.0" prefHeight="725.0">
+
+    <!-- Add stylesheet reference as a String (fx:value) -->
+    <stylesheets>
       <URL value="@styles.css" />
    </stylesheets>
-</AnchorPane>
+
+    <VBox spacing="18.0" alignment="TOP_CENTER">
+        <Text text="Escape Room Game Picker"
+              style="-fx-fill: white;"
+              strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font size="36.0"/>
+            </font>
+        </Text>
+
+        <VBox spacing="10.0" alignment="CENTER" prefWidth="900">
+            <Rectangle arcHeight="5.0" arcWidth="5.0"
+                       height="200.0" width="874.0"
+                       stroke="BLACK" strokeType="INSIDE">
+                <fill>
+                    <ImagePattern>
+                        <image>
+                            <!-- keep the @resource syntax for images inside FXML -->
+                            <Image url="@images/Swearingen.png" />
+                        </image>
+                    </ImagePattern>
+                </fill>
+            </Rectangle>
+
+            <Text text="Escape Swearingen" style="-fx-fill: white;">
+                <font><Font size="18.0"/></font>
+            </Text>
+
+            <Text text="Welcome to the engineering building at the University of South Carolina, many souls have lost their way in the labyrinth — will you join them or will you escape?"
+                  style="-fx-fill: white;"
+                  wrappingWidth="843.0">
+                <font><Font size="18.0"/></font>
+            </Text>
+
+            <Button fx:id="EscapeSwearingen"
+                    onAction="#EscapeSwearingen"
+                    text="Play Game"
+                    prefWidth="877.0"/>
+        </VBox>
+    </VBox>
+</StackPane>
