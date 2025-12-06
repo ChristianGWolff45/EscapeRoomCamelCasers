@@ -1,10 +1,6 @@
 package com.excape;
 
 import com.model.User;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import com.model.Certificate;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class CertificateController {
 
@@ -34,16 +28,13 @@ public class CertificateController {
     private Text skipsText;
 
     @FXML
-    private Text dateText;
-
-    @FXML
     private Button leaderboardButton;
 
     private User currentUser;
 
-    
     @FXML
     public void initialize() {
+        // TODO: Remove this test data when connecting to real game
         User testUser = new User("TestPlayer", "John", "Doe", "password123");
 
         // Simulate game actions
@@ -61,7 +52,6 @@ public class CertificateController {
         System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
         System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
     }
-    
 
     @FXML
     private void handleContinueToLeaderboard() {
@@ -94,10 +84,6 @@ public class CertificateController {
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
 
             skipsText.setText(String.valueOf(cert.getSkipsUsed()));
-
-            LocalDate today = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-            dateText.setText(today.format(formatter));
         }
     }
 }
