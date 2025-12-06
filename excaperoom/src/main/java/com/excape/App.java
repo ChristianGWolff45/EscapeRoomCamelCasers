@@ -19,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = loadFXML("Login"); //Starting Scene
-        scene = new Scene(root, 1920, 1080); 
+        scene = new Scene(root, 1620, 850); 
         root.setStyle("-fx-background-color: #121212;"); // so all scenes have same background
         stage.setResizable(true);
         stage.setScene(scene);
