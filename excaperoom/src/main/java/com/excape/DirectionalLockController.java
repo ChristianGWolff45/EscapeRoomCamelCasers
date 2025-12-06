@@ -115,15 +115,7 @@ public class DirectionalLockController implements Initializable{
         System.out.println("DirectionalLock: ascii mapping = [" + asciiStr + "]");
 
         // Show a small debug popup so you can copy the submission if needed
-        Alert dbg = new Alert(AlertType.INFORMATION);
-        dbg.setTitle("Debug: submitted sequence");
-        dbg.setHeaderText("Submitted sequence (raw / codepoints / ascii)");
-        dbg.setContentText(
-            "Raw: [" + current + "]\n" +
-            "Codepoints: " + cps.toString() + "\n" +
-            "ASCII: [" + asciiStr + "]"
-        );
-        dbg.showAndWait();
+        
 
         // Try solving using the raw normalized arrow sequence first
         escapeRoom.solvePuzzle(PuzzleID, normalized);
