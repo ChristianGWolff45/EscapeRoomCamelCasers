@@ -49,7 +49,6 @@ public class CertificateController {
         // Print to console for verification
         System.out.println("Username: " + testUser.getUsername());
         System.out.println("Score: " + testUser.getScore());
-        System.out.println("Time: 3:53");
         System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
         System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
     }
@@ -80,7 +79,6 @@ public class CertificateController {
 
             scoreText.setText(String.valueOf(currentUser.getScore()));
 
-            timeText.setText(cert.timeTakenMMSS());
 
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
 

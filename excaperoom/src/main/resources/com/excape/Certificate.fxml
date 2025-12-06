@@ -57,7 +57,7 @@
                         <Image url="@images/Clock.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="timeText" fill="#9b1b30" layoutX="91.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Time]" wrappingWidth="41.500000000000114">
+                  <Text fx:id="timeText" fill="#9b1b30" layoutX="91.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3:53" wrappingWidth="41.500000000000114">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -139,7 +139,7 @@
                   <Font name="Arial" size="10.0" />
                </font>
             </Text>
-            <Text fx:id="dateText" layoutX="175.0" layoutY="846.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Date]">
+            <Text fx:id="dateText" layoutX="175.0" layoutY="846.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12/5/2025">
                <font>
                   <Font name="Arial" size="10.0" />
                </font>
