@@ -4,36 +4,42 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.RoomController">
+
+<StackPane style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.RoomController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
-         <image>
-            <Image url="@images/Room3.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="menuButton" fitHeight="52.0" fitWidth="53.0" layoutY="348.0" onMouseClicked="#handleMenuClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-         <image>
-            <Image url="@images/menu.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="phoneItem" fitHeight="44.0" fitWidth="62.0" layoutX="269.0" layoutY="163.0" onMouseClicked="#handlePhoneClicked" pickOnBounds="true" preserveRatio="true" rotate="6.3" style="-fx-cursor: hand;">
-         <image>
-            <Image url="@images/phone.png" />
-         </image>
-         <rotationAxis>
-            <Point3D y="1.0" />
-         </rotationAxis>
-      </ImageView>
-      <ImageView fx:id="arrowRight" fitHeight="70.0" fitWidth="60.0" layoutX="540.0" layoutY="177.0" onMouseClicked="#handleArrowRightClickedThree" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-         <image>
-            <Image url="@images/arrow-right.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrowLeft" fitHeight="70.0" fitWidth="60.0" layoutY="177.0" onMouseClicked="#handleArrowLeftClickedThree" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-         <image>
-            <Image url="@images/arrow-left.png" />
-         </image>
-      </ImageView>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/Room3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuButton" fitHeight="52.0" fitWidth="53.0" layoutY="348.0" onMouseClicked="#handleMenuClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="phoneItem" fitHeight="44.0" fitWidth="62.0" layoutX="269.0" layoutY="163.0" onMouseClicked="#handlePhoneClicked" pickOnBounds="true" preserveRatio="true" rotate="6.3" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/phone.png" />
+               </image>
+               <rotationAxis>
+                  <Point3D y="1.0" />
+               </rotationAxis>
+            </ImageView>
+            <ImageView fx:id="arrowRight" fitHeight="70.0" fitWidth="60.0" layoutX="540.0" layoutY="177.0" onMouseClicked="#handleArrowRightClickedThree" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/arrow-right.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arrowLeft" fitHeight="70.0" fitWidth="60.0" layoutY="177.0" onMouseClicked="#handleArrowLeftClickedThree" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@images/arrow-left.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
-</Pane>
+</StackPane>

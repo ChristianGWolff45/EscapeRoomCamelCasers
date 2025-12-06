@@ -7,7 +7,9 @@
     -fx-background-color: linear-gradient(to bottom, #2c0004, #0e0000);
 }
 
-
+StackPane{
+  -fx-background-color: linear-gradient(to bottom, #2c0004, #0e0000);
+}
 
 .text {
     -fx-text-fill: white;
