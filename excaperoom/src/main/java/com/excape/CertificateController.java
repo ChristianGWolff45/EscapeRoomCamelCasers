@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import com.model.Certificate;
+import com.model.EscapeRoom;
 import com.model.User;
 import com.model.UserList;
 
@@ -67,6 +68,8 @@ public class CertificateController {
 
     private void populateCertificate() {
         if (currentUser != null) {
+            EscapeRoom escapeRoom = new EscapeRoom();
+            escapeRoom.login(currentUser.getUsername(), currentUser.getPassword());
             Certificate cert = currentUser.getCertificate();
 
             usernameText.setText(currentUser.getUsername());

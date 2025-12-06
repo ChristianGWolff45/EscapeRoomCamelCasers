@@ -62,6 +62,7 @@ public class LoginController {
             try {
                 App.setRoot("GamePicker");
             } catch (IOException ex) {
+                ex.printStackTrace();
             }
         } else {
             // Login failed - show error message
