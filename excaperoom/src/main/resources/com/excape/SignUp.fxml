@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.SignUpController">
+<StackPane style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excape.SignUpController">
    <children>
       <Pane id="Login_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: rgb(130, 23, 25); -fx-background-color: rgb(40, 40, 40);">
          <children>
