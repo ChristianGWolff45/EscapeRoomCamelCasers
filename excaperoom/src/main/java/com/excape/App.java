@@ -11,13 +11,16 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
+
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("SignUp"), 640, 480);
+        Parent root = loadFXML("Login"); //Starting Scene
+        scene = new Scene(root, 1100, 800); //640x480
+        root.setStyle("-fx-background-color: #121212;"); // so all scenes have same background
         stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
@@ -26,6 +29,10 @@ public class App extends Application {
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
         
+    }
+
+    public static Scene getScene() {
+        return scene;
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

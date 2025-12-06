@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx/13"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.excape.MultipleChoiceController"
+           prefWidth="1100" prefHeight="850"
+           style="-fx-background-color: black;">
+
+  <children>
+
+    <!-- MUCH LARGER PANEL (garnet border) -->
+    <Rectangle fx:id="panelFrame"
+               width="820" height="600"
+               arcWidth="28" arcHeight="28"
+               styleClass="panel-frame"
+               StackPane.alignment="CENTER"/>
+
+    <!-- ENLARGED CONTENT AREA — CENTERED inside the panel -->
+    <VBox spacing="36" alignment="CENTER" StackPane.alignment="CENTER"
+          prefWidth="720" prefHeight="520" maxWidth="720">
+      <padding>
+        <Insets top="28" right="36" bottom="36" left="36"/>
+      </padding>
+
+      <!-- BIG QUESTION (centered) -->
+      <Text fx:id="questionDisplay"
+            wrappingWidth="680"
+            textAlignment="CENTER"
+            styleClass="display-text"
+            style="-fx-font-size:42px; -fx-font-weight:bold;"
+            translateY="30"/>
+
+      <!-- SELECTION READOUT (centered, larger) -->
+      <Text fx:id="selectionDisplay"
+            wrappingWidth="680"
+            textAlignment="CENTER"
+            styleClass="display-text"
+            style="-fx-font-size:30px; -fx-opacity:0.95;"
+            translateY="30"/>
+
+      <!-- BIG CHOICES centered in panel -->
+      <GridPane fx:id="choicesGrid" hgap="36" vgap="36" alignment="CENTER">
+        <padding>
+          <Insets top="8" right="8" bottom="8" left="8"/>
+        </padding>
+
+        <!-- Choice A -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                onAction="#handleChoiceClick" userData="0" styleClass="rect-button"
+                maxWidth="360" minWidth="360" prefWidth="360" prefHeight="110" minHeight="110" pickOnBounds="true">
+          <graphic>
+            <!-- mouseTransparent ensures the VBox doesn't steal clicks -->
+            <VBox alignment="CENTER_LEFT" mouseTransparent="true">
+              <Text styleClass="letters-text" text="Choice A"
+                    style="-fx-font-size:24px"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Choice B -->
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="0"
+                onAction="#handleChoiceClick" userData="1" styleClass="rect-button"
+                maxWidth="360" minWidth="360" prefWidth="360" prefHeight="110" minHeight="110" pickOnBounds="true">
+          <graphic>
+            <VBox alignment="CENTER_LEFT" mouseTransparent="true">
+              <Text styleClass="letters-text" text="Choice B"
+                    style="-fx-font-size:24px"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Choice C (Correct) -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="1"
+                onAction="#handleChoiceClick" userData="2" styleClass="rect-button"
+                maxWidth="360" minWidth="360" prefWidth="360" prefHeight="110" minHeight="110" pickOnBounds="true">
+          <graphic>
+            <VBox alignment="CENTER_LEFT" mouseTransparent="true">
+              <Text styleClass="letters-text" text="Choice C"
+                    style="-fx-font-size:24px"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- Choice D -->
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="1"
+                onAction="#handleChoiceClick" userData="3" styleClass="rect-button"
+                maxWidth="360" minWidth="360" prefWidth="360" prefHeight="110" minHeight="110" pickOnBounds="true">
+          <graphic>
+            <VBox alignment="CENTER_LEFT" mouseTransparent="true">
+              <Text styleClass="letters-text" text="Choice D"
+                    style="-fx-font-size:24px"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <!-- CLEAR + SUBMIT -->
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="2"
+                onAction="#handleClear" styleClass="rect-button"
+                maxWidth="360" minWidth="360" prefWidth="360" prefHeight="80" minHeight="80" pickOnBounds="true">
+          <graphic>
+            <VBox alignment="CENTER" mouseTransparent="true">
+              <Text styleClass="letters-text" text="Clear"
+                    style="-fx-font-size:24px"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="2"
+                onAction="#handleCall" styleClass="call-button"
+                maxWidth="360" minWidth="360" prefWidth="360" prefHeight="80" minHeight="80" pickOnBounds="true">
+          <graphic>
+            <VBox alignment="CENTER" spacing="6" mouseTransparent="true">
+              <Text styleClass="digit-text" text="✔"
+                    style="-fx-font-size:24px"/>
+              <Text styleClass="letters-text" text="Submit"
+                    style="-fx-font-size:24px"/>
+            </VBox>
+          </graphic>
+        </Button>
+
+      </GridPane>
+    </VBox>
+
+    <!-- LEFT control button (Hint) - now declared AFTER the VBox so it sits on top -->
+    <Button fx:id="hintButton"
+            text="Hint"
+            onAction="#handleHint"
+            styleClass="control-button"
+            StackPane.alignment="TOP_LEFT"
+            translateX="550" translateY="100"
+            minWidth="160" minHeight="48"
+            prefWidth="160" prefHeight="48"
+            pickOnBounds="true"/>
+
+    <!-- RIGHT control button (Exit) - declared last so it is topmost -->
+    <Button fx:id="exitButton"
+            text="EXIT"
+            onAction="#handleExit"
+            styleClass="control-button"
+            StackPane.alignment="TOP_RIGHT"
+            translateX="-550" translateY="100"
+            minWidth="160" minHeight="48"
+            prefWidth="160" prefHeight="48"
+            pickOnBounds="true"/>
+
+  </children>
+</StackPane>

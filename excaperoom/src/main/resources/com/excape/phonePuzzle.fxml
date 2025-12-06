@@ -31,7 +31,7 @@
                arcWidth="3" arcHeight="3"
                StackPane.alignment="TOP_CENTER"
                styleClass="speaker-notch"
-               translateY="124"/>
+               translateY="235"/>
 
     <!-- Typed-number display (centered horizontally, positioned with translateY = -220 as you used) -->
     <VBox fx:id="displayBox"
@@ -45,6 +45,7 @@
               text=""
               wrappingWidth="240"
               textAlignment="CENTER"
+              styleClass="display-text"
               style="-fx-font-size:22px; -fx-font-weight:bold;"/>
       </children>
     </VBox>
@@ -200,15 +201,25 @@
                arcWidth="3" arcHeight="3"
                StackPane.alignment="BOTTOM_CENTER"
                styleClass="home-bar"
-               translateY="-124"/>
+               translateY="-235"/>
 
-    <!-- EXIT / BACK button (top-right inside phone frame) placed last so it renders on top -->
+    <!-- LEFT control button (Hint) - user provided coordinates -->
+    <Button fx:id="hintButton"
+            text="Hint"
+            onAction="#handleHint"
+            styleClass="control-button"
+            StackPane.alignment="TOP_LEFT"
+            translateX="600" translateY="100"
+            minWidth="160" minHeight="48"/>
+
+    <!-- RIGHT control button (Exit) - user provided coordinates -->
     <Button fx:id="exitButton"
-            text="✕"
+            text="EXIT"
             onAction="#handleExit"
+            styleClass="control-button"
             StackPane.alignment="TOP_RIGHT"
-            translateX="-14" translateY="26"
-            styleClass="exit-button"/>
+            translateX="-600" translateY="100"
+            minWidth="160" minHeight="48"/>
 
   </children>
 </StackPane>

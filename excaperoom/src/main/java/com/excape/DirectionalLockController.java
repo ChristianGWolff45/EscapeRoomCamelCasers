@@ -1,10 +1,10 @@
 package com.excape;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.model.EscapeRoom;
-import com.model.GameList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,11 +49,6 @@ public class DirectionalLockController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // ensure display starts empty
         sequenceText.setText("");
-        // escapeRoom.signUp("Test", "PuzzleID", "PuzzleID", "Password");
-        // escapeRoom.login("Test", "Password");
-        // escapeRoom.pickGame("Escape from Swearingen");
-        // System.out.println("test");
-        // System.out.println(GameList.getInstance().getCurrentGame());
     }
 
     // Arrow button handlers - append symbol and update displayed text
@@ -81,28 +76,96 @@ public class DirectionalLockController implements Initializable{
     @FXML
     private void pressedEnter() {
         String current = entered.toString();
-        escapeRoom.solvePuzzle(PuzzleID, current);
+
+        // Show raw submission in console for debugging
+        System.out.println("DirectionalLock: raw entered = [" + current + "]");
+
+        // Print codepoints so we can spot different arrow chars
+        StringBuilder cps = new StringBuilder();
+        current.codePoints().forEach(cp -> cps.append(String.format("U+%04X ", cp)));
+        System.out.println("DirectionalLock: codepoints = " + cps.toString());
+
+        // Normalize (NFC) and trim whitespace / control chars just in case
+        String normalized = java.text.Normalizer.normalize(current, java.text.Normalizer.Form.NFC).trim();
+        System.out.println("DirectionalLock: normalized = [" + normalized + "]");
+
+        // Create ASCII mapping: → = R, ← = L, ↑ = U, ↓ = D
+        StringBuilder ascii = new StringBuilder();
+        normalized.codePoints().forEach(cp -> {
+            switch (cp) {
+                case 0x2192: // →
+                case 0x27A1: // ➡ (just in case)
+                    ascii.append('R'); break;
+                case 0x2190: // ←
+                case 0x2B05: // ⬅
+                    ascii.append('L'); break;
+                case 0x2191: // ↑
+                case 0x2B06: // ⬆
+                    ascii.append('U'); break;
+                case 0x2193: // ↓
+                case 0x2B07: // ⬇
+                    ascii.append('D'); break;
+                default:
+                    // preserve other chars (or ignore)
+                    ascii.append((char) cp);
+            }
+        });
+
+        String asciiStr = ascii.toString();
+        System.out.println("DirectionalLock: ascii mapping = [" + asciiStr + "]");
+
+        // Show a small debug popup so you can copy the submission if needed
+        
+
+        // Try solving using the raw normalized arrow sequence first
+        escapeRoom.solvePuzzle(PuzzleID, normalized);
         if (escapeRoom.puzzleUnlocked(PuzzleID)) {
-            showAlert(AlertType.INFORMATION, "Unlocked!", "The lock clicks open — correct sequence!");
-            // optional: disable buttons so user can't continue entering
-            setButtonsDisabled(true);
-        } else {
-            showAlert(AlertType.ERROR, "Incorrect", "That sequence is incorrect."); 
-            clearSequence();
+            onUnlock();
+            return;
+        }
+
+        // If that failed, try solving using the ASCII letter mapping
+        escapeRoom.solvePuzzle(PuzzleID, asciiStr);
+        if (escapeRoom.puzzleUnlocked(PuzzleID)) {
+            onUnlock();
+            return;
+        }
+
+        // If both failed, show incorrect and clear
+        showAlert(AlertType.ERROR, "Incorrect", "That sequence is incorrect.");
+        clearSequence();
+    }
+
+    /** helper to run when puzzle is unlocked */
+    private void onUnlock() {
+        showAlert(AlertType.INFORMATION, "Unlocked!", "The lock clicks open — correct sequence!");
+        setButtonsDisabled(true);
+        try {
+            App.setRoot("Certificate");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Certificate.fxml");
         }
     }
+
 
     // Exit: closes the window (bound to Exit button). Accepts ActionEvent so we can close the stage.
     @FXML
     private void pressedExit(ActionEvent event) {
         // Close the window that contains the Exit button
- 
+        try {
+            App.setRoot("Room4");   
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Room1.fxml");
+        }
     }
 
     // Hint: show a small hint dialog
     @FXML
     private void pressedHint() {
         escapeRoom.hearHint("directionalPuzzle_Hint1");
+        escapeRoom.useHint("directionalPuzzle_Hint1");
         showAlert(AlertType.INFORMATION, "Hint", escapeRoom.useHint("directionalPuzzle_Hint1"));
     }
 

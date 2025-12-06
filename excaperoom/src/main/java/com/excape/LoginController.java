@@ -6,15 +6,11 @@ import com.model.EscapeRoom;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -75,23 +71,9 @@ public class LoginController {
 
     @FXML
     private void handleSignUp(ActionEvent event) {
-        try {
-            // Load the SignUp FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
-            Parent signupRoot = loader.load();
-            
-            // Get the current stage from the event source
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            
-            // Set the new scene
             try {
                 App.setRoot("SignUp");
             } catch (IOException ex) {
             }
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading SignUp.fxml");
-        }
     }
 }
