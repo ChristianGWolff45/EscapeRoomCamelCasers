@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 public class CertificateController {
 
     @FXML
-    private Text scoreText;
+    private Text scoreText; 
 
     @FXML
     private Text usernameText;
