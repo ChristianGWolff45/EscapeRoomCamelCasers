@@ -316,4 +316,14 @@ public class PhoneController {
             if (stage != null) stage.close();
         }
     }
+
+    @FXML
+    private void handleHint(ActionEvent event) {
+        escapeRoom.hearHint("phonePuzzle_Hint");
+        Alert a = new Alert(AlertType.INFORMATION);
+        a.setTitle("Hint");
+        a.setHeaderText("Small hint");
+        a.setContentText(escapeRoom.useHint("phonePuzzle_Hint"));
+        a.showAndWait();
+    }
 }

@@ -147,7 +147,7 @@
     -fx-faint-focus-color: transparent;
 }
 
-/* EXIT button */
+/* EXIT button (legacy - kept for compatibility if other scenes use it) */
 .exit-button {
     -fx-background-color: #73000A;
     -fx-text-fill: #ffffff;
@@ -186,4 +186,33 @@ Text.number-wrong {
 @media screen and (max-width: 700px) {
     .button.circle-button { -fx-min-width: 64px; -fx-min-height: 64px; -fx-max-width: 64px; -fx-max-height: 64px; }
     .call-button { -fx-min-width: 72px; -fx-min-height: 72px; -fx-max-width: 72px; -fx-max-height: 72px; }
+}
+
+/* ----------------------
+   New: Control buttons (Hint + EXIT) for phone puzzle
+   ---------------------- */
+
+/* Large rectangular control buttons (Hint / EXIT) that match the puzzle style */
+.control-button {
+    -fx-background-color: #73000A; /* garnet */
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: rgba(255,255,255,0.06);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 6, 0.2, 0, 2);
+    -fx-padding: 10 18 10 18;
+    -fx-cursor: hand;
+}
+
+/* Hover/pressed states */
+.control-button:hover { -fx-background-color: #9b0012; }
+.control-button:pressed { -fx-background-color: #520008; }
+
+/* Matching look for any "exit-control" usage (kept for symmetry) */
+.exit-control {
+    -fx-border-color: rgba(255,255,255,0.12);
+    -fx-border-width: 1.5;
 }

@@ -186,6 +186,13 @@ public class MultipleChoiceController {
         }
 
         selectedIndex = idx;
+
+        // --- NEW: clear any previous success/failure text styling when user selects another option ---
+        if (selectionDisplay != null) {
+            selectionDisplay.getStyleClass().remove("number-correct");
+            selectionDisplay.getStyleClass().remove("number-wrong");
+        }
+
         updateSelectionDisplay();
         highlightSelectedButton();
         System.out.println("handleChoiceClick: selected index = " + selectedIndex + " (" + choices[selectedIndex] + ")");
@@ -194,39 +201,49 @@ public class MultipleChoiceController {
     @FXML
     private void handleClear(ActionEvent event) {
         selectedIndex = -1;
+
+        // clear any success/failure styles
+        if (selectionDisplay != null) {
+            selectionDisplay.getStyleClass().remove("number-correct");
+            selectionDisplay.getStyleClass().remove("number-wrong");
+        }
+
         updateSelectionDisplay();
         clearChoiceHighlights();
         System.out.println("handleClear: selection cleared");
     }
 
     @FXML
-private void handleCall(ActionEvent event) {
-    if (selectedIndex < 0 || selectedIndex >= choices.length) {
-        showAlert(AlertType.WARNING, "No selection", "Please select an option before submitting.");
-        return;
+    private void handleCall(ActionEvent event) {
+        if (selectedIndex < 0 || selectedIndex >= choices.length) {
+            showAlert(AlertType.WARNING, "No selection", "Please select an option before submitting.");
+            return;
+        }
+
+        // NEW: display the chosen answer text (not the letter)
+        String chosenText = choices[selectedIndex];
+        if (selectionDisplay != null) {
+            selectionDisplay.setText("Selected: " + chosenText);
+            // remove any previous styling BEFORE applying new class
+            selectionDisplay.getStyleClass().remove("number-correct");
+            selectionDisplay.getStyleClass().remove("number-wrong");
+        }
+
+        // still check correctness using letter (A/B/C/D)
+        String letter = indexToLetter(selectedIndex);  // A, B, C, D
+        boolean correct = isCorrectGuess(letter);
+
+        if (selectionDisplay != null) {
+            selectionDisplay.getStyleClass().add(correct ? "number-correct" : "number-wrong");
+        }
+
+        if (correct) {
+            showAlert(AlertType.INFORMATION, "Unlocked!", "Correct choice — puzzle solved!");
+            setButtonsDisabled(true);
+        } else {
+            showAlert(AlertType.ERROR, "Incorrect", "That choice did not unlock the puzzle.");
+        }
     }
-
-    String letter = indexToLetter(selectedIndex);  // A, B, C, D
-
-    if (selectionDisplay != null) {
-        selectionDisplay.setText("Selected: " + letter);
-        selectionDisplay.getStyleClass().remove("number-correct");
-        selectionDisplay.getStyleClass().remove("number-wrong");
-    }
-
-    boolean correct = isCorrectGuess(letter);
-
-    if (selectionDisplay != null) {
-        selectionDisplay.getStyleClass().add(correct ? "number-correct" : "number-wrong");
-    }
-
-    if (correct) {
-        showAlert(AlertType.INFORMATION, "Unlocked!", "Correct choice — puzzle solved!");
-        setButtonsDisabled(true);
-    } else {
-        showAlert(AlertType.ERROR, "Incorrect", "That choice did not unlock the puzzle.");
-    }
-}
 
 
     /** Converts choice index (0–3) to letter A–D */
@@ -253,6 +270,7 @@ private void handleCall(ActionEvent event) {
     private void updateSelectionDisplay() {
         if (selectionDisplay == null) return;
         if (selectedIndex >= 0 && selectedIndex < choices.length) {
+            // show the full choice string (not the letter)
             selectionDisplay.setText("Selected: " + choices[selectedIndex]);
         } else {
             selectionDisplay.setText("");
@@ -309,11 +327,21 @@ private void handleCall(ActionEvent event) {
     @FXML
     private void handleExit(ActionEvent event) {
         try {
-            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());   
+            App.setRoot(GameList.getInstance().getCurrentGame().getCurrentRoom().getName());
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Failed to load Room1.fxml");
         }
+    }
+
+    @FXML
+    private void handleHint(ActionEvent event) {
+        escapeRoom.hearHint("multipleChoice_Hint");
+        Alert a = new Alert(AlertType.INFORMATION);
+        a.setTitle("Hint");
+        a.setHeaderText("Small hint");
+        a.setContentText(escapeRoom.useHint("multipleChoice_Hint"));
+        a.showAndWait();
     }
 
     private void showAlert(AlertType type, String title, String message) {
