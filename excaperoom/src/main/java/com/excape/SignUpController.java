@@ -7,16 +7,11 @@ import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class SignUpController {
 
@@ -85,21 +80,8 @@ public class SignUpController {
     @FXML
     private void handleLogin(ActionEvent event) {
         try {
-            // Load the Login FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
-            Parent loginRoot = loader.load();
-            
-            // Get the current stage from the event source
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            
-            // Set the new scene
-            Scene loginScene = new Scene(loginRoot);
-            stage.setScene(loginScene);
-            stage.show();
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading Login.fxml");
+            App.setRoot("Login");
+        } catch (IOException ex) {
         }
     }
 }
