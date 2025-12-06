@@ -17,17 +17,15 @@ public class Certificate {
         this.skipsUsed= skipsUsed;
         this.timeTaken = (Duration.ofMillis((long) timeTaken));
     }
-    public Duration getTimeTaken(){
-        return this.timeTaken;
+    public int getTimeTakenInt() {
+        return (int) timeTaken.toMillis();
     }
-    public int getTimeTakenInt(){
-        return (int) timeTaken.getSeconds() * 1000;
-    }
+
+        public void addTime(int timeElapsed) {
+            this.timeTaken = this.timeTaken.plusMillis(timeElapsed);
+        }
     public void setTimeTaken(Duration timeElapsed){
         this.timeTaken = timeElapsed;
-    }
-    public void addTime(int timeElapsed){
-        this.timeTaken = (Duration.ofMillis((long) timeElapsed + (timeTaken.getSeconds() * 1000)));
     }
     public int getHintsUsed(){
         return hintsUsed;
