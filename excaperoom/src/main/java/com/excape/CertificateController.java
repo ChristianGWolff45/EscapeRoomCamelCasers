@@ -66,7 +66,7 @@ public class CertificateController implements Initializable {
 
             usernameText.setText(currentUser.getUsername());
             scoreText.setText(String.valueOf(currentUser.getScore()));
-            timeText.setText(cert.timeTakenMMSS());
+            timeText.setText("5 minutes");
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
             skipsText.setText(String.valueOf(cert.getSkipsUsed()));
         }
