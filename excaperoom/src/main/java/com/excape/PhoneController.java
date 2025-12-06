@@ -174,7 +174,7 @@ public class PhoneController {
         }
 
         if (correct) {
-            showAlert(AlertType.INFORMATION, "Unlocked!", "The puzzle is solved — well done!");
+            showAlert(AlertType.INFORMATION, "Correct!", "The next room has been unlocked!");
             setButtonsDisabled(true);
         } else {
             showAlert(AlertType.ERROR, "Incorrect", "That guess is incorrect.");
