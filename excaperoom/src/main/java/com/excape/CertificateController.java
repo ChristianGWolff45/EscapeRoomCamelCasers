@@ -1,14 +1,13 @@
 package com.excape;
 
 import com.model.User;
+import com.model.UserList;
 import com.model.Certificate;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CertificateController {
 
@@ -26,34 +25,25 @@ public class CertificateController {
 
     @FXML
     private Text skipsText;
+    
+    @FXML
+    private Text dateText;
 
     @FXML
     private Button leaderboardButton;
 
     private User currentUser;
 
-    /* 
     @FXML
     public void initialize() {
-         
-        User testUser = new User("TestPlayer", "John", "Doe", "password123");
-
-        // Simulate game actions
-        testUser.useHint("hint1");
-        testUser.useHint("hint2");
-        testUser.useSkip();
-
-        // Set the test user
-        setUser(testUser);
-
-        // Print to console for verification
-        System.out.println("Username: " + testUser.getUsername());
-        System.out.println("Score: " + testUser.getScore());
-        System.out.println("Time: " + testUser.getCertificate().timeTakenMMSS());
-        System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
-        System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
-    } 
-        */
+        // Get the current user from UserList
+        User user = UserList.getInstance().getCurrentUser();
+        if (user != null) {
+            setUser(user);
+        } else {
+            System.out.println("No current user found!");
+        }
+    }
 
     @FXML
     private void handleContinueToLeaderboard() {
@@ -86,6 +76,11 @@ public class CertificateController {
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
 
             skipsText.setText(String.valueOf(cert.getSkipsUsed()));
+            
+            // Set the current date
+            LocalDate today = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            dateText.setText(today.format(formatter));
         }
     }
 }
