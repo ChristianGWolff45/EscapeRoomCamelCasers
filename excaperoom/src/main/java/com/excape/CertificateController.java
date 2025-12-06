@@ -1,21 +1,25 @@
 package com.excape;
 
+import com.model.User;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import com.model.Certificate;
-import com.model.EscapeRoom;
-import com.model.User;
-import com.model.UserList;
-
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CertificateController {
 
     @FXML
-    private Text scoreText; 
+    private Text scoreText;
 
     @FXML
     private Text usernameText;
@@ -28,7 +32,7 @@ public class CertificateController {
 
     @FXML
     private Text skipsText;
-    
+
     @FXML
     private Text dateText;
 
@@ -37,16 +41,27 @@ public class CertificateController {
 
     private User currentUser;
 
+    
     @FXML
     public void initialize() {
-        // Get the current user from UserList
-        User user = UserList.getInstance().getCurrentUser();
-        if (user != null) {
-            setUser(user);
-        } else {
-            System.out.println("No current user found!");
-        }
+        User testUser = new User("TestPlayer", "John", "Doe", "password123");
+
+        // Simulate game actions
+        testUser.useHint("hint1");
+        testUser.useHint("hint2");
+        testUser.useSkip();
+
+        // Set the test user
+        setUser(testUser);
+
+        // Print to console for verification
+        System.out.println("Username: " + testUser.getUsername());
+        System.out.println("Score: " + testUser.getScore());
+        System.out.println("Time: " + testUser.getCertificate().timeTakenMMSS());
+        System.out.println("Hints: " + testUser.getCertificate().getHintsUsed());
+        System.out.println("Skips: " + testUser.getCertificate().getSkipsUsed());
     }
+    
 
     @FXML
     private void handleContinueToLeaderboard() {
@@ -68,20 +83,18 @@ public class CertificateController {
 
     private void populateCertificate() {
         if (currentUser != null) {
-            EscapeRoom escapeRoom = new EscapeRoom();
             Certificate cert = currentUser.getCertificate();
 
             usernameText.setText(currentUser.getUsername());
 
             scoreText.setText(String.valueOf(currentUser.getScore()));
 
-            timeText.setText("05:13");
+            timeText.setText(cert.timeTakenMMSS());
 
             hintsText.setText(String.valueOf(cert.getHintsUsed()));
 
             skipsText.setText(String.valueOf(cert.getSkipsUsed()));
-            
-            // Set the current date
+
             LocalDate today = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             dateText.setText(today.format(formatter));

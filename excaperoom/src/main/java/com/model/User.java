@@ -14,7 +14,7 @@ public class User {
     private Certificate certificate;
     private int score;
 
-    // for creating a user
+    //for creating a user
     /**
      * 
      * @param username
@@ -33,7 +33,7 @@ public class User {
         this.certificate = new Certificate();
     }
 
-    // for loading pre-existing user
+    //for loading pre-existing user
     /**
      * 
      * @param id
@@ -45,8 +45,7 @@ public class User {
      * @param progress
      * @param certificate
      */
-    public User(UUID id, String username, String firstName, String lastName, String password, Inventory inventory,
-            Progress progress, Certificate certificate) {
+    public User(UUID id, String username, String firstName, String lastName, String password, Inventory inventory, Progress progress, Certificate certificate) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -57,7 +56,6 @@ public class User {
         this.progress = progress;
         this.certificate = certificate;
     }
-
     /**
      * 
      * @param userName
@@ -67,77 +65,68 @@ public class User {
     public boolean isMatch(String userName, String password) {
         return this.username.equals(userName) && this.password.equals(password);
     }
-
     /**
      * loads game from save
      */
-    public void loadGame() {
-        for (String puzzleID : progress.getPuzzles()) {
+    public void loadGame(){
+        for(String puzzleID : progress.getPuzzles()){
             GameList.getInstance().findPuzzle(puzzleID).complete();
         }
     }
-
     /**
      * 
      * @return users username
      */
-    public String getUsername() {
+    public String getUsername(){
         return username;
     }
-
     /**
      * 
      * @return String user first name
      */
-    public String getFirstName() {
+     public String getFirstName(){
         return firstName;
     }
-
     /**
      * 
      * @return users last name
      */
-    public String getLastName() {
+    public String getLastName(){
         return lastName;
     }
-
     /**
      * 
      * @return user password
      */
-    public String getPassword() {
+    public String getPassword(){
         return password;
     }
-
     /**
      * 
      * @return user ID
      */
-    public UUID getId() {
+    public UUID getId(){
         return id;
     }
-
     /**
      * 
      * @return orientation of user
      */
-    public Orientation getOrientation() {
+    public Orientation getOrientation(){
         return orientation;
     }
-
     /**
      * 
      * @return progress
      */
-    public Progress getProgress() {
+    public Progress getProgress(){
         return progress;
     }
-
     /**
      * 
      * @param clueID adds a clue to inventory
      */
-    public void addClue(String clueID) {
+    public void addClue(String clueID){
         inventory.addClue(clueID);
     }
 
@@ -145,32 +134,29 @@ public class User {
      * 
      * @return inventory
      */
-    public Inventory getInventory() {
+    public Inventory getInventory(){
         return inventory;
     }
-
     /**
      * 
      * @param hintID adds hint to progress inventory and certificate
      */
-    public void useHint(String hintID) {
+    public void useHint(String hintID){
         inventory.addHint(hintID);
         progress.addHint(hintID);
         certificate.useHint();
     }
-
     /**
      * adds a skip to certificate
      */
-    public void useSkip() {
+    public void useSkip(){
         certificate.useSkip();
     }
-
     /**
      * 
      * @return Certificate certificate
      */
-    public Certificate getCertificate() {
+    public Certificate getCertificate(){
         return certificate;
     }
 
@@ -181,15 +167,12 @@ public class User {
      * @return score
      */
     public int getScore() {
+        setScore();
         return score;
     }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public void setCertificate(Certificate finalCertificate) {
-        this.certificate = finalCertificate;
+   
+    public void setScore() {
+        this.score = 5000 - certificate.getTimeTakenInt() - 100*certificate.getHintsUsed() - 200*certificate.getSkipsUsed();
     }
 
     @Override

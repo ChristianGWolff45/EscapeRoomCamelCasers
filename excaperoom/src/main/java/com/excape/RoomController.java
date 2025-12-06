@@ -5,6 +5,8 @@ import java.io.IOException;
 import com.model.EscapeRoom;
 import com.model.GameList;
 
+import javafx.application.Platform;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,35 +14,67 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 public class RoomController {
     
     private EscapeRoom escapeRoom = new EscapeRoom();
     
-    @FXML
-    private ImageView phoneItem;
+    // --- Injected nodes (make sure these fx:id exist in your FXML) ---
+    @FXML private AnchorPane root;            // root AnchorPane (fx:id="root")
+    @FXML private ImageView mainImageView;    // background ImageView (fx:id="mainImageView")
     
-    @FXML
-    private ImageView newspaperItem;
-    
-    @FXML
-    private ImageView lockItem;
-    
-    @FXML
-    private ImageView examItem;
-    @FXML
-    private ImageView menuButton;
-
-    @FXML
-    private ImageView arrowRight;
-
-    @FXML
-    private ImageView arrowLeft;
+    @FXML private ImageView phoneItem;
+    @FXML private ImageView newspaperItem;
+    @FXML private ImageView lockItem;
+    @FXML private ImageView examItem;
+    @FXML private ImageView menuButton;
+    @FXML private ImageView arrowRight;
+    @FXML private ImageView arrowLeft;
     
     @FXML
     private void initialize() {
         escapeRoom = new EscapeRoom();
+
+        // Ensure we run after scene/layout pass so sizes & image are available
+        Platform.runLater(() -> {
+        if (mainImageView == null || root == null) return;
+
+        // bind the ImageView requested size to the root size (so it scales)
+        mainImageView.fitWidthProperty().bind(root.widthProperty());
+        mainImageView.fitHeightProperty().bind(root.heightProperty());
+        mainImageView.setPreserveRatio(true);
+
+        // center the ImageView inside the root whenever measurements change
+        Runnable centerImage = () -> {
+            double viewW = mainImageView.getBoundsInLocal().getWidth();
+            double viewH = mainImageView.getBoundsInLocal().getHeight();
+
+            // If bounds not ready yet, skip
+            if (viewW <= 0 || viewH <= 0) return;
+
+            double x = (root.getWidth() - viewW) / 2.0;
+            double y = (root.getHeight() - viewH) / 2.0;
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+
+            mainImageView.setLayoutX(x);
+            mainImageView.setLayoutY(y);
+        };
+
+        // run centering after layout passes
+        root.widthProperty().addListener((o, oldV, newV) -> Platform.runLater(centerImage));
+        root.heightProperty().addListener((o, oldV, newV) -> Platform.runLater(centerImage));
+        mainImageView.imageProperty().addListener((o, oldI, newI) -> Platform.runLater(centerImage));
+
+        // initial attempt
+        Platform.runLater(centerImage);
+        });
+
     }
     
     @FXML
@@ -180,4 +214,5 @@ public class RoomController {
             e.printStackTrace();
         }
     }
+    
 }
