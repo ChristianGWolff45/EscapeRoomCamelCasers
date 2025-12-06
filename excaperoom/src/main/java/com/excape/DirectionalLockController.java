@@ -138,7 +138,7 @@ public class DirectionalLockController implements Initializable{
 
     /** helper to run when puzzle is unlocked */
     private void onUnlock() {
-        showAlert(AlertType.INFORMATION, "Unlocked!", "The lock clicks open — correct sequence!");
+        showAlert(AlertType.INFORMATION, "Correct", "The lock clicks open — You successfully Escaped Swearingen!");
         setButtonsDisabled(true);
         try {
             App.setRoot("Certificate");

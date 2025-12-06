@@ -227,7 +227,7 @@ public class NewspaperPage1Controller implements Initializable {
 
         escapeRoom.solvePuzzle(puzzleID, guess);
         if (escapeRoom.puzzleUnlocked(puzzleID)) {
-            if (statusText != null) statusText.setText("Puzzle Completed");
+            if (statusText != null) statusText.setText("Puzzle Completed - Next room unlocked!");
             curRow = ROWS; // lock further input
             return;
         }

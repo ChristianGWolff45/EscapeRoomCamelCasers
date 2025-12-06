@@ -238,7 +238,7 @@ public class MultipleChoiceController {
         }
 
         if (correct) {
-            showAlert(AlertType.INFORMATION, "Unlocked!", "Correct choice — puzzle solved!");
+            showAlert(AlertType.INFORMATION, "Correct!", "The next room has been unlocked!");
             setButtonsDisabled(true);
         } else {
             showAlert(AlertType.ERROR, "Incorrect", "That choice did not unlock the puzzle.");
